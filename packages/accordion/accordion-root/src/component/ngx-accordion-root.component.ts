@@ -8,7 +8,9 @@ const {
 @Component({
   selector: 'lib-ngx-accordion-root',
   standalone: true,
-  imports: [],
+  imports: [
+    
+  ],
   templateUrl: './ngx-accordion-root.component.html',
   styleUrl: './ngx-accordion-root.component.scss',
   providers: [
