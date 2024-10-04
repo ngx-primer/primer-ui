@@ -1,0 +1,1 @@
+export { NgxAccordionRootComponent } from "./ngx-accordion-root.component";
