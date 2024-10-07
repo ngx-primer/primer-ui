@@ -1,1 +1,1 @@
-export { NgxAccordionRootComponent } from "./ngx-accordion-root.component";
+export { NgxPrimerAccordionRootComponent } from "./ngx-accordion-root.component";
