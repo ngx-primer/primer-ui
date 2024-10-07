@@ -22,7 +22,7 @@ module.exports = [
         'error',
         {
           type: 'attribute',
-          prefix: 'lib',
+          prefix: 'ngx',
           style: 'camelCase',
         },
       ],
@@ -30,7 +30,7 @@ module.exports = [
         'error',
         {
           type: 'element',
-          prefix: 'lib',
+          prefix: 'ngx',
           style: 'kebab-case',
         },
       ],

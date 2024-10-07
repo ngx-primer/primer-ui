@@ -51,6 +51,13 @@ export interface AccordionConfigInterface {
    * @default 'vertical'
    */
   orientation: ExtractEnumType<AccordionOrientationOption>;
+  /**
+   * Uniquie prefixed id attributes
+   * @default '_ngx_accordion_root_id'
+   */
+  uniqueIdPefix: string;
+
+  disabled: boolean;
 }
 
 /**
@@ -70,7 +77,9 @@ export function defineAccordionConfig<T>(config: Partial<T>): T {
 export const defaulAccordionConfig: AccordionConfigInterface = {
   type: "Multiple",
   collapsible: true,
-  orientation: "Horizontal"
+  orientation: "Horizontal",
+  uniqueIdPefix: "_ngx-accordion-root-id",
+  disabled: false,
 }
 
 export const data: AccordionOrientationOption = "Horizontal"
