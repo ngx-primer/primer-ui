@@ -1,13 +1,15 @@
 import { AccordionOrientationOption, AccordionTypeOption } from "../config/accordion-root.config";
-import { InputSignal, InputSignalWithTransform, ModelSignal } from "@angular/core";
+import { Directive, HostBinding, InputSignal, InputSignalWithTransform, ModelSignal } from "@angular/core";
 
-import { AccordionRootInterface } from "../interfaces/accordion-root.interface";
+import { AccordionRootInterface } from "../interfaces/accoridon-root.interface";
 import { customAlphabet } from "nanoid";
 import { useAccordionRootContext } from "../provider/accordion-root-config.provider";
 
 const { 
   injectAccordionConfig
 } = useAccordionRootContext();
+
+@Directive({})
 export class AccordionRoot<T> implements AccordionRootInterface<T> {
   /**
    * Access the global accordion confiurations.
@@ -86,5 +88,37 @@ export class AccordionRoot<T> implements AccordionRootInterface<T> {
     } else {
       this.value.set([...values, value]);
     }
+  }
+
+  /**
+   * Bind data attr type to host element.
+   */
+  @HostBinding('attr.data-type')
+  public get dataAttrType(){
+    return this.type()
+  }
+
+  /**
+   * Bind data attr collapsible to host element.
+   */
+  @HostBinding('attr.data-collapsible')
+  public get dataAttrCollapsible() {
+    return this.collapsible();
+  }
+  
+  /**
+   * Bind data attr disabled to host element.
+   */
+  @HostBinding('attr.data-disabled')
+  public get dataAttrDisabled() {
+    return this.disabled()
+  }
+  
+  /**
+   * Bind data attr orientation to host element.
+   */
+  @HostBinding('attr.data-orientation')
+  public get dataAttrOrientation() {
+    return this.orientation();
   }
 }

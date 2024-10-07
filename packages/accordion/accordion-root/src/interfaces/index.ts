@@ -1,1 +1,1 @@
-export * from './accordion-root.interface';
+export * from './accoridon-root.interface';
