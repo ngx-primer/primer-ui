@@ -2,7 +2,6 @@ import { AccordionOrientationOption, AccordionTypeOption } from "../config/accor
 import { Directive, HostBinding, InputSignal, InputSignalWithTransform, ModelSignal } from "@angular/core";
 
 import { AccordionRootInterface } from "../interfaces/accoridon-root.interface";
-import { customAlphabet } from "nanoid";
 import { useAccordionRootContext } from "../provider/accordion-root-config.provider";
 
 const { 
@@ -19,7 +18,7 @@ export class AccordionRoot<T> implements AccordionRootInterface<T> {
   /**
    * The accordion root unique identifier.
    */
-  protected readonly accordionRootId = this.config.uniqueIdPefix + customAlphabet('0123456789abcdefghijklmnopqrstuvwxyz', 5)();
+  protected readonly accordionRootId = this.config.uniqueIdPefix;
 
   /**
    * The accordion type
