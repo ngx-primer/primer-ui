@@ -2,5 +2,10 @@
   [ngxPrimerAccordionCollapsible]="true" 
   [ngxPrimerAccordionOrientation]="'Horizontal'"
   [ngxPrimerAccordionType]="'Multiple'">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quod vitae autem qui veritatis quasi sed, delectus distinctio itaque, aliquam provident, facere incidunt! Enim explicabo, officiis accusantium maiores error provident?
+
+  <ng-container *ngFor="let item of accordionItemMenus">
+    <div [id]="'item_' + item.title" #items>
+      {{ item.title }} - {{ item.description }} - {{ item.isOpen | json }} - {{ items.nodeValue| json }}
+    </div>
+  </ng-container>
 </ngx-primer-accordion-root>
