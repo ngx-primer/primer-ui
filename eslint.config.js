@@ -25,7 +25,8 @@ module.exports = [
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     // Override or add rules here
-    rules: {},
+    rules: {
+    },
   },
   {
     files: ['**/*.json'],
@@ -34,7 +35,8 @@ module.exports = [
         'error',
         { ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'] },
       ],
+      "@typescript-eslint/no-unused-expressions": "off"
     },
     languageOptions: { parser: require('jsonc-eslint-parser') },
-  },
+  }
 ];

@@ -80,5 +80,16 @@
     "@nx/angular:component": {
       "style": "css"
     }
+  },
+  "release": {
+    "projects": ["*"],
+    "version": {
+      "conventionalCommits": true
+    },
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": "github"
+      }
+    }
   }
 }
