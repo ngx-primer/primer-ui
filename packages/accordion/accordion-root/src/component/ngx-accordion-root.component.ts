@@ -1,5 +1,5 @@
 import { AccordionOrientationOption, AccordionTypeOption } from '../config/accordion-root.config';
-import { AfterViewInit, Component, booleanAttribute, contentChildren, input, model } from '@angular/core';
+import { Component, booleanAttribute, contentChildren, input, model } from '@angular/core';
 
 import { AccordionRoot } from '../core/accordion-root';
 import { provideAccordionRootComponent } from '../provider/accordion-root-component.provider';
@@ -12,7 +12,7 @@ import { provideAccordionRootComponent } from '../provider/accordion-root-compon
     provideAccordionRootComponent()
   ]
 })
-export class NgxPrimerAccordionRootComponent<T> extends AccordionRoot<T> implements AfterViewInit {
+export class NgxPrimerAccordionRootComponent<T> extends AccordionRoot<T> {
   /**
    * The accordion type
    */
@@ -53,14 +53,8 @@ export class NgxPrimerAccordionRootComponent<T> extends AccordionRoot<T> impleme
   /**
    * The ref children of accordion (contains all acordion item or child element bound that current root accordion instance)
    */
-  public readonly children = contentChildren<HTMLDivElement>('items', {
+  public readonly ngxPrimerAccrodionItems = contentChildren<HTMLElement | HTMLDivElement>('ngxPrimerAccrodionItems', {
     descendants: true,
   });
-
-  ngAfterViewInit(): void {
-    this.children().forEach((child) => {
-      console.log(child)
-    })
-  }
   
 }
