@@ -1,3 +1,14 @@
+## 0.0.3 (2024-11-07)
+
+
+### 🩹 Fixes
+
+- fix json configuration error ([f8a0402](https://github.com/ngx-primer/primer-ui/commit/f8a0402))
+
+### ❤️  Thank You
+
+- ElhakimDev99
+
 ## 0.0.2 (2024-11-07)
 
 

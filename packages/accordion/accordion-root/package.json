@@ -1,9 +1,10 @@
 {
-  "name": "@ngx-primer-accordion",
-  "version": "0.0.2",
+  "name": "ngx-primer-accordion-root",
+  "version": "0.0.3",
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"
   },
+  "private": true,
   "sideEffects": false
 }
