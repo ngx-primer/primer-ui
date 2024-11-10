@@ -15,12 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngx-primer/accordion/accordion-root": [
-        "packages/accordion/accordion-root/src/index.ts"
+      "@ngx-primer/accordion": [
+        "packages/primitives/accordion/index.ts"
       ],
-      "@ngx-primer/accordion/accordion-item": [
-        "packages/accordion/accordion-item/src/index.ts"
-      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

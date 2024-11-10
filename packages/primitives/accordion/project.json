@@ -1,24 +1,24 @@
 {
-  "name": "ngx-primer-accordion-item",
+  "name": "ngx-primer-accordion",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/accordion/accordion-item/src",
+  "sourceRoot": "packages/primitives/accordion",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/angular:ng-packagr-lite",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "packages/accordion/accordion-item/ng-package.json",
-        "tailwindConfig": "packages/accordion/accordion-item/tailwind.config.js"
+        "project": "packages/primitives/accordion/ng-package.json",
+        "tailwindConfig": "packages/primitives/accordion/tailwind.config.js"
       },
       "configurations": {
         "production": {
-          "tsConfig": "packages/accordion/accordion-item/tsconfig.lib.prod.json"
+          "tsConfig": "packages/primitives/accordion/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "packages/accordion/accordion-item/tsconfig.lib.json"
+          "tsConfig": "packages/primitives/accordion/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -27,7 +27,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/accordion/accordion-item/jest.config.ts"
+        "jestConfig": "packages/primitives/accordion/jest.config.ts"
       }
     },
     "lint": {

@@ -1,0 +1,1 @@
+export * from './accoridon-item.interface';

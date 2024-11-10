@@ -1,6 +1,9 @@
+import {
+  NgxPrimerAccordionItemComponent,
+  NgxPrimerAccordionRootComponent
+} from '@ngx-primer/accordion';
+
 import { Component } from '@angular/core';
-import { NgxPrimerAccordionItemComponent } from '@ngx-primer/accordion/accordion-item';
-import { NgxPrimerAccordionRootComponent } from '@ngx-primer/accordion/accordion-root';
 import { RouterModule } from '@angular/router';
 
 @Component({

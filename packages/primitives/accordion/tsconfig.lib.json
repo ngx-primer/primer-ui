@@ -8,10 +8,10 @@
     "types": []
   },
   "exclude": [
-    "src/**/*.spec.ts",
-    "src/test-setup.ts",
+    "accordion-root/**/*.spec.ts",
+    "accordion-root/test-setup.ts",
     "jest.config.ts",
-    "src/**/*.test.ts"
+    "accordion-root/**/*.test.ts"
   ],
-  "include": ["src/**/*.ts"]
+  "include": ["accordion-root/**/*.ts"]
 }
