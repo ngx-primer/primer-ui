@@ -15,8 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngx-primer-accordion": [
+      "@ngx-primer/accordion/accordion-root": [
         "packages/accordion/accordion-root/src/index.ts"
+      ],
+      "@ngx-primer/accordion/accordion-item": [
+        "packages/accordion/accordion-item/src/index.ts"
       ]
     }
   },

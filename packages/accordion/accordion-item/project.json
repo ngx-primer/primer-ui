@@ -1,0 +1,37 @@
+{
+  "name": "ngx-primer-accordion-item",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/accordion/accordion-item/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "packages/accordion/accordion-item/ng-package.json",
+        "tailwindConfig": "packages/accordion/accordion-item/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/accordion/accordion-item/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/accordion/accordion-item/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/accordion/accordion-item/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

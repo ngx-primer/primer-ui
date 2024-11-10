@@ -7,12 +7,15 @@ export const AccordionRootComponentInjectionToken: InjectionToken<NgxPrimerAccor
 export function provideAccordionRootComponent(): Provider[] {
   return [{
     provide: AccordionRootComponentInjectionToken,
-    useExisting: forwardRef(() => NgxPrimerAccordionRootComponent),
+    useExisting: forwardRef(() => NgxPrimerAccordionRootComponent<unknown>),
   }]
 }
 
 export function injectAccordionRootComponent<T>(){
-  return inject(AccordionRootComponentInjectionToken) as NgxPrimerAccordionRootComponent<T>
+  return inject(AccordionRootComponentInjectionToken, {
+    host: true,
+    optional: true,
+  }) as NgxPrimerAccordionRootComponent<T>
 }
 
 /**
