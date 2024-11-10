@@ -1,22 +1,17 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import { InjectionToken, Provider, inject } from "@angular/core";
+import { InjectionToken, Provider, forwardRef, inject } from "@angular/core";
 
 import { NgxPrimerAccordionRootComponent } from "../component";
 
-export const AccordionRootComponentInjectionToken = new InjectionToken<NgxPrimerAccordionRootComponent<unknown>>('NgxPrimerAccordionRootComponent', {
-  providedIn: 'root',
-  // @ts-expect-error
-  factory: () => NgxPrimerAccordionRootComponent<unknown>
-})
+export const AccordionRootComponentInjectionToken: InjectionToken<NgxPrimerAccordionRootComponent<unknown>> = new InjectionToken<NgxPrimerAccordionRootComponent<unknown>>('NgxPrimerAccordionRootComponent')
 
 export function provideAccordionRootComponent(): Provider[] {
   return [{
     provide: AccordionRootComponentInjectionToken,
-    useExisting: NgxPrimerAccordionRootComponent,
+    useExisting: forwardRef(() => NgxPrimerAccordionRootComponent),
   }]
 }
 
-export function injectAccordionComponent<T>(){
+export function injectAccordionRootComponent<T>(){
   return inject(AccordionRootComponentInjectionToken) as NgxPrimerAccordionRootComponent<T>
 }
 
@@ -27,5 +22,5 @@ export function injectAccordionComponent<T>(){
  */
 export const useNgxPrimerAccordionComponent = () => ({
   provideAccordionRootComponent,
-  injectAccordionComponent
+  injectAccordionRootComponent
 })
