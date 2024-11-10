@@ -32,8 +32,8 @@
     "@nx/devkit": "19.8.0",
     "@nx/eslint": "19.8.0",
     "@nx/eslint-plugin": "19.8.0",
-    "@nx/jest": "19.8.0",
-    "@nx/js": "19.8.0",
+    "@nx/jest": "20.0.11",
+    "@nx/js": "20.0.11",
     "@nx/playwright": "19.8.0",
     "@nx/web": "19.8.0",
     "@nx/workspace": "19.8.0",
@@ -70,8 +70,5 @@
     "tw-merge": "0.0.1-alpha.3-dev.0b5a5959a838eb88c82f95d3b3d799d21fb9ecc1",
     "typescript": "~5.5.4",
     "typescript-eslint": "^8.13.0"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }

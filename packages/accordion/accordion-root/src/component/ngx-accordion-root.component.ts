@@ -13,6 +13,7 @@ import { provideAccordionRootComponent } from '../provider/accordion-root-compon
   ]
 })
 export class NgxPrimerAccordionRootComponent<T> extends AccordionRoot<T> {
+  public readonly accordionRootInstance = this;
   /**
    * The accordion type
    */
@@ -56,5 +57,4 @@ export class NgxPrimerAccordionRootComponent<T> extends AccordionRoot<T> {
   public readonly ngxPrimerAccrodionItems = contentChildren<HTMLElement | HTMLDivElement>('ngxPrimerAccrodionItems', {
     descendants: true,
   });
-  
 }

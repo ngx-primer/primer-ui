@@ -1,0 +1,9 @@
+{
+  "name": "ngx-primer-documentation-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/docs-e2e/src",
+  "implicitDependencies": ["ngx-primer-documentation"],
+  "// targets": "to see all targets run: nx show project ngx-primer-documentation-e2e --web",
+  "targets": {}
+}
