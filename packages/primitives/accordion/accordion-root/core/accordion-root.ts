@@ -55,7 +55,7 @@ export class AccordionRoot<T> implements AccordionRootInterface<T> {
    */
   public isOpen(value: T) : boolean {
     if(this.type() === "Multiple") {
-      return (this.value as unknown as T[] | null)?.includes(value) ?? false;
+      return (this.value() as unknown as T[] | null)?.includes(value) ?? false;
     }
     return this.value() === value;
   }

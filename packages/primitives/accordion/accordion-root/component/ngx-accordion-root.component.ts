@@ -54,7 +54,7 @@ export class NgxPrimerAccordionRootComponent<T> extends AccordionRoot<T> {
   /**
    * The ref children of accordion (contains all acordion item or child element bound that current root accordion instance)
    */
-  public readonly ngxPrimerAccrodionItems = contentChildren<HTMLElement | HTMLDivElement>('ngxPrimerAccrodionItems', {
+  public readonly ngxPrimerAccordionItems = contentChildren<HTMLElement | HTMLDivElement>('ngxPrimerAccordionItems', {
     descendants: true,
   });
 }
