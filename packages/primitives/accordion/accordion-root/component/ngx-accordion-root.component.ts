@@ -1,8 +1,10 @@
 import { AccordionOrientationOption, AccordionTypeOption } from '../config/accordion-root.config';
-import { Component, booleanAttribute, contentChildren, input, model } from '@angular/core';
+import { Component, HostBinding, booleanAttribute, contentChildren, input, model } from '@angular/core';
 
 import { AccordionRoot } from '../core/accordion-root';
 import { provideAccordionRootComponent } from '../provider/accordion-root-component.provider';
+import { NgxPrimerAccordionItemComponent, NgxPrimerAccordionItemDirective } from '../../accordion-item'
+import { accordion } from '../theme/accordion-root.default.theme';
 @Component({
   selector: 'ngx-primer-accordion-root',
   standalone: true,
@@ -54,7 +56,19 @@ export class NgxPrimerAccordionRootComponent<T> extends AccordionRoot<T> {
   /**
    * The ref children of accordion (contains all acordion item or child element bound that current root accordion instance)
    */
-  public readonly ngxPrimerAccordionItems = contentChildren<HTMLElement | HTMLDivElement>('ngxPrimerAccordionItems', {
+  public readonly ngxPrimerAccordionItems = contentChildren<
+      NgxPrimerAccordionItemComponent<T> | 
+      NgxPrimerAccordionItemDirective<T> | 
+      HTMLElement | 
+      HTMLDivElement
+    >('ngxPrimerAccordionItems', {
     descendants: true,
   });
+
+  @HostBinding('class') 
+  public get accordionClassess() {
+    return accordion({
+      disabled: this.disabled() ? true : false,
+    });
+  }
 }
