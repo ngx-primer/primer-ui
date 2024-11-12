@@ -1,1 +1,0 @@
-export * from './accordion-root.default.theme';

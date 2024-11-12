@@ -1,1 +1,0 @@
-export { NgxPrimerAccordionItemComponent } from "./ngx-accordion-item.component";
