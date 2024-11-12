@@ -17,7 +17,8 @@
     "paths": {
       "@ngx-primer/primitive/accordion": [
         "packages/primitives/accordion/src/index.ts"
-      ]
+      ],
+      "@ngx-primer/primitive/slot": ["packages/primitives/slot/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
