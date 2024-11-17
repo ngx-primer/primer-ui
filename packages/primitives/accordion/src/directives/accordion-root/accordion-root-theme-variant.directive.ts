@@ -1,5 +1,7 @@
 import { AccordionRootThemeVariant, accordionRootThemeVariant } from '../../themes';
-import { Directive, HostBinding, input } from '@angular/core';
+import { Directive, HostBinding, model } from '@angular/core';
+
+import { injectAccordionConfig } from '../../configs/accordion-config';
 
 interface AccordionRootProps extends HTMLElement, AccordionRootThemeVariant {
 }
@@ -9,16 +11,19 @@ interface AccordionRootProps extends HTMLElement, AccordionRootThemeVariant {
   exportAs: 'ngxAccordionRootThemeVariant',
 })
 export class NgxPrimerAccordionRootThemeVariantDirective {
-  public readonly variant = input<AccordionRootProps["variant"]>("light");
-  public readonly size = input<AccordionRootProps["size"]>("md");
-  public readonly borderRadius = input<AccordionRootProps["borderRadius"]>("md")
+  public readonly variant = model<AccordionRootProps["variant"]>("light");
+  public readonly size = model<AccordionRootProps["size"]>("md");
+  public readonly borderRadius = model<AccordionRootProps["borderRadius"]>("md");
+
+  protected readonly accordionConfig = injectAccordionConfig();
 
   @HostBinding("class")
   public get classLists() {
-    return accordionRootThemeVariant({
-      size: this.size(),
-      variant: this.variant(),
-      borderRadius: this.borderRadius()
-    })
+    return this.accordionConfig.theme.builtIn ? 
+      accordionRootThemeVariant({
+        size: this.size(),
+        variant: this.variant(),
+        borderRadius: this.borderRadius()
+      }) : {}
   }
 }
