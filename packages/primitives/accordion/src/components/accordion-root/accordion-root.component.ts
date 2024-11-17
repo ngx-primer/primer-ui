@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, contentChild, contentChildren, inject } from '@angular/core';
+import { Component, contentChildren, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
