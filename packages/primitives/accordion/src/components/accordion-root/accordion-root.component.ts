@@ -20,6 +20,8 @@ export class NgxPrimerAccordionRootComponent<T> {
    * The ref objects represent current instance.
    */
   public readonly accordion = this;
+
+  public readonly accordionId = '';
   
   /**
    * The accordion config instance.
@@ -35,7 +37,7 @@ export class NgxPrimerAccordionRootComponent<T> {
   });
 
   /**
-   * The accoridon root varian directive instances.
+   * The accoridon root theme varian directive instances.
    */
   public readonly accordionRootThemeVariant = inject(NgxPrimerAccordionRootThemeVariantDirective, {
     self: true,
@@ -43,31 +45,56 @@ export class NgxPrimerAccordionRootComponent<T> {
     host: true,
   });
 
+  /**
+   * The accordion root type input props.
+   */
   public readonly type = input(this.accordionConfig.type, {
     alias: 'ngxPrimerAccordionType',
   });
   
+  /**
+   * The accordion root type input props.
+   */
   public readonly collapsible = input<boolean, boolean>(this.accordionConfig.collapsible, {
     alias: 'ngxPrimerAccordionCollapsible',
     transform: booleanAttribute,
   });
   
+  /**
+   * The accordion root value input props.
+   */
   public readonly value = model<T | T[] | null>(null, {
     alias: 'ngxPrimerAccordionValue'
   });
   
+  /**
+   * The accordion root defaultValue input props.
+   */
+  public readonly defaultValue = input<T | T[] | null>(null, {
+    alias: 'ngxPrimerAccordionDefaultValue'
+  });
+  
+  /**
+   * The accordion root disabled input props.
+   */
   public readonly disabled = input<boolean, boolean>(false, {
     alias: 'ngxPrimerAccordionDisabled',
     transform: booleanAttribute,
   });
   
+  /**
+   * The accordion root orientation input props.
+   */
   public readonly orientation = input(this.accordionConfig.orientation, {
     alias: 'ngxPrimerAccordionOrientation',
   });
 
+  // --------------------------- Method ---------------------------------- //
+
   public isOpen(value: T) {
     return this.type() === 'Multiple' ? ((this.value() as T[] | null)?.includes(value) ?? false) : this.value() === value
   }
+  
   public toggle(value: T){
     const isOpenValue = this.isOpen(value);
     
