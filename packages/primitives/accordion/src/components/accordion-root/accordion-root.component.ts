@@ -1,8 +1,10 @@
-import { Component, booleanAttribute, contentChildren, inject, input, model } from '@angular/core';
+/* eslint-disable @nx/enforce-module-boundaries */
+import { Component, OnInit, booleanAttribute, contentChildren, inject, input, model } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootThemeVariantDirective } from '../../directives';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
 @Component({
@@ -15,13 +17,20 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
   styleUrl: './accordion-root.component.scss',
   exportAs: 'ngxPrimerAccordionRootComponent'
 })
-export class NgxPrimerAccordionRootComponent<T> {
+export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   /**
    * The ref objects represent current instance.
    */
   public readonly accordion = this;
 
-  public readonly accordionId = '';
+  /**
+   * The accordion id.
+   */
+  public readonly accordionId = inject(NgxPrimerIdGeneratorDirective, {
+    self: true,
+    optional: true,
+    host: true,
+  });
   
   /**
    * The accordion config instance.
@@ -37,7 +46,7 @@ export class NgxPrimerAccordionRootComponent<T> {
   });
 
   /**
-   * The accoridon root theme varian directive instances.
+   * The accoridon root theme varian directive ref instances.
    */
   public readonly accordionRootThemeVariant = inject(NgxPrimerAccordionRootThemeVariantDirective, {
     self: true,
@@ -45,6 +54,7 @@ export class NgxPrimerAccordionRootComponent<T> {
     host: true,
   });
 
+  
   /**
    * The accordion root type input props.
    */
@@ -91,10 +101,22 @@ export class NgxPrimerAccordionRootComponent<T> {
 
   // --------------------------- Method ---------------------------------- //
 
+  /**
+   * Checke wether given value is open.
+   * 
+   * @param value Value to check
+   * @returns boolean
+   */
   public isOpen(value: T) {
     return this.type() === 'Multiple' ? ((this.value() as T[] | null)?.includes(value) ?? false) : this.value() === value
   }
   
+  /**
+   * Toogle given value.
+   * 
+   * @param value Value to be toogled.
+   * @returns void
+   */
   public toggle(value: T){
     const isOpenValue = this.isOpen(value);
     
@@ -112,6 +134,32 @@ export class NgxPrimerAccordionRootComponent<T> {
       this.value.set(values.filter(v => v !== value));
     } else {
       this.value.set([...values, value]);
+    }
+  }
+
+  // --------------------------- Hooks ---------------------------------- //
+  
+  /**
+   * Run initialization function under the init hooks.
+   */
+  ngOnInit(): void {
+    this.runInitializationFn((currentVal) => {
+      console.log({currentVal})
+    })
+  }
+
+  /**
+   * The initialization fucntion.
+   * 
+   * @param doneFn Function/callback when initialization has been done.
+   */
+  protected runInitializationFn(doneFn?: <P>(args?: P) => void){
+    if(this.defaultValue()){
+      this.value.set(this.defaultValue());
+    }
+
+    if(doneFn){
+      doneFn(this.value())
     }
   }
 }

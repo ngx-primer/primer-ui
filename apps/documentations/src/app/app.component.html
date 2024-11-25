@@ -1,16 +1,13 @@
 <ngx-primer-accordion-root 
   id="accord-1" 
   #ngxPrimerAccordionRootComponent 
-  ngxAccordionRootThemeVariant
-  [ngxPrimerAccordionRootSize]="'lg'" 
-  [ngxPrimerAccordionRootVariant]="'light'"
-  [ngxPrimerAccordionRootSize]="'md'"
-  [ngxPrimerAccordionValue]="'hello'"
-  [ngxPrimerAccordionDefaultValue]="'hello'"
+  ngxPrimerAccordionRootThemeVariant
+  ngxPrimerIdGenerator
 >
   <ngx-primer-accordion-item 
     #accordionItems 
     #ngxPrimerAccordionItemComponent 
+    ngxPrimerIdGenerator
     [ngxPrimerAccordionRootInstanceRef]="ngxPrimerAccordionRootComponent"
   >
     <ngx-primer-accordion-trigger 

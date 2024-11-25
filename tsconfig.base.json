@@ -15,11 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ngx-primer/design-system": ["packages/design-system/src/index.ts"],
       "@ngx-primer/primitive/accordion": [
         "packages/primitives/accordion/src/index.ts"
       ],
       "@ngx-primer/primitive/slot": ["packages/primitives/slot/src/index.ts"],
-      "@ngx-primer/design-system": ["packages/design-system/src/index.ts"]
+      "@ngx-primer/utilities": ["packages/primitives/utilities/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

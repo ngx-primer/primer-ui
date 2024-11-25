@@ -6,9 +6,9 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
 interface AccordionRootProps extends HTMLElement, AccordionRootThemeVariant {
 }
 @Directive({
-  selector: '[ngxAccordionRootThemeVariant]',
+  selector: '[ngxPrimerAccordionRootThemeVariant]',
   standalone: true,
-  exportAs: 'ngxAccordionRootThemeVariant',
+  exportAs: 'ngxPrimerAccordionRootThemeVariant',
 })
 export class NgxPrimerAccordionRootThemeVariantDirective {
   /**
