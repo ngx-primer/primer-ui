@@ -10,8 +10,8 @@ import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-ite
   templateUrl: './accordion-content.component.html',
   styleUrl: './accordion-content.component.scss',
 })
-export class NgxPrimerAccordionContentComponent {
-  public readonly accordionItem = input.required<NgxPrimerAccordionItemComponent>({
+export class NgxPrimerAccordionContentComponent<T> {
+  public readonly accordionItem = input.required<NgxPrimerAccordionItemComponent<T>>({
     alias: 'ngxPrimerAccordionItemInstanceRef',
   });
 }

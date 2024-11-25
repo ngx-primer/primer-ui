@@ -1,14 +1,13 @@
 <ngx-primer-accordion-root 
   id="accord-1" 
   #ngxPrimerAccordionRootComponent 
-  ngxAccordionRootThemeVariant 
-  [size]="'lg'" 
-  [variant]="'light'"
-  [borderRadius]="'md'"
+  ngxPrimerAccordionRootThemeVariant
+  ngxPrimerIdGenerator
 >
-  <!-- <ngx-primer-accordion-item 
+  <ngx-primer-accordion-item 
     #accordionItems 
     #ngxPrimerAccordionItemComponent 
+    ngxPrimerIdGenerator
     [ngxPrimerAccordionRootInstanceRef]="ngxPrimerAccordionRootComponent"
   >
     <ngx-primer-accordion-trigger 
@@ -20,5 +19,5 @@
     <ngx-primer-accordion-content #accordionContent [ngxPrimerAccordionItemInstanceRef]="ngxPrimerAccordionItemComponent">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quo commodi optio ab perspiciatis quae obcaecati est, sit voluptatibus. Ea temporibus laboriosam soluta sequi corrupti aperiam officia consequuntur autem obcaecati.
     </ngx-primer-accordion-content>
-  </ngx-primer-accordion-item> -->
+  </ngx-primer-accordion-item>
 </ngx-primer-accordion-root>

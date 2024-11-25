@@ -1,6 +1,7 @@
 import { NgxPrimerAccordionContentComponent, NgxPrimerAccordionItemComponent, NgxPrimerAccordionRootComponent, NgxPrimerAccordionRootThemeVariantDirective, NgxPrimerAccordionTriggerComponent } from '@ngx-primer/primitive/accordion';
 
 import { Component } from '@angular/core';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/utilities';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
     NgxPrimerAccordionItemComponent, 
     NgxPrimerAccordionContentComponent, 
     NgxPrimerAccordionTriggerComponent,
-    NgxPrimerAccordionRootThemeVariantDirective
+    NgxPrimerAccordionRootThemeVariantDirective,
+    NgxPrimerIdGeneratorDirective
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',

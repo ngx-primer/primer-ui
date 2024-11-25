@@ -13,11 +13,11 @@ import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordi
   styleUrl: './accordion-item.component.scss',
   exportAs: 'ngxPrimerAccordionItemComponent'
 })
-export class NgxPrimerAccordionItemComponent {
+export class NgxPrimerAccordionItemComponent<T> {
   /**
    * Accordion root instance.
    */
-  public readonly accordionRoot = input.required<NgxPrimerAccordionRootComponent>({
+  public readonly accordionRoot = input.required<NgxPrimerAccordionRootComponent<T>>({
     alias: 'ngxPrimerAccordionRootInstanceRef',
   });
 
