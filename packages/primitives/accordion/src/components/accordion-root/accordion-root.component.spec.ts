@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { NgxPrimerAccordionRootComponent } from './accordion-root.component';
 
 describe('NgxPrimerAccordionRootComponent', () => {
-  let component: NgxPrimerAccordionRootComponent;
-  let fixture: ComponentFixture<NgxPrimerAccordionRootComponent>;
+  let component: NgxPrimerAccordionRootComponent<unknown>;
+  let fixture: ComponentFixture<NgxPrimerAccordionRootComponent<unknown>>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
