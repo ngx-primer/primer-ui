@@ -1,9 +1,9 @@
-import { Token } from "./token"
+import { Token } from './token';
 
-export const CustomPrefix = ["primitive", ] as const;
+export const CustomPrefix = ['primitive'] as const;
 
 function baseTokenFactory() {
-  return new Token<typeof CustomPrefix[number]>()
+  return new Token<(typeof CustomPrefix)[number]>();
 }
 
 function functionalTokenFactory() {
@@ -14,17 +14,17 @@ function compoentTokenFactory() {
   return new Token();
 }
 
-const factory = { 
-  create: (category: "base" | "functional" | "component") => {
+const factory = {
+  create: (category: 'base' | 'functional' | 'component') => {
     let instance: Token;
     switch (category) {
-      case "base":
+      case 'base':
         instance = baseTokenFactory();
         break;
-      case "functional":
+      case 'functional':
         instance = functionalTokenFactory();
         break;
-      case "component":
+      case 'component':
         instance = compoentTokenFactory();
         break;
       default:
@@ -32,9 +32,7 @@ const factory = {
         break;
     }
     return instance;
-  }
-}
+  },
+};
 
-export {
-  factory as tokenFactory
-}
+export { factory as tokenFactory };

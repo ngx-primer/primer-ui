@@ -10,14 +10,14 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "packages/primitives/slot//ng-package.json"
+        "project": "packages/primitives/slot/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "packages/primitives/slot//tsconfig.lib.prod.json"
+          "tsConfig": "packages/primitives/slot/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "packages/primitives/slot//tsconfig.lib.json"
+          "tsConfig": "packages/primitives/slot/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"

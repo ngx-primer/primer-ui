@@ -5,7 +5,8 @@
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0",
     "class-variance-authority": "0.7.1-canary.2",
-    "@nx/angular": "20.1.0"
+    "@nx/angular": "20.1.0",
+    "@ngx-primer/primitive/utilities": "0.0.2-0"
   },
   "sideEffects": false
 }

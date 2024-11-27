@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -12,7 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */import { Component, input } from '@angular/core';
+ */ import { Component, input } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
@@ -25,7 +26,9 @@ import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-ite
   styleUrl: './accordion-content.component.scss',
 })
 export class NgxPrimerAccordionContentComponent<T> {
-  public readonly accordionItem = input.required<NgxPrimerAccordionItemComponent<T>>({
+  public readonly accordionItem = input.required<
+    NgxPrimerAccordionItemComponent<T>
+  >({
     alias: 'ngxPrimerAccordionItemInstanceRef',
   });
 }

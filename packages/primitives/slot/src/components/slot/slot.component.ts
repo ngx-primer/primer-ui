@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 import { Component, TemplateRef, contentChild, input } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
@@ -11,10 +12,10 @@ import { SlotContextDirective } from '../../directives';
 })
 export class NgxPrimerSlotComponent<T extends object> {
   public readonly context = input({} as T, {
-    alias: 'ngxSlotContext'
+    alias: 'ngxPrimerSlotContext',
   });
 
   public readonly templateRef = contentChild(SlotContextDirective, {
-    read: TemplateRef
-  })
+    read: TemplateRef,
+  });
 }

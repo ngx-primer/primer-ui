@@ -23,11 +23,13 @@
 To install the `ngx-primer-accordion` package in your Angular project, use one of the following commands depending on your package manager:
 
 ### Using npm:
+
 ```bash
 npm install ngx-primer-accordion
 ```
 
 ### Using Yarn:
+
 ```bash
 yarn add ngx-primer-accordion
 ```
@@ -51,6 +53,7 @@ export class YourModule {}
 ```
 
 ### In your HTML template:
+
 ```html
 <ngx-primer-accordion-root>
   <ngx-primer-accordion-item [value]="1">
@@ -76,6 +79,7 @@ The `ngx-primer-accordion-root` component offers several input properties for cu
 - **`defaultValue`**: Provides an initial value when the accordion renders for the first time.
 
 Example with advanced options:
+
 ```html
 <ngx-primer-accordion-root [type]="'Single'" [collapsible]="true" [orientation]="'horizontal'" [disabled]="false">
   <ngx-primer-accordion-item [value]="1">
@@ -106,10 +110,12 @@ Example with advanced options:
 The `ngx-primer-accordion` library is built with flexibility in mind, allowing you to customize the appearance of the accordion through CSS or other styling methods.
 
 ### CSS Theming
+
 - Use the default styles provided in `accordion-root.component.scss`.
 - Override styles by applying custom CSS rules in your project's global styles or dedicated stylesheet files.
 
 ### SCSS Variables
+
 - For advanced styling, you can use CSS variables for things like colors, dimensions, and spacing.
 - Integrate these styles using Tailwind CSS, CSS preprocessors, or other styling systems.
 
@@ -138,6 +144,7 @@ Contributions to the ngx-primer-accordion library are welcome! To get involved:
 5. Submit a pull request with a clear and concise description of your changes.
 
 ### Code of Conduct
+
 Please adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) while contributing.
 
 ---
@@ -149,6 +156,7 @@ The `ngx-primer-accordion` library is licensed under the **MIT License**. Feel f
 ---
 
 ### What's Included:
+
 - **Installation Instructions**: How to get the package up and running.
 - **Usage Examples**: Basic and advanced usage, including HTML markup and configuration options.
 - **Features**: Highlights the main capabilities of the accordion component.
