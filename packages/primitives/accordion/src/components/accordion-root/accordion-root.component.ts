@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 /* eslint-disable @nx/enforce-module-boundaries */
 /**
  * Copyright [2024] [ElhakimDev]
@@ -20,7 +21,7 @@ import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootThemeVariantDirective } from '../../directives';
 import { injectAccordionConfig } from '../../configs/accordion-config';
-import { useIdGenerator } from 'packages/primitives/utilities/src/providers/id-generator/id-generator.provider';
+import { useIdGenerator } from '@ngx-primer/utilities';
 
 const { injectIdGenerator, provideIdGenerator } = useIdGenerator();
 
