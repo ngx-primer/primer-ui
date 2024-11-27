@@ -1,123 +1,164 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+/**
+ * Copyright [2024] [ElhakimDev]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import { Directive, ElementRef, HostBinding, OnInit, ViewContainerRef, inject, input } from '@angular/core';
 
-import { nanoid } from 'nanoid'
+import { IdGeneratorConfig } from '../../providers/id-generator/id-generator.provider';
+import { nanoid } from 'nanoid';
 
-const counters: Map<string, Record<string, number>> = new Map()
+// Map to track counters for each component and tag
+const COMPONENT_COUNTERS: Map<string, Record<string, number>> = new Map();
 
 @Directive({
-  selector:'[ngxPrimerIdGenerator]',
+  selector: '[ngxPrimerIdGenerator]',
   exportAs: 'ngxPrimerIdGenerator',
   standalone: true,
 })
 export class NgxPrimerIdGeneratorDirective implements OnInit {
+  private _config!: IdGeneratorConfig;
+
   /**
-   * The custom id provided by external.
-   * 
+   * User-provided custom ID, if any.
+   * This ID will be used if provided, otherwise, a default ID will be generated.
    */
-  public readonly id = input('', {
-    alias: 'ngxPrimerId'
+  public readonly customId = input('', {
+    alias: 'ngxPrimerId',
   });
 
   /**
-   * Access the current eleemnt ref instances.
+   * Access to the element reference.
+   * Injected to provide direct interaction with the DOM element.
    */
   private readonly elementRef = inject(ElementRef);
 
   /**
-   * The view container ref instance.
+   * Access to the view container reference.
+   * This allows interaction with the container where the directive is applied.
    */
   private readonly viewContainerRef = inject(ViewContainerRef);
-  
+
   /**
-   * Host component.
+   * The host component instance, if available.
+   * Will be used to resolve the component's selector for ID generation.
    */
   public hostComponent: unknown | null = null;
 
   @HostBinding('attr.id')
-  public resolvedId!: string;
+  public generatedId!: string;
 
-  protected sanitizeId(value: string) {
-    return value
-      .replace(/[^a-zA-Z0-9-_\\.]/g, '-')
-      .toLowerCase();
+  /**
+   * Set configuration options.
+   * Merges the provided config with the current settings.
+   */
+  set config(config: Partial<IdGeneratorConfig>) {
+    this._config = { ...this._config, ...config };
   }
 
+  /**
+   * On initialization, generates and assigns a unique ID to the element.
+   * The ID is composed of a sanitized component name, tag name, and a unique counter.
+   */
   ngOnInit(): void {
-    this.hostComponent = this.getHostElementFromViewContainerRef();
-    
-    const componentName = (this.hostComponent?.constructor.name ?? 'ngx-primer-component').toLowerCase() as string;
+    // Get the component's selector if available
+    this.hostComponent = this.getComponentSelector();
+    const componentName = (this.hostComponent ?? 'ngx-primer-component') as string;
     const tagName = this.elementRef.nativeElement.tagName.toLowerCase();
 
-    console.log(componentName);
+    // Initialize counters for components and tags
+    this.initializeComponentCounters(componentName, tagName);
 
-    if (!counters.has(componentName)) {
-      counters.set(componentName, {});
+    // Sanitize the component and tag names for a valid ID format
+    const sanitizedComponent = this.sanitize(componentName as string);
+    const sanitizedTag = this.sanitize(tagName);
+
+    // Generate a unique ID for the component
+    this.generatedId = this.customId
+      ? `${sanitizedComponent}-${this.sanitize(this.customId())}-${COMPONENT_COUNTERS.get(componentName)![tagName]}-${nanoid()}`
+      : `${sanitizedComponent}-${sanitizedTag}-${COMPONENT_COUNTERS.get(componentName)![tagName]}-${nanoid()}`;
+
+    // Increment the counter for this component-tag pair
+    COMPONENT_COUNTERS.get(componentName)![tagName]++;
+
+    // Normalize multiple hyphens to a single one
+    this.generatedId = this.generatedId.replace(/-+/g, '-').toLowerCase();
+  }
+
+  /**
+   * Sanitizes a string by replacing invalid characters with a hyphen.
+   * Ensures that the component and tag names are valid in the ID.
+   */
+  private sanitize(value: string): string {
+    return value.replace(/[^a-zA-Z0-9-_\\.]/g, '-').toLowerCase();
+  }
+
+  /**
+   * Initializes the component's counter for a given tag name.
+   * Ensures that each component-tag combination has a starting counter.
+   */
+  private initializeComponentCounters(componentName: string, tagName: string): void {
+    if (!COMPONENT_COUNTERS.has(componentName)) {
+      COMPONENT_COUNTERS.set(componentName, {});
     }
-    const tagCounters = counters.get(componentName)!;
 
+    const tagCounters = COMPONENT_COUNTERS.get(componentName)!;
     if (!tagCounters[tagName]) {
       tagCounters[tagName] = 0;
-    }
-
-    const sanitizedComponentName = this.sanitizeId(componentName);
-    const sanitizedTagName = this.sanitizeId(tagName);
-    
-    if (this.id) {
-      this.resolvedId = `${sanitizedComponentName}-${this.sanitizeId(this.id())}-${tagCounters[tagName]}-${nanoid()}`;
-    } else {
-      this.resolvedId = `${sanitizedComponentName}-${sanitizedTagName}-${tagCounters[tagName]}-${nanoid()}`;
-      tagCounters[tagName]++;
     }
   }
 
   /**
-   * Method for getting name of component behind attched  this directive.
-   * 
-   * https://stackoverflow.com/questions/46014761/how-to-access-host-component-from-directive.
-   * 
-   * 
-   * @returns ContextElement | null
+   * Resolves the host component selector from the view container reference.
+   * If no component is found, defaults to 'unknown-component'.
    */
-  private getHostElementFromViewContainerRef(): unknown | null {
-    // TL;DR of the below method:
-    // return this.vcRef._lContainer[0][8];
-    // Inspired by https://stackoverflow.com/questions/46014761/how-to-access-host-component-from-directive#comment119646192_48563965
+  private getComponentSelector(): string | null {
+    const nativeElement = this.viewContainerRef.element.nativeElement;
 
-    const vcRef = this.viewContainerRef as any// We're accessing private properties so we cast to any to avoid awkward TS validation issues
+    const tagName = nativeElement.tagName?.toLowerCase();
+    if (tagName) return tagName;
 
-    // We fetch the component associated with the element this directive is attached to by navigating via the ViewContainerRef.
-    // The VCRef contains a reference to the LContainer, which represents the state associated with the container:
-    // https://github.com/angular/angular/blob/12.2.x/packages/core/src/render3/interfaces/container.ts#L65
-    const lContainer = vcRef._lContainer;
+    // Try to resolve the host component if tag name is not available
+    const hostComponent = this.resolveHostComponent();
+    return hostComponent ? (hostComponent.constructor as any).selector ?? 'unknown-component' : 'unknown-element';
+  }
 
-    if (!lContainer) {
-      return null;
-    }
+  /**
+   * Resolves the host component from the view container.
+   * This function uses the internal `_lContainer` to fetch the component.
+   */
+  private resolveHostComponent(): unknown | null {
+    const lContainer = (this.viewContainerRef as any)._lContainer;
+    if (!lContainer) return null;
 
-    // LView has all its elements defined as array elements, with keys hardcoded to numeric constants:
-    // https://github.com/angular/angular/blob/12.2.x/packages/core/src/render3/interfaces/view.ts#L26-L57
-    // We care about two of them:
-    const HOST = 0; // https://github.com/angular/angular/blob/12.2.x/packages/core/src/render3/interfaces/view.ts#L29
-    const CONTEXT = 8; // https://github.com/angular/angular/blob/12.2.x/packages/core/src/render3/interfaces/view.ts#L37
+    // Indexing used to resolve the component's context from the LView container
+    const HOST_INDEX = 0;
+    const CONTEXT_INDEX = 8;
 
-    // LContainer is an array, with the element at the HOST position being an LView if the container is on a Component Node.
-    // This means that this may not work if this directive is declared on a native HTML element.
-    // Note that LContainer uses the same indexes as LView, so it's the same HOST constant as declared in the LView interfaces file.
-    // https://github.com/angular/angular/blob/12.2.x/packages/core/src/render3/interfaces/container.ts#L66-L72
+    const lView = lContainer[HOST_INDEX];
+    return lView ? lView[CONTEXT_INDEX] || null : null;
+  }
 
-    const lView = lContainer[HOST];
-    if (!lView) {
-      return null;
-    }
-
-    // For a non-root component, the context is the component instance.
-    // So if this directive is correctly attached to an Angular Component (e.g. `<app-*`),
-    // this array entry will contain the instance of that component.
-    // https://github.com/angular/angular/blob/12.2.x/packages/core/src/render3/interfaces/view.ts#L173-L180
-    const contextElement = lView[CONTEXT];
-
-    return contextElement || null;
+  /**
+   * A snapshot of the current component counters.
+   * Returns an array of components and their respective tag counters.
+   */
+  get countersSnapshot() {
+    return Array.from(COMPONENT_COUNTERS.entries()).map(([component, tags]) => ({
+      component,
+      tags,
+    }));
   }
 }

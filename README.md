@@ -1,82 +1,105 @@
-# NgxPrimer
+# ngx-primer
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+`ngx-primer` is an Angular-based implementation of the [Primer Design System](https://primer.style/), which is the design system used by GitHub. The project aims to bring the clean, accessible, and customizable components from Primer to the Angular ecosystem, providing developers with a powerful set of tools for building modern and user-friendly interfaces.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+This library builds on existing implementations of Primer, such as the React and other versions, but focuses on leveraging the latest updates in Angular to create a robust and scalable solution.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Inspiration
 
-## Finish your remote caching setup
+This project is inspired by the [Primer Design System](https://primer.style/) and aims to bring its flexible, accessible, and reusable components to Angular applications. Primer was originally developed by GitHub to standardize the design language and improve user experience across their products. It is now an open-source project, and its components have been implemented in various frameworks, including React, Vue, and now Angular.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/qdN5d8UjD0)
+While the design system is available for multiple frameworks, this Angular implementation takes advantage of the latest features in Angular, ensuring high performance and reactivity, especially with Angular's new signal-based API and other modern updates. With Angular being increasingly powerful, it was the ideal choice for this implementation.
 
+## Features
 
-## Run tasks
+- **Accessible Components**: All components follow the accessibility guidelines set out by the Primer Design System to ensure a better user experience.
+- **Customizable**: Tailor the components' appearance and behavior using Angular's flexible input properties and directives.
+- **Responsive**: The library is designed to be responsive and work seamlessly across all device types and screen sizes.
+- **Built-in ID Generator**: Automatically generates unique IDs for components, ensuring they work well in dynamic contexts.
+- **Themes Support**: Easily switch between light and dark modes, as well as apply custom themes to your components.
+- **Angular Signal API**: Leverage the latest Angular features, such as signals, for highly reactive, optimized performance.
 
-To run the dev server for your app, use:
+## Installation
 
-```sh
-npx nx serve documentations
+To install `ngx-primer` into your Angular project, run the following command:
+
+```bash
+npm install ngx-primer
 ```
 
-To create a production bundle:
+## Usage
 
-```sh
-npx nx build documentations
+To use the components in your Angular application, import the necessary modules and include the components in your templates.
+
+1. Import `NgxPrimerAccordionModule` (or any other component module) into your Angular module:
+
+```typescript
+import { NgxPrimerAccordionModule } from 'ngx-primer';
+
+@NgModule({
+  imports: [NgxPrimerAccordionModule],
+  ...
+})
+export class AppModule {}
 ```
 
-To see all available targets to run for a project, run:
+2. Use the component in your templates:
 
-```sh
-npx nx show project documentations
+```html
+<ngx-primer-accordion-root [type]="'Single'" [collapsible]="true">
+  <ngx-primer-accordion-item [value]="'item1'">Item 1 Content</ngx-primer-accordion-item>
+  <ngx-primer-accordion-item [value]="'item2'">Item 2 Content</ngx-primer-accordion-item>
+</ngx-primer-accordion-root>
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+## Available Components
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+The `ngx-primer` library includes a variety of components inspired by the Primer Design System, including:
 
-## Add new projects
+- Accordion
+- Buttons
+- Cards
+- Forms
+- Icons
+- Layouts
+- Navigation
+- Modals
+- And more...
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+Each component is designed to be flexible and easily customizable to fit your application's needs.
 
-Use the plugin's generator to create new projects.
+## Running Unit Tests
 
-To generate a new application, use:
+To run the unit tests for the project, use the following command:
 
-```sh
-npx nx g @nx/angular:app demo
+```bash
+nx test ngx-primer
 ```
 
-To generate a new library, use:
+This will run the tests using the Jest framework.
 
-```sh
-npx nx g @nx/angular:lib mylib
-```
+## Contributing
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+We welcome contributions to `ngx-primer`! If you want to add a new component, improve an existing one, or fix a bug, feel free to submit a pull request. Please follow the [contribution guidelines](CONTRIBUTING.md) for more details.
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Credits
 
+This project is inspired by the [Primer Design System](https://primer.style/), created and maintained by GitHub. We would like to credit the GitHub team and all the contributors to the Primer Design System for their work on this incredible resource.
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Primer Design System](https://primer.style/)
+- [Primer GitHub Repository](https://github.com/primer)
 
-## Install Nx Console
+And never forgetting special Thanks To (credit for project inspirations) :
+- [Angular Primitives](https://angularprimitives.com/getting-started/introduction)
+- [Angular CDK](https://material.angular.io/cdk)
+- [Radix UI](https://radix-ui.com/)
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+## License
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+`ngx-primer` is licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-## Useful links
+See the [LICENSE](LICENSE) file for more information.
 
-Learn more:
+## Changelog
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+For details on what's changed in each release, check out the [Changelog](CHANGELOG.md).
