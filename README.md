@@ -68,6 +68,11 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 ## Useful links
 
+Special Thanks To (credit for inspirations) :
+- [Angular Primitives](https://angularprimitives.com/getting-started/introduction)
+- [Angular CDK](https://material.angular.io/cdk)
+- [Radix UI](https://radix-ui.com/)
+
 Learn more:
 
 - [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
