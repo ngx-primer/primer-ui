@@ -65,8 +65,8 @@ By participating in this project, you agree to follow our [Code of Conduct](CODE
 
 If you have any questions or need clarification on something, feel free to ask for help. You can reach us through the following channels:
 
-- GitHub Issues: [Submit an issue](https://github.com/your-repo/ngx-primer/issues)
-- Discussions: [Join the discussion](https://github.com/your-repo/ngx-primer/discussions)
+- GitHub Issues: [Submit an issue](https://github.com/ngx-primer/primer-ui/issues)
+- Discussions: [Join the discussion](https://github.com/ngx-primer/primer-ui/discussions)
 
 ## Licensing
 
