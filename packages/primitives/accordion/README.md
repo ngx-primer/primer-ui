@@ -1,4 +1,3 @@
-```markdown
 # ngx-primer-accordion
 
 `ngx-primer-accordion` is an advanced, flexible, and configurable accordion component library for Angular applications. Built with ease of integration, extensive customization options, and high accessibility standards in mind, this library provides a modern accordion solution for displaying content in a collapsible panel format. It was generated using [Nx](https://nx.dev).
@@ -146,7 +145,6 @@ Please adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) while contributing.
 ## License
 
 The `ngx-primer-accordion` library is licensed under the **MIT License**. Feel free to use, modify, and distribute it for personal or commercial projects.
-```
 
 ---
 
@@ -160,7 +158,6 @@ The `ngx-primer-accordion` library is licensed under the **MIT License**. Feel f
 - **License Information**: Legal information for project users.
 
 This structured README provides a clear and concise overview of the library's capabilities, installation requirements, and usage instructions, helping other developers to quickly integrate the accordion into their applications.
-```
 
 ---
 
