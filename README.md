@@ -90,6 +90,7 @@ This project is inspired by the [Primer Design System](https://primer.style/), c
 - [Primer GitHub Repository](https://github.com/primer)
 
 And never forgetting special Thanks To (credit for project inspirations) :
+
 - [Angular Primitives](https://angularprimitives.com/getting-started/introduction)
 - [Angular CDK](https://material.angular.io/cdk)
 - [Radix UI](https://radix-ui.com/)

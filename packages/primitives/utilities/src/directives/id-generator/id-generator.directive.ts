@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /**
@@ -15,9 +16,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Directive, ElementRef, HostBinding, OnInit, ViewContainerRef, inject, input } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostBinding,
+  OnInit,
+  ViewContainerRef,
+  inject,
+  input,
+} from '@angular/core';
 
-import { IdGeneratorConfig } from '../../providers/id-generator/id-generator.provider';
+import { IdGeneratorConfig } from './id-generator.config';
 import { nanoid } from 'nanoid';
 
 // Map to track counters for each component and tag
@@ -75,7 +84,8 @@ export class NgxPrimerIdGeneratorDirective implements OnInit {
   ngOnInit(): void {
     // Get the component's selector if available
     this.hostComponent = this.getComponentSelector();
-    const componentName = (this.hostComponent ?? 'ngx-primer-component') as string;
+    const componentName = (this.hostComponent ??
+      'ngx-primer-component') as string;
     const tagName = this.elementRef.nativeElement.tagName.toLowerCase();
 
     // Initialize counters for components and tags
@@ -87,14 +97,20 @@ export class NgxPrimerIdGeneratorDirective implements OnInit {
 
     // Generate a unique ID for the component
     this.generatedId = this.customId
-      ? `${sanitizedComponent}-${this.sanitize(this.customId())}-${COMPONENT_COUNTERS.get(componentName)![tagName]}-${nanoid()}`
-      : `${sanitizedComponent}-${sanitizedTag}-${COMPONENT_COUNTERS.get(componentName)![tagName]}-${nanoid()}`;
+      ? `${sanitizedComponent}-${this.sanitize(this.customId())}-${
+          COMPONENT_COUNTERS.get(componentName)![tagName]
+        }-${nanoid()}`
+      : `${sanitizedComponent}-${sanitizedTag}-${
+          COMPONENT_COUNTERS.get(componentName)![tagName]
+        }-${nanoid()}`;
 
     // Increment the counter for this component-tag pair
     COMPONENT_COUNTERS.get(componentName)![tagName]++;
 
     // Normalize multiple hyphens to a single one
     this.generatedId = this.generatedId.replace(/-+/g, '-').toLowerCase();
+
+    // this.provider.register('NgxPrimerIdGeneratorDirective', this as NgxPrimerIdGeneratorDirective)
   }
 
   /**
@@ -109,7 +125,10 @@ export class NgxPrimerIdGeneratorDirective implements OnInit {
    * Initializes the component's counter for a given tag name.
    * Ensures that each component-tag combination has a starting counter.
    */
-  private initializeComponentCounters(componentName: string, tagName: string): void {
+  private initializeComponentCounters(
+    componentName: string,
+    tagName: string
+  ): void {
     if (!COMPONENT_COUNTERS.has(componentName)) {
       COMPONENT_COUNTERS.set(componentName, {});
     }
@@ -132,7 +151,9 @@ export class NgxPrimerIdGeneratorDirective implements OnInit {
 
     // Try to resolve the host component if tag name is not available
     const hostComponent = this.resolveHostComponent();
-    return hostComponent ? (hostComponent.constructor as any).selector ?? 'unknown-component' : 'unknown-element';
+    return hostComponent
+      ? (hostComponent.constructor as any).selector ?? 'unknown-component'
+      : 'unknown-element';
   }
 
   /**
@@ -156,9 +177,11 @@ export class NgxPrimerIdGeneratorDirective implements OnInit {
    * Returns an array of components and their respective tag counters.
    */
   get countersSnapshot() {
-    return Array.from(COMPONENT_COUNTERS.entries()).map(([component, tags]) => ({
-      component,
-      tags,
-    }));
+    return Array.from(COMPONENT_COUNTERS.entries()).map(
+      ([component, tags]) => ({
+        component,
+        tags,
+      })
+    );
   }
 }

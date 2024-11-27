@@ -7,6 +7,6 @@
 - add props based styel/class declaration support ([4c4a53a](https://github.com/ngx-primer/primer-ui/commit/4c4a53a))
 - remvoe unused imports ([cf51899](https://github.com/ngx-primer/primer-ui/commit/cf51899))
 
-### ❤️  Thank You
+### ❤️ Thank You
 
 - ATS - Elhakim Cool

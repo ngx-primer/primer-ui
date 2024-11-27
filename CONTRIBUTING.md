@@ -28,26 +28,26 @@ We welcome pull requests for new features, bug fixes, and documentation improvem
 
 1. **Fork the repository**: Click the "Fork" button at the top of the repository to create a copy of the project under your own GitHub account.
 2. **Clone your fork**: Clone your fork to your local machine.
-    ```bash
-    git clone https://github.com/your-username/ngx-primer.git
-    ```
+   ```bash
+   git clone https://github.com/your-username/ngx-primer.git
+   ```
 3. **Create a new branch**: Create a new branch for your changes.
-    ```bash
-    git checkout -b feature/your-feature-name
-    ```
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 4. **Make your changes**: Implement your feature or bug fix. Ensure that your code follows the project's coding style and conventions.
 5. **Run tests**: Run the tests to make sure everything works as expected.
-    ```bash
-    nx test ngx-primer
-    ```
+   ```bash
+   nx test ngx-primer
+   ```
 6. **Commit your changes**: Commit your changes with a clear message describing what you've done.
-    ```bash
-    git commit -m "Add new feature or fix bug"
-    ```
+   ```bash
+   git commit -m "Add new feature or fix bug"
+   ```
 7. **Push your changes**: Push your changes to your forked repository.
-    ```bash
-    git push origin feature/your-feature-name
-    ```
+   ```bash
+   git push origin feature/your-feature-name
+   ```
 8. **Create a pull request**: Open a pull request against the main repository's `main` branch. Provide a clear description of your changes, including any relevant context or linked issues.
 
 ### Code Style and Guidelines

@@ -20,7 +20,9 @@
         "packages/primitives/accordion/src/index.ts"
       ],
       "@ngx-primer/primitive/slot": ["packages/primitives/slot/src/index.ts"],
-      "@ngx-primer/utilities": ["packages/primitives/utilities/src/index.ts"]
+      "@ngx-primer/primitive/utilities": [
+        "packages/primitives/utilities/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
