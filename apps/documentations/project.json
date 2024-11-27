@@ -7,64 +7,40 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@analogjs/platform:vite",
       "options": {
-        "outputPath": "dist/apps/documentations",
-        "index": "apps/documentations/src/index.html",
-        "browser": "apps/documentations/src/main.ts",
-        "polyfills": ["zone.js"],
-        "tsConfig": "apps/documentations/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
-        "assets": [
-          {
-            "glob": "**/*",
-            "input": "apps/documentations/public"
-          }
-        ],
-        "styles": ["apps/documentations/src/styles.scss"],
-        "scripts": [],
-        "server": "apps/documentations/src/main.server.ts",
-        "prerender": true,
-        "ssr": {
-          "entry": "apps/documentations/server.ts"
-        }
+        "configFile": "apps/documentations/vite.config.ts",
+        "main": "apps/documentations/src/main.ts",
+        "outputPath": "dist/apps/documentations/client",
+        "tsConfig": "apps/documentations/tsconfig.app.json"
       },
+      "defaultConfiguration": "production",
       "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
-            },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
-            }
-          ],
-          "outputHashing": "all"
-        },
         "development": {
-          "optimization": false,
-          "extractLicenses": false,
-          "sourceMap": true
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@analogjs/platform:vite-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "documentations:build",
+        "port": 4200
+      },
       "configurations": {
+        "development": {
+          "buildTarget": "documentations:build:development",
+          "hmr": true
+        },
         "production": {
           "buildTarget": "documentations:build:production"
-        },
-        "development": {
-          "buildTarget": "documentations:build:development"
         }
-      },
-      "defaultConfiguration": "development"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
