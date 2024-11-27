@@ -1,19 +1,25 @@
-import { NgxPrimerAccordionContentComponent, NgxPrimerAccordionItemComponent, NgxPrimerAccordionRootComponent, NgxPrimerAccordionRootThemeVariantDirective, NgxPrimerAccordionTriggerComponent } from '@ngx-primer/primitive/accordion';
+import {
+  NgxPrimerAccordionContentComponent,
+  NgxPrimerAccordionItemComponent,
+  NgxPrimerAccordionRootComponent,
+  NgxPrimerAccordionRootThemeVariantDirective,
+  NgxPrimerAccordionTriggerComponent,
+} from '@ngx-primer/primitive/accordion';
 
 import { Component } from '@angular/core';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/utilities';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   imports: [
-    RouterModule, 
-    NgxPrimerAccordionRootComponent, 
-    NgxPrimerAccordionItemComponent, 
-    NgxPrimerAccordionContentComponent, 
+    RouterModule,
+    NgxPrimerAccordionRootComponent,
+    NgxPrimerAccordionItemComponent,
+    NgxPrimerAccordionContentComponent,
     NgxPrimerAccordionTriggerComponent,
     NgxPrimerAccordionRootThemeVariantDirective,
-    NgxPrimerIdGeneratorDirective
+    NgxPrimerIdGeneratorDirective,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',

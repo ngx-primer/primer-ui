@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -26,29 +27,37 @@ import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordi
   imports: [CommonModule],
   templateUrl: './accordion-item.component.html',
   styleUrl: './accordion-item.component.scss',
-  exportAs: 'ngxPrimerAccordionItemComponent'
+  exportAs: 'ngxPrimerAccordionItemComponent',
 })
 export class NgxPrimerAccordionItemComponent<T> {
   /**
    * Accordion root instance.
    */
-  public readonly accordionRoot = input.required<NgxPrimerAccordionRootComponent<T>>({
+  public readonly accordionRoot = input.required<
+    NgxPrimerAccordionRootComponent<T>
+  >({
     alias: 'ngxPrimerAccordionRootInstanceRef',
   });
 
   /**
    * Accordion content instance.
    */
-  public readonly accordionContent = contentChild(NgxPrimerAccordionContentComponent, {
-    descendants: true,
-    read: NgxPrimerAccordionContentComponent
-  });
+  public readonly accordionContent = contentChild(
+    NgxPrimerAccordionContentComponent,
+    {
+      descendants: true,
+      read: NgxPrimerAccordionContentComponent,
+    }
+  );
 
   /**
    * Accordion trigger instance.
    */
-  public readonly accordionTrigger = contentChild(NgxPrimerAccordionTriggerComponent, {
-    descendants: true,
-    read: NgxPrimerAccordionTriggerComponent
-  });
+  public readonly accordionTrigger = contentChild(
+    NgxPrimerAccordionTriggerComponent,
+    {
+      descendants: true,
+      read: NgxPrimerAccordionTriggerComponent,
+    }
+  );
 }

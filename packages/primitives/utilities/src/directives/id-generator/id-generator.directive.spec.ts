@@ -26,14 +26,19 @@ describe('NgxPrimerIdGeneratorDirective', () => {
     beforeEach(() => {
       // @ts-expect-error
       directive.customId = () => 'custom-id';
-      directive.config = { prefix: 'test', separator: '-' } as Partial<IdGeneratorConfig>;
+      directive.config = {
+        prefix: 'test',
+        separator: '-',
+      } as Partial<IdGeneratorConfig>;
     });
 
     describe('when the directive initializes', () => {
       it('should generate a unique and sanitized ID', () => {
         directive.ngOnInit();
 
-        expect(directive.generatedId).toMatch(/^app-my-component-custom-id-\d+-[a-z0-9]+$/);
+        expect(directive.generatedId).toMatch(
+          /^app-my-component-custom-id-\d+-[a-z0-9]+$/
+        );
       });
 
       it('should correctly sanitize the ID', () => {
@@ -56,7 +61,9 @@ describe('NgxPrimerIdGeneratorDirective', () => {
       it('should generate a unique ID based on the component and tag name', () => {
         directive.ngOnInit();
 
-        expect(directive.generatedId).toMatch(/^app-my-component-div-\d+-[a-z0-9]+$/);
+        expect(directive.generatedId).toMatch(
+          /^app-my-component-div-\d+-[a-z0-9]+$/
+        );
       });
     });
   });

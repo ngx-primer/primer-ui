@@ -2,15 +2,29 @@
 export const TokenPrefix: string[] = [] as const;
 export const TokenNamespace = ['base', 'pattern', 'functional'] as const;
 export const TokenPattern = ['control', 'button', 'overlay', 'text'] as const;
-export const TokenProperty = ['color', 'background', 'font', 'spacing', 'border', 'radius'] as const;
-export const TokenVariant = ['primary', 'secondary', 'danger', 'success', 'light', 'dark'] as const;
+export const TokenProperty = [
+  'color',
+  'background',
+  'font',
+  'spacing',
+  'border',
+  'radius',
+] as const;
+export const TokenVariant = [
+  'primary',
+  'secondary',
+  'danger',
+  'success',
+  'light',
+  'dark',
+] as const;
 export const TokenScale = ['small', 'medium', 'large', 'xlarge'] as const;
 
-export type TokenPrefixType = typeof TokenPrefix[number];
-export type TokenNamespaceType = typeof TokenNamespace[number];
-export type TokenPropertyType = typeof TokenProperty[number];
-export type TokenVariantType = typeof TokenVariant[number];
-export type TokenScaleType = typeof TokenScale[number];
+export type TokenPrefixType = (typeof TokenPrefix)[number];
+export type TokenNamespaceType = (typeof TokenNamespace)[number];
+export type TokenPropertyType = (typeof TokenProperty)[number];
+export type TokenVariantType = (typeof TokenVariant)[number];
+export type TokenScaleType = (typeof TokenScale)[number];
 
 export class Token<
   Prefix extends TokenPrefixType = TokenPrefixType,
@@ -20,8 +34,8 @@ export class Token<
   Scale extends TokenScaleType | undefined = undefined
 > {
   // Token properties
-  name: string;  // Name will be composed based on the semantic structure
-  value: string;  // CSS value (e.g., #fff, 16px)
+  name: string; // Name will be composed based on the semantic structure
+  value: string; // CSS value (e.g., #fff, 16px)
   prefix: Prefix;
   namespace: Namespace;
   property: Property;
@@ -49,14 +63,14 @@ export class Token<
   // Generates the semantic token name based on the structure: prefix-namespace-base-patterns-variant-property
   generateTokenName(): string {
     const nameParts = [
-      this.prefix,         // e.g., 'brand', 'global'
-      this.namespace,      // e.g., 'base', 'pattern', 'functional'
-      this.property,       // e.g., 'color', 'background', etc.
-      this.variant,        // e.g., 'primary', 'secondary' (if any)
-      this.scale            // e.g., 'small', 'large' (if any)
+      this.prefix, // e.g., 'brand', 'global'
+      this.namespace, // e.g., 'base', 'pattern', 'functional'
+      this.property, // e.g., 'color', 'background', etc.
+      this.variant, // e.g., 'primary', 'secondary' (if any)
+      this.scale, // e.g., 'small', 'large' (if any)
     ]
-      .filter(Boolean)      // Remove undefined values
-      .join('-');          // Join with a hyphen
+      .filter(Boolean) // Remove undefined values
+      .join('-'); // Join with a hyphen
 
     return nameParts;
   }

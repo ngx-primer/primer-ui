@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
       }),
       angular(),
       nxViteTsPaths(),
-      tsconfigPaths()
+      tsconfigPaths(),
     ],
     server: {
       fs: {

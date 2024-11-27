@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -29,7 +30,9 @@ export class NgxPrimerAccordionTriggerComponent<T> {
   /**
    * Accodion item instance.
    */
-  public readonly accordionItem = input.required<NgxPrimerAccordionItemComponent<T>>({
+  public readonly accordionItem = input.required<
+    NgxPrimerAccordionItemComponent<T>
+  >({
     alias: 'ngxPrimerAccordionItemInstanceRef',
   });
 }

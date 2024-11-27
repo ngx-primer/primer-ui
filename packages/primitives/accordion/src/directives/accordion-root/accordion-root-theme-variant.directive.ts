@@ -1,10 +1,12 @@
-import { AccordionRootThemeVariant, accordionRootThemeVariant } from '../../themes';
+import {
+  AccordionRootThemeVariant,
+  accordionRootThemeVariant,
+} from '../../themes';
 import { Directive, HostBinding, model } from '@angular/core';
 
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
-interface AccordionRootProps extends HTMLElement, AccordionRootThemeVariant {
-}
+interface AccordionRootProps extends HTMLElement, AccordionRootThemeVariant {}
 @Directive({
   selector: '[ngxPrimerAccordionRootThemeVariant]',
   standalone: true,
@@ -14,23 +16,26 @@ export class NgxPrimerAccordionRootThemeVariantDirective {
   /**
    * The accordion root variant.
    */
-  public readonly variant = model<AccordionRootProps["variant"]>("light", {
-    alias: 'ngxPrimerAccordionRootVariant'
+  public readonly variant = model<AccordionRootProps['variant']>('light', {
+    alias: 'ngxPrimerAccordionRootVariant',
   });
 
   /**
    * The accordion root size.
    */
-  public readonly size = model<AccordionRootProps["size"]>("md", {
-    alias: 'ngxPrimerAccordionRootSize'
+  public readonly size = model<AccordionRootProps['size']>('md', {
+    alias: 'ngxPrimerAccordionRootSize',
   });
 
   /**
    * The accordion root border radius.
    */
-  public readonly borderRadius = model<AccordionRootProps["borderRadius"]>("md", {
-    alias: 'ngxPrimerAcordionRootBorderRadius'
-  });
+  public readonly borderRadius = model<AccordionRootProps['borderRadius']>(
+    'md',
+    {
+      alias: 'ngxPrimerAcordionRootBorderRadius',
+    }
+  );
 
   /**
    * The accordion config instance.
@@ -51,15 +56,15 @@ export class NgxPrimerAccordionRootThemeVariantDirective {
     return accordionRootThemeVariant({
       size: this.size(),
       variant: this.variant(),
-      borderRadius: this.borderRadius()
-    })
+      borderRadius: this.borderRadius(),
+    });
   }
 
   /**
    * Bind class attributes to the current accordion root instance.
    */
-  @HostBinding("class")
+  @HostBinding('class')
   public get classLists() {
-    return this.isEnableBuiltinThemeVariant ? this.useBuiltinThemeVariant : {}
+    return this.isEnableBuiltinThemeVariant ? this.useBuiltinThemeVariant : {};
   }
 }
