@@ -13,11 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Component, OnInit, contentChild, forwardRef, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  contentChild,
+  inject,
+} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionContentComponent } from '../accordion-content/accordion-content.component';
-import { NgxPrimerAccordionItemComponentToken } from '../../tokens/accordion-component.token';
 import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
@@ -26,9 +30,7 @@ import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordi
   selector: 'ngx-primer-accordion-item',
   standalone: true,
   imports: [CommonModule],
-  providers: [
-    NgxPrimerAccordionItemContext,
-  ],
+  providers: [NgxPrimerAccordionItemContext],
   templateUrl: './accordion-item.component.html',
   styleUrl: './accordion-item.component.scss',
   exportAs: 'ngxPrimerAccordionItemComponent',
@@ -103,7 +105,8 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
 
     if (doneFn) {
       doneFn({
-        context: this.accordionItemContext.instance as NgxPrimerAccordionItemComponent<T>,
+        context: this.accordionItemContext
+          .instance as NgxPrimerAccordionItemComponent<T>,
       });
     }
   }

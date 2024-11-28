@@ -1,4 +1,9 @@
-/* eslint-disable @angular-eslint/no-input-rename */
+import { Component, OnInit, inject } from '@angular/core';
+
+import { CommonModule } from '@angular/common';
+import { NgxPrimerAccordionContentContext } from '../../contexts/accordion-content/accordion-content.context';
+import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
+
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -13,22 +18,34 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ import { Component, input } from '@angular/core';
+ */ 
 
-import { CommonModule } from '@angular/common';
-import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 
 @Component({
   selector: 'ngx-primer-accordion-content',
   standalone: true,
   imports: [CommonModule],
+  providers: [
+    NgxPrimerAccordionContentContext
+  ],
   templateUrl: './accordion-content.component.html',
   styleUrl: './accordion-content.component.scss',
 })
-export class NgxPrimerAccordionContentComponent<T> {
-  public readonly accordionItem = input.required<
-    NgxPrimerAccordionItemComponent<T>
-  >({
-    alias: 'ngxPrimerAccordionItemInstanceRef',
-  });
+export class NgxPrimerAccordionContentComponent<T> implements OnInit {
+  protected readonly accordionItemContext = inject(NgxPrimerAccordionItemContext);
+  protected readonly accordionContentContext = inject(NgxPrimerAccordionContentContext);
+  ngOnInit(): void {
+    this.runInitializationFn()
+  }
+  protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
+    // set the context instance to allow inject in child component prevent manual prop drilling
+    this.accordionContentContext.instance = this;
+
+    if (doneFn) {
+      doneFn({
+        context: this.accordionContentContext
+          .instance as NgxPrimerAccordionContentComponent<T>,
+      });
+    }
+  }
 }

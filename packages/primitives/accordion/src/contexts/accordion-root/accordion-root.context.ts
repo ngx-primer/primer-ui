@@ -5,5 +5,4 @@ import { Context } from '@ngx-primer/primitive/utilities';
 @Injectable()
 export class NgxPrimerAccordionRootContext<
   NgxPrimerAccordionRootComponent extends Component
-> extends Context<NgxPrimerAccordionRootComponent> {
-}
+> extends Context<NgxPrimerAccordionRootComponent> {}

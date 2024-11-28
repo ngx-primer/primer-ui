@@ -36,9 +36,7 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
   selector: 'ngx-primer-accordion-root',
   standalone: true,
   imports: [CommonModule],
-  providers: [
-    NgxPrimerAccordionRootContext,
-  ],
+  providers: [NgxPrimerAccordionRootContext],
   templateUrl: './accordion-root.component.html',
   styleUrl: './accordion-root.component.scss',
   exportAs: 'ngxPrimerAccordionRootComponent',
@@ -422,7 +420,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
         context: this.accordionRootContext
           .instance as NgxPrimerAccordionRootComponent<T>,
         value: this.value(),
-      }); // Execute the callback with the current value.
+      });
     }
   }
 }

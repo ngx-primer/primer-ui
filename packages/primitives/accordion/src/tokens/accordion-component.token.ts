@@ -1,4 +1,9 @@
-import { NgxPrimerAccordionContentComponent, NgxPrimerAccordionItemComponent, NgxPrimerAccordionRootComponent, NgxPrimerAccordionTriggerComponent } from '../components';
+import {
+  NgxPrimerAccordionContentComponent,
+  NgxPrimerAccordionItemComponent,
+  NgxPrimerAccordionRootComponent,
+  NgxPrimerAccordionTriggerComponent,
+} from '../components';
 
 import { InjectionToken } from '@angular/core';
 
@@ -11,9 +16,9 @@ export const NgxPrimerAccordionItemComponentToken = new InjectionToken<
 >('NgxPrimerAccordionItemComponentToken');
 
 export const NgxPrimerAccordionTriggerComponentToken = new InjectionToken<
-NgxPrimerAccordionTriggerComponent<unknown>
+  NgxPrimerAccordionTriggerComponent<unknown>
 >('NgxPrimerAccordionTriggerComponentToken');
 
 export const NgxPrimerAccordionContentComponentToken = new InjectionToken<
-NgxPrimerAccordionContentComponent<unknown>
+  NgxPrimerAccordionContentComponent<unknown>
 >('NgxPrimerAccordionContentComponentToken');

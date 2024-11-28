@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -14,25 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Component, input } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { NgxPrimerAccordionItemContext, NgxPrimerAccordionTriggerContext } from '../../contexts';
 
 import { CommonModule } from '@angular/common';
-import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 
 @Component({
   selector: 'ngx-primer-accordion-trigger',
   standalone: true,
   imports: [CommonModule],
+  providers:[
+    NgxPrimerAccordionTriggerContext
+  ],
   templateUrl: './accordion-trigger.component.html',
   styleUrl: './accordion-trigger.component.scss',
 })
-export class NgxPrimerAccordionTriggerComponent<T> {
-  /**
-   * Accodion item instance.
-   */
-  public readonly accordionItem = input.required<
-    NgxPrimerAccordionItemComponent<T>
-  >({
-    alias: 'ngxPrimerAccordionItemInstanceRef',
-  });
+export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
+  protected readonly accordionItemContext = inject(NgxPrimerAccordionItemContext);
+  protected readonly accordionTriggerContext = inject(NgxPrimerAccordionTriggerContext);
+  ngOnInit(): void {
+    this.runInitializationFn()
+  }
+  protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
+    // set the context instance to allow inject in child component prevent manual prop drilling
+    this.accordionTriggerContext.instance = this;
+
+    if (doneFn) {
+      doneFn({
+        context: this.accordionTriggerContext
+          .instance as NgxPrimerAccordionTriggerComponent<T>,
+      });
+    }
+  }
 }
