@@ -25,9 +25,9 @@ import {
   model,
 } from '@angular/core';
 
-import { AccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
+import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerAccordionRootThemeVariantDirective } from '../../directives';
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
@@ -36,7 +36,9 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
   selector: 'ngx-primer-accordion-root',
   standalone: true,
   imports: [CommonModule],
-  providers: [],
+  providers: [
+    NgxPrimerAccordionRootContext,
+  ],
   templateUrl: './accordion-root.component.html',
   styleUrl: './accordion-root.component.scss',
   exportAs: 'ngxPrimerAccordionRootComponent',
@@ -67,7 +69,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * @see AccordionRootContext
    */
-  public readonly accordionRootContext = inject(AccordionRootContext);
+  public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext);
 
   /**
    * Provides the configuration for the accordion component by injecting the `AccordionConfig` service.
