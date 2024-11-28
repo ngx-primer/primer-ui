@@ -67,7 +67,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * @see AccordionRootContext
    */
-  public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext);
+  public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
+    optional: true
+  });
 
   /**
    * Provides the configuration for the accordion component by injecting the `AccordionConfig` service.
@@ -409,7 +411,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     // set the context instance to allow inject in child component prevent manual prop drilling
-    this.accordionRootContext.instance = this;
+    if(this.accordionRootContext){
+      this.accordionRootContext.instance = this;
+    }
 
     if (this.defaultValue()) {
       this.value.set(this.defaultValue()); // Set default value if provided.
@@ -417,8 +421,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
 
     if (doneFn) {
       doneFn({
-        context: this.accordionRootContext
-          .instance as NgxPrimerAccordionRootComponent<T>,
+        context: this.accordionRootContext?.instance as NgxPrimerAccordionRootComponent<T>,
         value: this.value(),
       });
     }

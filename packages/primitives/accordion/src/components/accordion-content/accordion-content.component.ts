@@ -32,19 +32,24 @@ import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/acc
   styleUrl: './accordion-content.component.scss',
 })
 export class NgxPrimerAccordionContentComponent<T> implements OnInit {
-  protected readonly accordionItemContext = inject(NgxPrimerAccordionItemContext);
-  protected readonly accordionContentContext = inject(NgxPrimerAccordionContentContext);
+  protected readonly accordionItemContext = inject(NgxPrimerAccordionItemContext, {
+    optional: true,
+  });
+  protected readonly accordionContentContext = inject(NgxPrimerAccordionContentContext, {
+    optional: true
+  });
   ngOnInit(): void {
     this.runInitializationFn()
   }
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     // set the context instance to allow inject in child component prevent manual prop drilling
-    this.accordionContentContext.instance = this;
+    if(this.accordionContentContext){
+      this.accordionContentContext.instance = this;
+    }
 
     if (doneFn) {
       doneFn({
-        context: this.accordionContentContext
-          .instance as NgxPrimerAccordionContentComponent<T>,
+        context: this.accordionContentContext?.instance as NgxPrimerAccordionContentComponent<T>,
       });
     }
   }

@@ -36,8 +36,13 @@ import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordi
   exportAs: 'ngxPrimerAccordionItemComponent',
 })
 export class NgxPrimerAccordionItemComponent<T> implements OnInit {
-  public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext);
-  public readonly accordionItemContext = inject(NgxPrimerAccordionItemContext);
+  public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
+    optional: true,
+  });
+  
+  public readonly accordionItemContext = inject(NgxPrimerAccordionItemContext, {
+    optional: true
+  });
 
   /**
    * Accordion content instance.
@@ -101,12 +106,13 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
    */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     // set the context instance to allow inject in child component prevent manual prop drilling
-    this.accordionItemContext.instance = this;
+    if(this.accordionItemContext){
+      this.accordionItemContext.instance = this;
+    }
 
     if (doneFn) {
       doneFn({
-        context: this.accordionItemContext
-          .instance as NgxPrimerAccordionItemComponent<T>,
+        context: this.accordionItemContext?.instance as NgxPrimerAccordionItemComponent<T>,
       });
     }
   }

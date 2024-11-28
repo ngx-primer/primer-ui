@@ -29,19 +29,26 @@ import { CommonModule } from '@angular/common';
   styleUrl: './accordion-trigger.component.scss',
 })
 export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
-  protected readonly accordionItemContext = inject(NgxPrimerAccordionItemContext);
-  protected readonly accordionTriggerContext = inject(NgxPrimerAccordionTriggerContext);
+  protected readonly accordionItemContext = inject(NgxPrimerAccordionItemContext, {
+    optional: true,
+  });
+  
+  protected readonly accordionTriggerContext = inject(NgxPrimerAccordionTriggerContext, {
+    optional: true,
+  });
+  
   ngOnInit(): void {
     this.runInitializationFn()
   }
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     // set the context instance to allow inject in child component prevent manual prop drilling
-    this.accordionTriggerContext.instance = this;
+    if(this.accordionTriggerContext){
+      this.accordionTriggerContext.instance = this;
+    }
 
     if (doneFn) {
       doneFn({
-        context: this.accordionTriggerContext
-          .instance as NgxPrimerAccordionTriggerComponent<T>,
+        context: this.accordionTriggerContext?.instance as NgxPrimerAccordionTriggerComponent<T>,
       });
     }
   }
