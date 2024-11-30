@@ -1,1 +1,1 @@
-export * from './accordion-root/accordion-root-theme-variant.directive';
+export {}

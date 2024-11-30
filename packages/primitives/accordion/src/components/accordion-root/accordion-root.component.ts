@@ -28,7 +28,6 @@ import {
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
-import { NgxPrimerAccordionRootThemeVariantDirective } from '../../directives';
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
@@ -195,19 +194,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     {
       descendants: true,
       read: NgxPrimerAccordionItemComponent,
-    }
-  );
-
-  /**
-   * Reference to the accordion root theme variant directive.
-   * Allows access to the theme configuration for the accordion root.
-   *
-   * @type {NgxPrimerAccordionRootThemeVariantDirective | null} The theme variant directive or null if not provided.
-   */
-  public readonly accordionRootThemeVariant = inject(
-    NgxPrimerAccordionRootThemeVariantDirective,
-    {
-      optional: true,
     }
   );
 
