@@ -9,6 +9,6 @@ export abstract class Context<T extends Component> {
   }
 
   get instance(): T | null {
-    return this._instance();
+    return this._instance() as T;
   }
 }
