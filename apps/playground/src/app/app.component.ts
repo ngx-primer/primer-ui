@@ -5,9 +5,12 @@ import {
   NgxPrimerAccordionRootComponent,
   NgxPrimerAccordionTriggerComponent,
   NgxPrimerCollapseExpandAnimationDirective,
-  collapseExpandAnimation
+  collapseExpandAnimation,
 } from '@ngx-primer/primitive/accordion';
-import { heroChevronDownMini, heroChevronUpMini } from '@ng-icons/heroicons/mini'
+import {
+  heroChevronDownMini,
+  heroChevronUpMini,
+} from '@ng-icons/heroicons/mini';
 
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
@@ -20,7 +23,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     NgIcon,
     NgxPrimerAccordionRootComponent,
-    NgxPrimerAccordionItemComponent, 
+    NgxPrimerAccordionItemComponent,
     NgxPrimerAccordionTriggerComponent,
     NgxPrimerAccordionContentComponent,
     NgxPrimerCollapseExpandAnimationDirective,
@@ -31,12 +34,10 @@ import { RouterModule } from '@angular/router';
   viewProviders: [
     provideIcons({
       heroChevronDownMini,
-      heroChevronUpMini
-    })
+      heroChevronUpMini,
+    }),
   ],
-  animations: [
-    collapseExpandAnimation
-  ]
+  animations: [collapseExpandAnimation],
 })
 export class AppComponent {
   title = 'playground';
@@ -44,62 +45,73 @@ export class AppComponent {
     {
       label: 'Introduction',
       value: 'intro',
-      content: 'Welcome to our platform! Here, you’ll learn about our purpose, the problem we solve, and how we aim to make your life easier.',
+      content:
+        'Welcome to our platform! Here, you’ll learn about our purpose, the problem we solve, and how we aim to make your life easier.',
     },
     {
       label: 'Features',
       value: 'features',
-      content: 'Explore a range of features, including real-time collaboration, intuitive design tools, and seamless integrations with popular apps.',
+      content:
+        'Explore a range of features, including real-time collaboration, intuitive design tools, and seamless integrations with popular apps.',
     },
     {
       label: 'Usage Guidelines',
       value: 'usage',
-      content: 'Follow these simple guidelines to get the most out of our platform, from account setup to leveraging advanced functionalities.',
+      content:
+        'Follow these simple guidelines to get the most out of our platform, from account setup to leveraging advanced functionalities.',
     },
     {
       label: 'FAQs',
       value: 'faqs',
-      content: 'Have questions? Check out our Frequently Asked Questions to find answers on account management, pricing, and troubleshooting. lorem kflkldskkklsklkdlksskdkldkskldklkdkl k sdlmlmlkfsdk k klmlk kkmeklm',
+      content:
+        'Have questions? Check out our Frequently Asked Questions to find answers on account management, pricing, and troubleshooting. lorem kflkldskkklsklkdlksskdkldkskldklkdkl k sdlmlmlkfsdk k klmlk kkmeklm',
     },
     {
       label: 'Contact Us',
       value: 'contact',
-      content: 'Need help? Reach out to our support team via email, phone, or live chat. We’re here to assist you 24/7.',
+      content:
+        'Need help? Reach out to our support team via email, phone, or live chat. We’re here to assist you 24/7.',
     },
     {
       label: 'Other Ask',
       value: 'other-ask',
-      content: 'Need help? Reach out to our support team via email, phone, or live chat. We’re here to assist you 24/7.',
+      content:
+        'Need help? Reach out to our support team via email, phone, or live chat. We’re here to assist you 24/7.',
     },
   ] as const;
-  
+
   accordionVal = this.accordionData[5].value;
 
   accordion2Data = [
     {
       label: 'About Our Company',
       value: 'about',
-      content: 'Learn about our journey, mission, and the core values that drive us to deliver exceptional products and services.',
+      content:
+        'Learn about our journey, mission, and the core values that drive us to deliver exceptional products and services.',
     },
     {
       label: 'How It Works',
       value: 'how-it-works',
-      content: 'Understand the step-by-step process of how our platform functions, from signing up to achieving your goals.',
+      content:
+        'Understand the step-by-step process of how our platform functions, from signing up to achieving your goals.',
     },
     {
       label: 'Pricing Plans',
       value: 'pricing',
-      content: 'Discover our flexible pricing options designed to meet the needs of individuals, startups, and enterprises.',
+      content:
+        'Discover our flexible pricing options designed to meet the needs of individuals, startups, and enterprises.',
     },
     {
       label: 'Customer Success Stories',
       value: 'success-stories',
-      content: 'Read inspiring stories of how our platform has helped customers achieve success in their projects and businesses.',
+      content:
+        'Read inspiring stories of how our platform has helped customers achieve success in their projects and businesses.',
     },
     {
       label: 'Get Started',
       value: 'get-started',
-      content: 'Ready to begin? Follow our quick start guide to set up your account and start using our platform in minutes.',
+      content:
+        'Ready to begin? Follow our quick start guide to set up your account and start using our platform in minutes.',
     },
   ] as const;
 
