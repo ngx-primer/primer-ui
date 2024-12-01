@@ -1,9 +1,0 @@
-{
-  "name": "documentations-e2e",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "sourceRoot": "apps/documentations-e2e/src",
-  "implicitDependencies": ["documentations"],
-  "// targets": "to see all targets run: nx show project documentations-e2e --web",
-  "targets": {}
-}
