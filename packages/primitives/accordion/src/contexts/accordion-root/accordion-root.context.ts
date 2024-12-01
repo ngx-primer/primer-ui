@@ -2,9 +2,7 @@ import { Component, Injectable } from '@angular/core';
 
 import { Context } from '@ngx-primer/primitive/utilities';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class AccordionRootContext<
+@Injectable()
+export class NgxPrimerAccordionRootContext<
   NgxPrimerAccordionRootComponent extends Component
 > extends Context<NgxPrimerAccordionRootComponent> {}

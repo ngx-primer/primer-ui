@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
@@ -16,6 +17,7 @@
  */
 import {
   Component,
+  HostBinding,
   OnInit,
   booleanAttribute,
   contentChild,
@@ -25,10 +27,9 @@ import {
   model,
 } from '@angular/core';
 
-import { AccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
-import { NgxPrimerAccordionRootThemeVariantDirective } from '../../directives';
+import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
@@ -36,7 +37,7 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
   selector: 'ngx-primer-accordion-root',
   standalone: true,
   imports: [CommonModule],
-  providers: [],
+  providers: [NgxPrimerAccordionRootContext],
   templateUrl: './accordion-root.component.html',
   styleUrl: './accordion-root.component.scss',
   exportAs: 'ngxPrimerAccordionRootComponent',
@@ -67,7 +68,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * @see AccordionRootContext
    */
-  public readonly accordionRootContext = inject(AccordionRootContext);
+  public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
+    optional: true
+  });
 
   /**
    * Provides the configuration for the accordion component by injecting the `AccordionConfig` service.
@@ -193,19 +196,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     {
       descendants: true,
       read: NgxPrimerAccordionItemComponent,
-    }
-  );
-
-  /**
-   * Reference to the accordion root theme variant directive.
-   * Allows access to the theme configuration for the accordion root.
-   *
-   * @type {NgxPrimerAccordionRootThemeVariantDirective | null} The theme variant directive or null if not provided.
-   */
-  public readonly accordionRootThemeVariant = inject(
-    NgxPrimerAccordionRootThemeVariantDirective,
-    {
-      optional: true,
     }
   );
 
@@ -348,17 +338,39 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     if (this.type() === 'Single') {
       this.value.set(isOpenValue ? null : value); // Set to null for single-value mode.
     }
+    
+    /**
+     * Hanlde if multiple enabled
+     */
+    if(this.type() === 'Multiple') {      
+      const values = Array.isArray(this.value()) ? [...this.value() as T[]] : [this.value()];
 
-    const values = (this.value() as T[]) ?? [];
-
-    // Toggle the value in the selected values list.
-    if (isOpenValue) {
-      this.value.set(values.filter((v) => v !== value)); // Remove if currently open.
-    } else {
-      this.value.set([...values, value]); // Add if currently closed.
+      if (isOpenValue) {
+        // @ts-expect-error
+        this.value.set(values?.filter(v => v !== value));
+      } else {
+        this.value.set([...values as T[], value]);
+      }
     }
   }
 
+  // -------------------------- Host Bindings --------------------------- // 
+
+  @HostBinding('attr.data-orientation')
+  public get dataOrientationAttr() {
+    return this.accordionConfig.orientation;
+  }
+  
+  @HostBinding('attr.data-disabled')
+  public get dataDisabledAttr() {
+    return this.disabled() ? "" : null;
+  }
+
+  @HostBinding('attr.data-type')
+  public get dataTypeAttr() {
+    return this.type();
+  }
+  
   // --------------------------- Hooks ---------------------------------- //
 
   /**
@@ -409,7 +421,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     // set the context instance to allow inject in child component prevent manual prop drilling
-    this.accordionRootContext.instance = this;
+    if(this.accordionRootContext){
+      this.accordionRootContext.instance = this;
+    }
 
     if (this.defaultValue()) {
       this.value.set(this.defaultValue()); // Set default value if provided.
@@ -417,10 +431,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
 
     if (doneFn) {
       doneFn({
-        context: this.accordionRootContext
-          .instance as NgxPrimerAccordionRootComponent<T>,
+        context: this.accordionRootContext?.instance as NgxPrimerAccordionRootComponent<T>,
         value: this.value(),
-      }); // Execute the callback with the current value.
+      });
     }
   }
 }
