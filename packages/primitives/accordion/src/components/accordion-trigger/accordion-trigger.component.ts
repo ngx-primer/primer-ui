@@ -13,61 +13,114 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Component, HostListener, OnInit, inject } from '@angular/core';
-import { NgxPrimerAccordionItemContext, NgxPrimerAccordionTriggerContext } from '../../contexts';
+import {
+  Component,
+  HostBinding,
+  HostListener,
+  OnInit,
+  inject,
+} from '@angular/core';
+import {
+  NgxPrimerAccordionItemContext,
+  NgxPrimerAccordionTriggerContext,
+} from '../../contexts';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
+import { customAlphabet } from 'nanoid';
 
+const nanoid = customAlphabet('1234567890abcdef', 10);
+let nextCounter = 0;
+const nextIdentifier = nanoid(10);
 @Component({
   selector: 'ngx-primer-accordion-trigger',
   standalone: true,
   imports: [CommonModule],
-  providers:[
-    NgxPrimerAccordionTriggerContext
-  ],
+  providers: [NgxPrimerAccordionTriggerContext],
   templateUrl: './accordion-trigger.component.html',
   styleUrl: './accordion-trigger.component.scss',
 })
 export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
-  protected readonly accordionItemContext = inject(NgxPrimerAccordionItemContext, {
-    optional: true,
-  });
-  
-  protected readonly accordionTriggerContext = inject(NgxPrimerAccordionTriggerContext, {
-    optional: true,
-  });
-  
+  protected id =
+    `ngx-primer-accordion-trigger-${nextCounter++}-${nextIdentifier}` as const;
+
+  protected readonly accordionItemContext = inject(
+    NgxPrimerAccordionItemContext,
+    {
+      optional: true,
+    }
+  );
+
+  protected readonly accordionTriggerContext = inject(
+    NgxPrimerAccordionTriggerContext,
+    {
+      optional: true,
+    }
+  );
+
   ngOnInit(): void {
-    this.runInitializationFn()
+    this.runInitializationFn();
   }
-  
+
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     // set the context instance to allow inject in child component prevent manual prop drilling
-    if(this.accordionTriggerContext){
+    if (this.accordionTriggerContext) {
       this.accordionTriggerContext.instance = this;
     }
 
     if (doneFn) {
       doneFn({
-        context: this.accordionTriggerContext?.instance as NgxPrimerAccordionTriggerComponent<T>,
+        context: this.accordionTriggerContext
+          ?.instance as NgxPrimerAccordionTriggerComponent<T>,
       });
     }
   }
 
+  @HostBinding('attr.id')
+  public get accordionTriggerId() {
+    return this.id;
+  }
+
   @HostListener('click')
   toogle() {
-    if(this.accordionRoot?.disabled()) return;
+    if (this.accordionRoot?.disabled()) return;
 
     this.accordionRoot?.toggle(this.accordionItem?.value());
   }
 
+  @HostBinding('role')
+  public get roleAttr() {
+    return 'button';
+  }
+
+  @HostBinding('attr.data-orientation')
+  public get dataOrientationAttr() {
+    return this.accordionRoot?.orientation();
+  }
+
+  @HostBinding('attr.data-is-open')
+  public get dataIsOpenAttr() {
+    return this.accordionItem.isOpen();
+  }
+
+  @HostBinding('attr.data-expanded')
+  public get dataExpandedAttr() {
+    return this.accordionItem.isOpen();
+  }
+
+  @HostBinding('attr.aria-controls')
+  public get dataControlsAttr() {
+    return this.accordionItem.accordionContent()?.accordionContentId;
+  }
+
   protected get accordionItem() {
-    return this.accordionItemContext?.instance as NgxPrimerAccordionItemComponent<T>
+    return this.accordionItemContext
+      ?.instance as NgxPrimerAccordionItemComponent<T>;
   }
 
   protected get accordionRoot() {
-    return this.accordionItem.accordionRootContext?.instance as NgxPrimerAccordionRootComponent<T>
+    return this.accordionItem.accordionRootContext
+      ?.instance as NgxPrimerAccordionRootComponent<T>;
   }
 }

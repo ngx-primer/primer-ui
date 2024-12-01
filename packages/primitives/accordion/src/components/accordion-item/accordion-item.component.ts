@@ -16,6 +16,7 @@
  */
 import {
   Component,
+  HostBinding,
   OnInit,
   computed,
   contentChild,
@@ -29,7 +30,11 @@ import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/acc
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
+import { customAlphabet } from 'nanoid';
 
+const nanoid = customAlphabet('1234567890abcdef', 10);
+let nextCounter = 0;
+const nextIdentifier = nanoid(10);
 @Component({
   selector: 'ngx-primer-accordion-item',
   standalone: true,
@@ -40,12 +45,15 @@ import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordi
   exportAs: 'ngxPrimerAccordionItemComponent',
 })
 export class NgxPrimerAccordionItemComponent<T> implements OnInit {
+  protected id =
+    `ngx-primer-accordion-item-${nextCounter++}-${nextIdentifier}` as const;
+
   public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
     optional: true,
   });
-  
+
   public readonly accordionItemContext = inject(NgxPrimerAccordionItemContext, {
-    optional: true
+    optional: true,
   });
 
   /**
@@ -70,13 +78,42 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     }
   );
 
-
   public readonly value = input.required<T>({
-    alias: 'ngxPrimerAccordionItemValue'
-  })
+    alias: 'ngxPrimerAccordionItemValue',
+  });
 
-  public readonly isOpen = computed<boolean>(() => this.accordionRoot.isOpen(this.value()));
-  
+  public readonly isOpen = computed<boolean>(() =>
+    this.accordionRoot.isOpen(this.value())
+  );
+
+  // Host Binding
+
+  @HostBinding('attr.id')
+  public get accordionItemId() {
+    return this.id;
+  }
+
+  @HostBinding('attr.data-orientation')
+  public get dataOrientationAttr() {
+    return this.accordionRoot.orientation();
+  }
+
+  @HostBinding('attr.data-is-open')
+  public get dataIsOpenAttr() {
+    return this.isOpen();
+  }
+
+  @HostBinding('attr.data-value')
+  public get dataValueAttr() {
+    return this.value();
+  }
+
+  @HostBinding('attr.data-disabled')
+  public get dataDisabledAttr() {
+    return this.accordionRoot.disabled();
+  }
+  // Hooks
+
   ngOnInit(): void {
     this.runInitializationFn();
   }
@@ -117,22 +154,25 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
    */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     // set the context instance to allow inject in child component prevent manual prop drilling
-    if(this.accordionItemContext){
+    if (this.accordionItemContext) {
       this.accordionItemContext.instance = this;
     }
 
     if (doneFn) {
       doneFn({
-        context: this.accordionItemContext?.instance as NgxPrimerAccordionItemComponent<T>,
+        context: this.accordionItemContext
+          ?.instance as NgxPrimerAccordionItemComponent<T>,
       });
     }
   }
 
   protected get accordionItem() {
-    return this.accordionItemContext?.instance as NgxPrimerAccordionItemComponent<T>
+    return this.accordionItemContext
+      ?.instance as NgxPrimerAccordionItemComponent<T>;
   }
 
   protected get accordionRoot() {
-    return this.accordionItem.accordionRootContext?.instance as NgxPrimerAccordionRootComponent<T>
+    return this.accordionItem.accordionRootContext
+      ?.instance as NgxPrimerAccordionRootComponent<T>;
   }
 }
