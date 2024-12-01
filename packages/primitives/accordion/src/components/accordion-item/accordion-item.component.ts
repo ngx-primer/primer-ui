@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -16,13 +17,16 @@
 import {
   Component,
   OnInit,
+  computed,
   contentChild,
   inject,
+  input,
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionContentComponent } from '../accordion-content/accordion-content.component';
 import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
+import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
 
@@ -66,6 +70,13 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     }
   );
 
+
+  public readonly value = input.required<T>({
+    alias: 'ngxPrimerAccordionItemValue'
+  })
+
+  public readonly isOpen = computed<boolean>(() => this.accordionRoot.isOpen(this.value()));
+  
   ngOnInit(): void {
     this.runInitializationFn();
   }
@@ -115,5 +126,13 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
         context: this.accordionItemContext?.instance as NgxPrimerAccordionItemComponent<T>,
       });
     }
+  }
+
+  protected get accordionItem() {
+    return this.accordionItemContext?.instance as NgxPrimerAccordionItemComponent<T>
+  }
+
+  protected get accordionRoot() {
+    return this.accordionItem.accordionRootContext?.instance as NgxPrimerAccordionRootComponent<T>
   }
 }

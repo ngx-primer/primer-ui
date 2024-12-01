@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { NgxPrimerAccordionItemContext, NgxPrimerAccordionTriggerContext } from '../../contexts';
 
 import { CommonModule } from '@angular/common';
+import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
+import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 
 @Component({
   selector: 'ngx-primer-accordion-trigger',
@@ -40,6 +42,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   ngOnInit(): void {
     this.runInitializationFn()
   }
+  
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     // set the context instance to allow inject in child component prevent manual prop drilling
     if(this.accordionTriggerContext){
@@ -51,5 +54,20 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
         context: this.accordionTriggerContext?.instance as NgxPrimerAccordionTriggerComponent<T>,
       });
     }
+  }
+
+  @HostListener('click')
+  toogle() {
+    if(this.accordionRoot?.disabled()) return;
+
+    this.accordionRoot?.toggle(this.accordionItem?.value());
+  }
+
+  protected get accordionItem() {
+    return this.accordionItemContext?.instance as NgxPrimerAccordionItemComponent<T>
+  }
+
+  protected get accordionRoot() {
+    return this.accordionItem.accordionRootContext?.instance as NgxPrimerAccordionRootComponent<T>
   }
 }

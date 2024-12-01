@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
@@ -16,6 +17,7 @@
  */
 import {
   Component,
+  HostBinding,
   OnInit,
   booleanAttribute,
   contentChild,
@@ -336,17 +338,39 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     if (this.type() === 'Single') {
       this.value.set(isOpenValue ? null : value); // Set to null for single-value mode.
     }
+    
+    /**
+     * Hanlde if multiple enabled
+     */
+    if(this.type() === 'Multiple') {      
+      const values = Array.isArray(this.value()) ? [...this.value() as T[]] : [this.value()];
 
-    const values = (this.value() as T[]) ?? [];
-
-    // Toggle the value in the selected values list.
-    if (isOpenValue) {
-      this.value.set(values.filter((v) => v !== value)); // Remove if currently open.
-    } else {
-      this.value.set([...values, value]); // Add if currently closed.
+      if (isOpenValue) {
+        // @ts-expect-error
+        this.value.set(values?.filter(v => v !== value));
+      } else {
+        this.value.set([...values as T[], value]);
+      }
     }
   }
 
+  // -------------------------- Host Bindings --------------------------- // 
+
+  @HostBinding('attr.data-orientation')
+  public get dataOrientationAttr() {
+    return this.accordionConfig.orientation;
+  }
+  
+  @HostBinding('attr.data-disabled')
+  public get dataDisabledAttr() {
+    return this.disabled() ? "" : null;
+  }
+
+  @HostBinding('attr.data-type')
+  public get dataTypeAttr() {
+    return this.type();
+  }
+  
   // --------------------------- Hooks ---------------------------------- //
 
   /**
