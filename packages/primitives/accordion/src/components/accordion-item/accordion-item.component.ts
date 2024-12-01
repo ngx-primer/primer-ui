@@ -32,7 +32,7 @@ import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/acc
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
 import { customAlphabet } from 'nanoid';
 
-const nanoid = customAlphabet('1234567890abcdef', 10)
+const nanoid = customAlphabet('1234567890abcdef', 10);
 let nextCounter = 0;
 const nextIdentifier = nanoid(10);
 @Component({
@@ -45,9 +45,9 @@ const nextIdentifier = nanoid(10);
   exportAs: 'ngxPrimerAccordionItemComponent',
 })
 export class NgxPrimerAccordionItemComponent<T> implements OnInit {
-  
-  protected id = `ngx-primer-accordion-item-${nextCounter++}-${nextIdentifier}`;
-  
+  protected id =
+    `ngx-primer-accordion-item-${nextCounter++}-${nextIdentifier}` as const;
+
   public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
     optional: true,
   });
@@ -92,7 +92,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   public get accordionItemId() {
     return this.id;
   }
-  
+
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
     return this.accordionRoot.orientation();

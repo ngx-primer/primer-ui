@@ -13,7 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Component, HostBinding, HostListener, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  HostListener,
+  OnInit,
+  inject,
+} from '@angular/core';
 import {
   NgxPrimerAccordionItemContext,
   NgxPrimerAccordionTriggerContext,
@@ -24,7 +30,7 @@ import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-ite
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { customAlphabet } from 'nanoid';
 
-const nanoid = customAlphabet('1234567890abcdef', 10)
+const nanoid = customAlphabet('1234567890abcdef', 10);
 let nextCounter = 0;
 const nextIdentifier = nanoid(10);
 @Component({
@@ -36,8 +42,9 @@ const nextIdentifier = nanoid(10);
   styleUrl: './accordion-trigger.component.scss',
 })
 export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
-  protected id = `ngx-primer-accordion-trigger-${nextCounter++}-${nextIdentifier}`;
-  
+  protected id =
+    `ngx-primer-accordion-trigger-${nextCounter++}-${nextIdentifier}` as const;
+
   protected readonly accordionItemContext = inject(
     NgxPrimerAccordionItemContext,
     {
@@ -86,6 +93,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   public get roleAttr() {
     return 'button';
   }
+
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
     return this.accordionRoot?.orientation();
@@ -95,7 +103,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   public get dataIsOpenAttr() {
     return this.accordionItem.isOpen();
   }
-  
+
   @HostBinding('attr.data-expanded')
   public get dataExpandedAttr() {
     return this.accordionItem.isOpen();

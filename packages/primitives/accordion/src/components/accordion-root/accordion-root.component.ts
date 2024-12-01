@@ -29,10 +29,10 @@ import {
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
-import { customAlphabet } from 'nanoid'
+import { customAlphabet } from 'nanoid';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
-const nanoid = customAlphabet('1234567890abcdef', 10)
+const nanoid = customAlphabet('1234567890abcdef', 10);
 let nextCounter = 0;
 const nextIdentifier = nanoid(10);
 
@@ -46,8 +46,8 @@ const nextIdentifier = nanoid(10);
   exportAs: 'ngxPrimerAccordionRootComponent',
 })
 export class NgxPrimerAccordionRootComponent<T> implements OnInit {
-  
-  protected id = `ngx-primer-accordion-root-${nextCounter++}-${nextIdentifier}`
+  protected id =
+    `ngx-primer-accordion-root-${nextCounter++}-${nextIdentifier}` as const;
   /**
    * Injects the `AccordionRootContext` service into the component or directive.
    *

@@ -1,15 +1,3 @@
-import { Component, HostBinding, OnInit, inject } from '@angular/core';
-
-import { CommonModule } from '@angular/common';
-import { NgxPrimerAccordionContentContext } from '../../contexts/accordion-content/accordion-content.context';
-import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
-import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
-import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import { customAlphabet } from 'nanoid';
-
-const nanoid = customAlphabet('1234567890abcdef', 10)
-let nextCounter = 0;
-const nextIdentifier = nanoid(10);
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -26,6 +14,19 @@ const nextIdentifier = nanoid(10);
  * limitations under the License.
  */
 
+import { Component, HostBinding, OnInit, inject } from '@angular/core';
+
+import { CommonModule } from '@angular/common';
+import { NgxPrimerAccordionContentContext } from '../../contexts/accordion-content/accordion-content.context';
+import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
+import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
+import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
+import { customAlphabet } from 'nanoid';
+
+const nanoid = customAlphabet('1234567890abcdef', 10);
+let nextCounter = 0;
+const nextIdentifier = nanoid(10);
+
 @Component({
   selector: 'ngx-primer-accordion-content',
   standalone: true,
@@ -34,8 +35,9 @@ const nextIdentifier = nanoid(10);
   templateUrl: './accordion-content.component.html',
   styleUrl: './accordion-content.component.scss',
 })
-export class NgxPrimerAccordionContentComponent<T> implements OnInit {  
-  protected id = `ngx-primer-accordion-content-${nextCounter++}-${nextIdentifier}`;
+export class NgxPrimerAccordionContentComponent<T> implements OnInit {
+  protected id =
+    `ngx-primer-accordion-content-${nextCounter++}-${nextIdentifier}` as const;
   protected readonly accordionItemContext = inject(
     NgxPrimerAccordionItemContext,
     {
@@ -59,6 +61,7 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
   public get roleAttr() {
     return 'region';
   }
+
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
     return this.accordionRoot.orientation();
