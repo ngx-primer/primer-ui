@@ -10,5 +10,17 @@
         "storage": "tmp/local-registry/storage"
       }
     }
+  },
+  "release": {
+    "changelog": {
+      "projectChangelogs": {
+        "renderOptions": {
+          "authors": true,
+          "mapAuthorsToGitHubUsernames": true,
+          "commitReferences": true,
+          "versionTitleDate": true
+        }
+      }
+    }
   }
 }
