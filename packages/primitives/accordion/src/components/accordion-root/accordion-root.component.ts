@@ -29,25 +29,31 @@ import {
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
-import { customAlphabet } from 'nanoid';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
-
-const nanoid = customAlphabet('1234567890abcdef', 10);
-let nextCounter = 0;
-const nextIdentifier = nanoid(10);
 
 @Component({
   selector: 'ngx-primer-accordion-root',
   standalone: true,
   imports: [CommonModule],
   providers: [NgxPrimerAccordionRootContext],
+  hostDirectives: [
+    {
+      directive: NgxPrimerIdGeneratorDirective,
+      inputs: ['ngxPrimerIdAttr']
+    }
+  ],
   templateUrl: './accordion-root.component.html',
   styleUrl: './accordion-root.component.scss',
   exportAs: 'ngxPrimerAccordionRootComponent',
 })
 export class NgxPrimerAccordionRootComponent<T> implements OnInit {
-  protected id =
-    `ngx-primer-accordion-root-${nextCounter++}-${nextIdentifier}` as const;
+  protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
+    host: true,
+    optional: true,
+  });
+
+  public readonly accordionRootId = this.idGenerator?.resolvedId;
   /**
    * Injects the `AccordionRootContext` service into the component or directive.
    *
@@ -298,12 +304,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   }
 
   // -------------------------- Host Bindings --------------------------- //
-
-  @HostBinding('attr.id')
-  public get accordionRootId() {
-    return this.id;
-  }
-
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
     return this.accordionConfig.orientation;

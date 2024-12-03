@@ -28,11 +28,8 @@ import {
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import { customAlphabet } from 'nanoid';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
-const nanoid = customAlphabet('1234567890abcdef', 10);
-let nextCounter = 0;
-const nextIdentifier = nanoid(10);
 @Component({
   selector: 'ngx-primer-accordion-trigger',
   standalone: true,
@@ -40,11 +37,21 @@ const nextIdentifier = nanoid(10);
   providers: [NgxPrimerAccordionTriggerContext],
   templateUrl: './accordion-trigger.component.html',
   styleUrl: './accordion-trigger.component.scss',
+  hostDirectives: [
+    {
+      directive: NgxPrimerIdGeneratorDirective,
+      inputs: ['ngxPrimerIdAttr']
+    }
+  ]
 })
 export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
-  protected id =
-    `ngx-primer-accordion-trigger-${nextCounter++}-${nextIdentifier}` as const;
+  protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
+    host: true,
+    optional: true,
+  });
 
+  public readonly accordionTriggerId = this.idGenerator?.resolvedId;
+  
   protected readonly accordionItemContext = inject(
     NgxPrimerAccordionItemContext,
     {
@@ -75,11 +82,6 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
           ?.instance as NgxPrimerAccordionTriggerComponent<T>,
       });
     }
-  }
-
-  @HostBinding('attr.id')
-  public get accordionTriggerId() {
-    return this.id;
   }
 
   @HostListener('click')

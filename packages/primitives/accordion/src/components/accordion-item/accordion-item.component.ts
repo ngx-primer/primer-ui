@@ -17,11 +17,14 @@
 import {
   Component,
   HostBinding,
+  Injector,
   OnInit,
   computed,
   contentChild,
+  effect,
   inject,
   input,
+  runInInjectionContext,
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
@@ -30,11 +33,8 @@ import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/acc
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
-import { customAlphabet } from 'nanoid';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
-const nanoid = customAlphabet('1234567890abcdef', 10);
-let nextCounter = 0;
-const nextIdentifier = nanoid(10);
 @Component({
   selector: 'ngx-primer-accordion-item',
   standalone: true,
@@ -43,10 +43,21 @@ const nextIdentifier = nanoid(10);
   templateUrl: './accordion-item.component.html',
   styleUrl: './accordion-item.component.scss',
   exportAs: 'ngxPrimerAccordionItemComponent',
+  hostDirectives: [
+    {
+      directive: NgxPrimerIdGeneratorDirective,
+      inputs: ['ngxPrimerIdAttr']
+    }
+  ]
 })
 export class NgxPrimerAccordionItemComponent<T> implements OnInit {
-  protected id =
-    `ngx-primer-accordion-item-${nextCounter++}-${nextIdentifier}` as const;
+  protected readonly injector = inject(Injector);
+  protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
+    host: true,
+    optional: true,
+  });
+
+  public readonly accordionItemId = this.idGenerator?.resolvedId;
 
   public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
     optional: true,
@@ -87,12 +98,6 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   );
 
   // Host Binding
-
-  @HostBinding('attr.id')
-  public get accordionItemId() {
-    return this.id;
-  }
-
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
     return this.accordionRoot.orientation();
@@ -157,6 +162,11 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     if (this.accordionItemContext) {
       this.accordionItemContext.instance = this;
     }
+
+    runInInjectionContext(this.injector, () => {
+      // Todo register injection context here 
+    })
+
 
     if (doneFn) {
       doneFn({

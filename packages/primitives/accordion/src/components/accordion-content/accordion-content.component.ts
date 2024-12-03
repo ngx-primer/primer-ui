@@ -21,11 +21,7 @@ import { NgxPrimerAccordionContentContext } from '../../contexts/accordion-conte
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import { customAlphabet } from 'nanoid';
-
-const nanoid = customAlphabet('1234567890abcdef', 10);
-let nextCounter = 0;
-const nextIdentifier = nanoid(10);
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-content',
@@ -34,10 +30,21 @@ const nextIdentifier = nanoid(10);
   providers: [NgxPrimerAccordionContentContext],
   templateUrl: './accordion-content.component.html',
   styleUrl: './accordion-content.component.scss',
+  hostDirectives: [
+    {
+      directive: NgxPrimerIdGeneratorDirective,
+      inputs: ['ngxPrimerIdAttr']
+    }
+  ]
 })
 export class NgxPrimerAccordionContentComponent<T> implements OnInit {
-  protected id =
-    `ngx-primer-accordion-content-${nextCounter++}-${nextIdentifier}` as const;
+  protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
+    host: true,
+    optional: true,
+  });
+
+  public readonly accordionContentId = this.idGenerator?.resolvedId;
+
   protected readonly accordionItemContext = inject(
     NgxPrimerAccordionItemContext,
     {
@@ -51,11 +58,6 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
       optional: true,
     }
   );
-
-  @HostBinding('attr.id')
-  public get accordionContentId() {
-    return this.id;
-  }
 
   @HostBinding('role')
   public get roleAttr() {
