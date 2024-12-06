@@ -16,7 +16,6 @@
       <ngx-primer-accordion-trigger
         #accordionTrigger
         [ngxPrimerIdAttr]="'accordion-overview-trigger-' + item.value"
-        (ngxPrimerOnClickEvent)="handleOnClickEvent($event, accordionTrigger)"
         class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100"
         [ngClass]="{
           'border-b': accordionItem.isOpen()

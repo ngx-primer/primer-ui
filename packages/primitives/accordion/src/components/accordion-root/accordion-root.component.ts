@@ -29,9 +29,8 @@ import {
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
-import {
-  NgxPrimerIdGeneratorDirective,
-} from '@ngx-primer/primitive/utilities';
+import { NgxPrimerAccordionRootContextDirective } from '../../directives/component-context';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
 @Component({
@@ -43,6 +42,9 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
     {
       directive: NgxPrimerIdGeneratorDirective,
       inputs: ['ngxPrimerIdAttr'],
+    },
+    {
+      directive: NgxPrimerAccordionRootContextDirective,
     },
   ],
   templateUrl: './accordion-root.component.html',
@@ -63,17 +65,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * enabling interaction or data sharing between the accordion root
    * and its child components, such as items, triggers, and content.
    *
-   * ### Example Usage
-   * ```typescript
-   * export class AccordionItemComponent {
-   *   public readonly accordionRootContext = inject(AccordionRootContext);
-   *
-   *   constructor() {
-   *     const context = this.accordionRootContext.getInstance();
-   *     console.log(context); // Access the accordion root instance
-   *   }
-   * }
-   * ```
    *
    * ### Purpose
    * - Facilitates communication between the root and its children.
@@ -92,18 +83,8 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * and configurations for the accordion, such as default behaviors, styles,
    * or other shared properties. These configurations can be tailored globally
    * or overridden at specific component levels.
-   *
-   * ### Example Usage
-   * ```typescript
-   * export class AccordionComponent {
-   *   public readonly accordionConfig = injectAccordionConfig();
-   *
-   *   constructor() {
-   *     console.log(this.accordionConfig); // Access accordion-specific configurations
-   *   }
-   * }
-   * ```
-   *
+   * 
+   * 
    * ### Purpose
    * - Centralizes the configuration for the accordion component.
    * - Promotes consistency and reusability across multiple accordion instances.
@@ -122,17 +103,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * ### Type
    * - **QueryList<NgxPrimerAccordionItemComponent>**: A list of accordion items that are part of the current accordion root component.
-   *
-   * ### Example Usage
-   * ```typescript
-   * // Accessing the list of accordion items
-   * const items = this.accordionItems;
-   *
-   * // Looping through the accordion items
-   * this.accordionItems.forEach(item => {
-   *   // Perform actions on each item
-   * });
-   * ```
+   * 
    *
    * ### Behavior:
    * - The `accordionItems` list includes all `NgxPrimerAccordionItemComponent` instances that are within the root accordion, including descendants.
@@ -226,16 +197,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @param {T} value The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).
    *
    * @returns {boolean} True if the value is open (i.e., selected or expanded), false otherwise.
-   *
-   * ### Example Usage
-   * ```typescript
-   * const isItemOpen = this.isOpen(itemValue);
-   * if (isItemOpen) {
-   *   // Handle the case where the item is open
-   * } else {
-   *   // Handle the case where the item is closed
-   * }
-   * ```
+   * 
    *
    * ### Behavior:
    * - **Multiple Type**: If the accordion type is set to "Multiple", the method checks if the value exists in the list of selected/open values.
@@ -261,12 +223,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * ### Returns
    * This method does not return anything. It modifies the internal state of the accordion based on the toggled value.
-   *
-   * ### Example Usage
-   * ```typescript
-   * // To toggle an accordion item
-   * this.toggle('item1'); // Toggles the open/closed state of 'item1'
-   * ```
+   * 
    *
    * ### Behavior:
    * - **Single Accordion Mode**:
@@ -322,8 +279,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     return this.type();
   }
 
-  // --------------------------- Hooks ---------------------------------- //
-
   /**
    * Angular initialization hook.
    * Runs the initialization function when the component is initialized.
@@ -331,7 +286,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @returns {void} This method does not return anything.
    */
   ngOnInit(): void {
-    this.runInitializationFn();
+    this.runInitializationFn((ctx) => {
+      console.log(ctx);
+    });
   }
 
   /**
@@ -352,15 +309,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * ### Returns
    * This method does not return anything. It performs initialization tasks and optionally invokes the callback.
-   *
-   * ### Example Usage
-   * ```typescript
-   * // In the accordion component
-   * this.runInitializationFn((params) => {
-   *   console.log('Accordion initialized with context:', params.context);
-   *   console.log('Initial value:', params.value);
-   * });
-   * ```
+   * 
    *
    * ### Description
    * - **Context Setup**: The `accordionRootContext.instance` is set to the current accordion instance,
@@ -369,21 +318,14 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * - **Callback Execution**: If the `doneFn` callback is provided, it is executed with the current context and value.
    */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
-    // set the context instance to allow inject in child component prevent manual prop drilling
-    if (this.accordionRootContext) {
-      this.accordionRootContext.instance = this;
-    }
-
     if (this.defaultValue()) {
       this.value.set(this.defaultValue()); // Set default value if provided.
     }
 
     if (doneFn) {
-      doneFn({
+      setTimeout(() => doneFn({
         context: this.accordionRootContext
-          ?.instance as NgxPrimerAccordionRootComponent<T>,
-        value: this.value(),
-      });
+      }))
     }
   }
 }

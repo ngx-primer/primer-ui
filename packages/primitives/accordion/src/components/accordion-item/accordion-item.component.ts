@@ -23,18 +23,16 @@ import {
   contentChild,
   inject,
   input,
-  runInInjectionContext,
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionContentComponent } from '../accordion-content/accordion-content.component';
 import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
+import { NgxPrimerAccordionItemContextDirective } from '../../directives';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
-import {
-  NgxPrimerIdGeneratorDirective,
-} from '@ngx-primer/primitive/utilities';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-item',
@@ -49,11 +47,14 @@ import {
       directive: NgxPrimerIdGeneratorDirective,
       inputs: ['ngxPrimerIdAttr'],
     },
+    {
+      directive: NgxPrimerAccordionItemContextDirective
+    }
   ],
 })
 export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   protected readonly injector = inject(Injector);
-  
+
   protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
     host: true,
     optional: true,
@@ -96,12 +97,12 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   });
 
   public readonly isOpen = computed<boolean>(() =>
-    this.accordionRoot.isOpen(this.value())
+    this.accordionRoot?.isOpen(this.value())
   );
 
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
-    return this.accordionRoot.orientation();
+    return this.accordionRoot?.orientation();
   }
 
   @HostBinding('attr.data-is-open')
@@ -116,7 +117,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
 
   @HostBinding('attr.data-disabled')
   public get dataDisabledAttr() {
-    return this.accordionRoot.disabled();
+    return this.accordionRoot?.disabled();
   }
 
   ngOnInit(): void {
@@ -158,20 +159,11 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
    * - **Callback Execution**: If the `doneFn` callback is provided, it is executed with the current context and value.
    */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
-    // set the context instance to allow inject in child component prevent manual prop drilling
-    if (this.accordionItemContext) {
-      this.accordionItemContext.instance = this;
-    }
-
-    runInInjectionContext(this.injector, () => {
-      // Todo register injection context here
-    });
-
     if (doneFn) {
-      doneFn({
+      // ensure context being initalized
+      setTimeout(() => doneFn({
         context: this.accordionItemContext
-          ?.instance as NgxPrimerAccordionItemComponent<T>,
-      });
+      }));
     }
   }
 
@@ -181,7 +173,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   }
 
   protected get accordionRoot() {
-    return this.accordionItem.accordionRootContext
+    return this.accordionItem?.accordionRootContext
       ?.instance as NgxPrimerAccordionRootComponent<T>;
   }
 }

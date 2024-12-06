@@ -10,7 +10,6 @@ import {
 
 import { customAlphabet } from 'nanoid';
 
-let nextCounter = 0;
 const nanoid = customAlphabet('1234567890abcdef', 10);
 const nextIdentifier = nanoid(10);
 
@@ -23,11 +22,11 @@ export class NgxPrimerIdGeneratorDirective {
   public readonly idAttr = input<string>('', {
     alias: 'ngxPrimerIdAttr',
   });
-  
+
   protected readonly _uniqueKey = nextIdentifier;
-  
+
   protected readonly _viewContainerRef = inject(ViewContainerRef);
-  
+
   protected readonly _element = computed(
     () => this._viewContainerRef.element.nativeElement as HTMLElement
   );
@@ -36,7 +35,7 @@ export class NgxPrimerIdGeneratorDirective {
     localName: this._element().localName,
     originalId: this._element().id,
   }));
-  
+
   protected readonly _resolvedId = computed(() => {
     const { id, ...parts } = this.resolveHostId();
     return id ?? Object.values(parts).join('-');
@@ -49,13 +48,11 @@ export class NgxPrimerIdGeneratorDirective {
 
     const customPrefix = this.idAttr();
     const componentName = this._hostNodeRef().localName;
-    const counter = nextCounter++;
     const uniquedIdentifierKey = this._uniqueKey;
 
     return {
       customPrefix,
       componentName,
-      counter,
       uniquedIdentifierKey,
     };
   }

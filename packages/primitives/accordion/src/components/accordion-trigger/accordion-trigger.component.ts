@@ -26,11 +26,11 @@ import {
 } from '../../contexts';
 
 import { CommonModule } from '@angular/common';
+import { NgxPrimerAccordionContentComponent } from '../accordion-content/accordion-content.component';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import {
-  NgxPrimerIdGeneratorDirective,
-} from '@ngx-primer/primitive/utilities';
+import { NgxPrimerAccordionTriggerContextDirective } from '../../directives';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-trigger',
@@ -44,6 +44,9 @@ import {
       directive: NgxPrimerIdGeneratorDirective,
       inputs: ['ngxPrimerIdAttr'],
     },
+    {
+      directive: NgxPrimerAccordionTriggerContextDirective
+    }
   ],
 })
 export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
@@ -69,27 +72,24 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   );
 
   ngOnInit(): void {
-    this.runInitializationFn();
+    this.runInitializationFn((x) => {
+      if(x) {
+        console.log(x)
+      }
+    });
   }
 
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
-    // set the context instance to allow inject in child component prevent manual prop drilling
-    if (this.accordionTriggerContext) {
-      this.accordionTriggerContext.instance = this;
-    }
-
     if (doneFn) {
-      doneFn({
+      setTimeout(() => doneFn({
         context: this.accordionTriggerContext
-          ?.instance as NgxPrimerAccordionTriggerComponent<T>,
-      });
+      }));
     }
   }
 
   @HostListener('click')
   toogle() {
     if (this.accordionRoot?.disabled()) return;
-
     this.accordionRoot?.toggle(this.accordionItem?.value());
   }
 
@@ -105,17 +105,17 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
 
   @HostBinding('attr.data-is-open')
   public get dataIsOpenAttr() {
-    return this.accordionItem.isOpen();
+    return this.accordionItem?.isOpen();
   }
 
   @HostBinding('attr.data-expanded')
   public get dataExpandedAttr() {
-    return this.accordionItem.isOpen();
+    return this.accordionItem?.isOpen();
   }
 
   @HostBinding('attr.aria-controls')
   public get dataControlsAttr() {
-    return this.accordionItem.accordionContent()?.accordionContentId;
+    return this.accordionItem?.accordionContent()?.accordionContentId;
   }
 
   protected get accordionItem() {
@@ -124,7 +124,11 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   }
 
   protected get accordionRoot() {
-    return this.accordionItem.accordionRootContext
+    return this.accordionItem?.accordionRootContext
       ?.instance as NgxPrimerAccordionRootComponent<T>;
+  }
+  
+  protected get accordionContent() {
+    return this.accordionItem?.accordionItemContext?.instance as NgxPrimerAccordionContentComponent<T>;
   }
 }

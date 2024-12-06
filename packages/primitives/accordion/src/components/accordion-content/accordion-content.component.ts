@@ -18,12 +18,11 @@ import { Component, HostBinding, OnInit, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionContentContext } from '../../contexts/accordion-content/accordion-content.context';
+import { NgxPrimerAccordionContentContextDirective } from '../../directives';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import {
-  NgxPrimerIdGeneratorDirective,
-} from '@ngx-primer/primitive/utilities';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-content',
@@ -37,6 +36,9 @@ import {
       directive: NgxPrimerIdGeneratorDirective,
       inputs: ['ngxPrimerIdAttr'],
     },
+    {
+      directive: NgxPrimerAccordionContentContextDirective
+    }
   ],
 })
 export class NgxPrimerAccordionContentComponent<T> implements OnInit {
@@ -68,12 +70,12 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
 
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
-    return this.accordionRoot.orientation();
+    return this.accordionRoot?.orientation();
   }
 
   @HostBinding('attr.data-expanded')
   public get dataExpandedAttr() {
-    return this.accordionItem.isOpen();
+    return this.accordionItem?.isOpen();
   }
 
   @HostBinding('attr.data-is-open')
@@ -83,7 +85,7 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
 
   @HostBinding('attr.aria-labelledby')
   public get dataAriaLabelledByAttr() {
-    return this.accordionItem.accordionTrigger()?.accordionTriggerId;
+    return this.accordionItem?.accordionTrigger()?.accordionTriggerId;
   }
 
   ngOnInit(): void {
@@ -91,15 +93,9 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
   }
 
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
-    // set the context instance to allow inject in child component prevent manual prop drilling
-    if (this.accordionContentContext) {
-      this.accordionContentContext.instance = this;
-    }
-
     if (doneFn) {
       doneFn({
         context: this.accordionContentContext
-          ?.instance as NgxPrimerAccordionContentComponent<T>,
       });
     }
   }
