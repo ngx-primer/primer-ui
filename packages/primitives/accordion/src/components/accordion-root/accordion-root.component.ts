@@ -29,7 +29,9 @@ import {
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
+import {
+  NgxPrimerIdGeneratorDirective,
+} from '@ngx-primer/primitive/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
 @Component({
@@ -40,8 +42,8 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
   hostDirectives: [
     {
       directive: NgxPrimerIdGeneratorDirective,
-      inputs: ['ngxPrimerIdAttr']
-    }
+      inputs: ['ngxPrimerIdAttr'],
+    },
   ],
   templateUrl: './accordion-root.component.html',
   styleUrl: './accordion-root.component.scss',
@@ -277,29 +279,30 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   public toggle(value: T): void {
     const isOpenValue = this.isOpen(value);
 
-    // Prevent toggle for single-type accordion when collapsible is false and already open.
-    if (this.type() === 'Single' && isOpenValue && !this.collapsible()) {
-      return;
-    }
-
     if (this.type() === 'Single') {
-      this.value.set(isOpenValue ? null : value); // Set to null for single-value mode.
+      this.toogleSingle(value, isOpenValue);
     }
 
-    /**
-     * Hanlde if multiple enabled
-     */
     if (this.type() === 'Multiple') {
-      const values = Array.isArray(this.value())
-        ? [...(this.value() as T[])]
-        : [this.value()];
+      this.toogleMultiple(value, isOpenValue);
+    }
+  }
 
-      if (isOpenValue) {
-        // @ts-expect-error
-        this.value.set(values?.filter((v) => v !== value));
-      } else {
-        this.value.set([...(values as T[]), value]);
-      }
+  protected toogleSingle(value: T, isOpen: boolean) {
+    if (isOpen && !this.collapsible()) return;
+    this.value.set(isOpen ? null : value);
+  }
+
+  protected toogleMultiple(value: T, isOpenValue: boolean) {
+    const values = Array.isArray(this.value())
+      ? [...(this.value() as T[])]
+      : [this.value()];
+
+    if (isOpenValue) {
+      // @ts-expect-error
+      this.value.set(values?.filter((v) => v !== value));
+    } else {
+      this.value.set([...(values as T[]), value]);
     }
   }
 

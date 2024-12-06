@@ -1,5 +1,12 @@
 /* eslint-disable @angular-eslint/no-input-rename */
-import { Directive, HostBinding, ViewContainerRef, computed, inject, input } from '@angular/core';
+import {
+  Directive,
+  HostBinding,
+  ViewContainerRef,
+  computed,
+  inject,
+  input,
+} from '@angular/core';
 
 import { customAlphabet } from 'nanoid';
 
@@ -14,24 +21,30 @@ const nextIdentifier = nanoid(10);
 })
 export class NgxPrimerIdGeneratorDirective {
   public readonly idAttr = input<string>('', {
-    alias: 'ngxPrimerIdAttr'
+    alias: 'ngxPrimerIdAttr',
   });
+  
   protected readonly _uniqueKey = nextIdentifier;
+  
   protected readonly _viewContainerRef = inject(ViewContainerRef);
-  protected readonly _element = computed(()=> this._viewContainerRef.element.nativeElement as HTMLElement);
+  
+  protected readonly _element = computed(
+    () => this._viewContainerRef.element.nativeElement as HTMLElement
+  );
   protected readonly _hostNodeRef = computed(() => ({
     tagName: this._element().tagName,
     localName: this._element().localName,
-    originalId: this._element().id
+    originalId: this._element().id,
   }));
+  
   protected readonly _resolvedId = computed(() => {
-    const { id, ...parts} = this.resolveHostId();
+    const { id, ...parts } = this.resolveHostId();
     return id ?? Object.values(parts).join('-');
   });
 
   protected resolveHostId() {
-    if(this._element().id.length !== 0) {
-      return ({id: this._element().id})
+    if (this._element().id.length !== 0) {
+      return { id: this._element().id };
     }
 
     const customPrefix = this.idAttr();
@@ -39,12 +52,12 @@ export class NgxPrimerIdGeneratorDirective {
     const counter = nextCounter++;
     const uniquedIdentifierKey = this._uniqueKey;
 
-    return ({
+    return {
       customPrefix,
       componentName,
       counter,
-      uniquedIdentifierKey
-    })
+      uniquedIdentifierKey,
+    };
   }
 
   @HostBinding('attr.id') get resolvedId() {

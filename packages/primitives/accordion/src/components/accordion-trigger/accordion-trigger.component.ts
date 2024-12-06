@@ -28,7 +28,9 @@ import {
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
+import {
+  NgxPrimerIdGeneratorDirective,
+} from '@ngx-primer/primitive/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-trigger',
@@ -40,9 +42,9 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
   hostDirectives: [
     {
       directive: NgxPrimerIdGeneratorDirective,
-      inputs: ['ngxPrimerIdAttr']
-    }
-  ]
+      inputs: ['ngxPrimerIdAttr'],
+    },
+  ],
 })
 export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
@@ -51,7 +53,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   });
 
   public readonly accordionTriggerId = this.idGenerator?.resolvedId;
-  
+
   protected readonly accordionItemContext = inject(
     NgxPrimerAccordionItemContext,
     {

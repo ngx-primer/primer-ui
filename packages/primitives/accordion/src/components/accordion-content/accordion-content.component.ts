@@ -21,7 +21,9 @@ import { NgxPrimerAccordionContentContext } from '../../contexts/accordion-conte
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
+import {
+  NgxPrimerIdGeneratorDirective,
+} from '@ngx-primer/primitive/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-content',
@@ -33,9 +35,9 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
   hostDirectives: [
     {
       directive: NgxPrimerIdGeneratorDirective,
-      inputs: ['ngxPrimerIdAttr']
-    }
-  ]
+      inputs: ['ngxPrimerIdAttr'],
+    },
+  ],
 })
 export class NgxPrimerAccordionContentComponent<T> implements OnInit {
   protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {

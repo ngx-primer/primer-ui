@@ -21,7 +21,6 @@ import {
   OnInit,
   computed,
   contentChild,
-  effect,
   inject,
   input,
   runInInjectionContext,
@@ -33,7 +32,9 @@ import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/acc
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
+import {
+  NgxPrimerIdGeneratorDirective,
+} from '@ngx-primer/primitive/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-item',
@@ -46,12 +47,13 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
   hostDirectives: [
     {
       directive: NgxPrimerIdGeneratorDirective,
-      inputs: ['ngxPrimerIdAttr']
-    }
-  ]
+      inputs: ['ngxPrimerIdAttr'],
+    },
+  ],
 })
 export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   protected readonly injector = inject(Injector);
+  
   protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
     host: true,
     optional: true,
@@ -97,7 +99,6 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     this.accordionRoot.isOpen(this.value())
   );
 
-  // Host Binding
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
     return this.accordionRoot.orientation();
@@ -117,7 +118,6 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   public get dataDisabledAttr() {
     return this.accordionRoot.disabled();
   }
-  // Hooks
 
   ngOnInit(): void {
     this.runInitializationFn();
@@ -164,9 +164,8 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     }
 
     runInInjectionContext(this.injector, () => {
-      // Todo register injection context here 
-    })
-
+      // Todo register injection context here
+    });
 
     if (doneFn) {
       doneFn({
