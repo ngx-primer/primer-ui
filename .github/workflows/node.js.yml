@@ -16,8 +16,10 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      # Checkout the code
       - uses: actions/checkout@v4
 
+      # Set up Node.js
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -26,7 +28,12 @@ jobs:
 
       # Install pnpm
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: corepack enable pnpm
+      
+      - name: Debug Node and pnpm
+        run: |
+          node --version
+          pnpm --version
 
       # Install dependencies using pnpm
       - name: Install Dependencies
