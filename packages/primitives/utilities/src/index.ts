@@ -1,2 +1,3 @@
-export * from './directives/id-generator/id-generator.directive';
 export * from './utils/context/context';
+export * from './utils/context/context-directive';
+export * from './directives';

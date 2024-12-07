@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: ['main', 'develop']
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: ['main', 'develop']
 
 jobs:
   build:
@@ -16,30 +16,30 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'  # Cache pnpm instead of npm
+      - uses: actions/checkout@v4
 
-    # Install pnpm
-    - name: Install pnpm
-      run: npm install -g pnpm
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm' # Cache pnpm instead of npm
 
-    # Install dependencies using pnpm
-    - name: Install Dependencies
-      run: pnpm install --frozen-lockfile
+      # Install pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-    # Run build (Nx should handle the build, can be adjusted if specific commands are needed)
-    - name: Build the project
-      run: pnpm run build --if-present
+      # Install dependencies using pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
 
-    # Run tests using Nx (adjust the test command if needed for Nx-specific testing)
-    - name: Run Tests
-      run: pnpm run test --if-present
+      # Run build (Nx should handle the build, can be adjusted if specific commands are needed)
+      - name: Build the project
+        run: pnpm run build --if-present
 
-    # Optionally, you can also run linting if set up in Nx
-    - name: Run Lint
-      run: pnpm run lint --if-present
+      # Run tests using Nx (adjust the test command if needed for Nx-specific testing)
+      - name: Run Tests
+        run: pnpm run test --if-present
+
+      # Optionally, you can also run linting if set up in Nx
+      - name: Run Lint
+        run: pnpm run lint --if-present
