@@ -176,4 +176,8 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     return this.accordionItem?.accordionRootContext
       ?.instance as NgxPrimerAccordionRootComponent<T>;
   }
+
+  focus(){
+    this.accordionTrigger()?.focus();
+  }
 }

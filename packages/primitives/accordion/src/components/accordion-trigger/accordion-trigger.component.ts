@@ -1,3 +1,4 @@
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -18,6 +19,8 @@ import {
   HostBinding,
   HostListener,
   OnInit,
+  PLATFORM_ID,
+  ViewContainerRef,
   inject,
 } from '@angular/core';
 import {
@@ -25,7 +28,6 @@ import {
   NgxPrimerAccordionTriggerContext,
 } from '../../contexts';
 
-import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionContentComponent } from '../accordion-content/accordion-content.component';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
@@ -50,6 +52,8 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
   ],
 })
 export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
+  protected readonly platformId = inject(PLATFORM_ID);
+  protected readonly viewContainerRef = inject(ViewContainerRef);
   protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
     host: true,
     optional: true,
@@ -97,6 +101,16 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   public get roleAttr() {
     return 'button';
   }
+  
+  @HostBinding('tabIndex')
+  public get tabIndexAttr() {
+    return this.accordionItem.isOpen() ? 0 : -1;
+  }
+
+  @HostBinding('attr.data-focus')
+  public get dataFocusAttr() {
+    return isPlatformBrowser(this.platformId) ? document.activeElement === this.viewContainerRef.element.nativeElement : false;
+  }
 
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
@@ -118,6 +132,35 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
     return this.accordionItem?.accordionContent()?.accordionContentId;
   }
 
+  @HostListener('keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    const currentIndex = this.accordionRoot.accordionItems().findIndex((item: NgxPrimerAccordionItemComponent<T>) => item.accordionTrigger() === this);
+
+    switch (event.key) {
+      case 'Enter':
+      case ' ':
+        this.toogle();
+        event.preventDefault();
+        break;
+      case 'ArrowDown':
+        this.accordionRoot.moveFocus(currentIndex, 1);
+        event.preventDefault();
+        break;
+      case 'ArrowUp':
+        this.accordionRoot.moveFocus(currentIndex, -1);
+        event.preventDefault();
+        break;
+      case 'Home':
+        this.accordionRoot.moveFocusToStart();
+        event.preventDefault();
+        break;
+      case 'End':
+        this.accordionRoot.moveFocusToEnd();
+        event.preventDefault();
+        break;
+    }
+  }
+
   protected get accordionItem() {
     return this.accordionItemContext
       ?.instance as NgxPrimerAccordionItemComponent<T>;
@@ -130,5 +173,11 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   
   protected get accordionContent() {
     return this.accordionItem?.accordionItemContext?.instance as NgxPrimerAccordionContentComponent<T>;
+  }
+
+  focus() {
+    (this.viewContainerRef.element.nativeElement as HTMLElement).focus({
+      preventScroll: false
+    })
   }
 }

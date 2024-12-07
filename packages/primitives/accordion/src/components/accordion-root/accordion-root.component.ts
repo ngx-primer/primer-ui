@@ -328,4 +328,18 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
       }))
     }
   }
+
+  moveFocus(currentIndex: number, direction: number) {
+    const accordionItems = this.accordionItems();
+    const nextIndex = (currentIndex + direction + accordionItems.length) % accordionItems.length;
+    accordionItems[nextIndex].focus()
+  }
+
+  moveFocusToEnd(){
+    this.accordionItems()[this.accordionItems().length -1].focus();
+  }
+
+  moveFocusToStart() {
+    this.accordionItems()[0].focus();
+  }
 }
