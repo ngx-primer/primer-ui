@@ -3,7 +3,7 @@
     #accordionRoot
     [ngxPrimerIdAttr]="'accordion-overview'"
     [(ngxPrimerAccordionValue)]="accordionVal"
-    [ngxPrimerAccordionType]="'Single'"
+    [ngxPrimerAccordionType]="'Multiple'"
     class="flex min-w-[360px] w-[360px] h-full flex-col border rounded-md shadow-sm shadow-gray-300 border-opacity-50 border-gray-400 overflow-hidden"
   >
     @for (item of accordionData; track $index) {
@@ -16,7 +16,7 @@
       <ngx-primer-accordion-trigger
         #accordionTrigger
         [ngxPrimerIdAttr]="'accordion-overview-trigger-' + item.value"
-        class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100"
+        class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100 focus:outline-none focus:bg-slate-100"
         [ngClass]="{
           'border-b': accordionItem.isOpen()
         }"
@@ -41,7 +41,7 @@
         [ngxPrimerIdAttr]="'accordion-overview-content-' + item.value"
         [ngxPrimerCollapsed]="!accordionItem.isOpen()"
         [ngxPrimerCollapsibleDirection]="accordionRoot.orientation()"
-        class="text-gray-700 overflow-hidden"
+        class="text-gray-500 overflow-hidden"
       >
         <!-- {{ accordionContent.idGenerator()?.generatedId | json }} -->
         <span>
@@ -69,7 +69,7 @@
       <ngx-primer-accordion-trigger
         #accordionTrigger2
         [ngxPrimerIdAttr]="'accordion-info-trigger-' + item.value"
-        class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100"
+        class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100 focus:outline-none focus:bg-slate-100"
         [ngClass]="{
           'border-b': accordionItem2.isOpen()
         }"
@@ -95,7 +95,7 @@
         [ngxPrimerIdAttr]="'accordion-info-content-' + item.value"
         [ngxPrimerCollapsed]="!accordionItem2.isOpen()"
         [ngxPrimerCollapsibleDirection]="accordionRoot2.orientation()"
-        class="text-gray-700 overflow-hidden"
+        class="text-gray-500 overflow-hidden"
       >
         <span>
           {{ item.content }}

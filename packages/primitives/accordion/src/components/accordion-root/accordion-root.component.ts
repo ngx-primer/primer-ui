@@ -286,9 +286,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @returns {void} This method does not return anything.
    */
   ngOnInit(): void {
-    this.runInitializationFn((ctx) => {
-      console.log(ctx);
-    });
+    this.runInitializationFn();
   }
 
   /**

@@ -36,8 +36,6 @@ export class NgxPrimerKeyboardEventDirective {
         event: KeyboardEvent
       ) => void;
       onKeyUpFn(event);
-    } else {
-      console.log('keyup');
     }
   }
 
@@ -49,8 +47,6 @@ export class NgxPrimerKeyboardEventDirective {
         event: KeyboardEvent
       ) => void;
       onKeyDown(event);
-    } else {
-      console.log('keydown');
     }
   }
 
@@ -62,8 +58,6 @@ export class NgxPrimerKeyboardEventDirective {
         event: KeyboardEvent
       ) => void;
       onKeyPress(event);
-    } else {
-      console.log('keypress');
     }
   }
 }

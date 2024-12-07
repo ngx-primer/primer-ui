@@ -116,12 +116,4 @@ export class AppComponent {
   ] as const;
 
   accordion2Val = this.accordion2Data[1].value;
-
-  handleOnKeyDownEvent(event: KeyboardEvent) {
-    // throw new Error('Method not implemented.');
-    console.log({ event });
-  }
-  handleOnClickEvent(event: MouseEvent, context: unknown) {
-    console.log({ event, context });
-  }
 }

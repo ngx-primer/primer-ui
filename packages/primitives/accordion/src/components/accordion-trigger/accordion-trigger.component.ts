@@ -76,11 +76,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   );
 
   ngOnInit(): void {
-    this.runInitializationFn((x) => {
-      if(x) {
-        console.log(x)
-      }
-    });
+    this.runInitializationFn();
   }
 
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
