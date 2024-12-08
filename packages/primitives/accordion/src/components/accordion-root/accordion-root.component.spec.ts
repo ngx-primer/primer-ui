@@ -30,7 +30,7 @@ describe('NgxPrimerAccordionRootComponent', () => {
     fixture.detectChanges();
   });
 
-  describe("NgxPrimerAccordionRootComponent Initiialization", () => {
+  describe("NgxPrimerAccordionRootComponent Internal Testing", () => {
     describe("When [NgxPrimerAccordionRootComponent] Has Been Initalized", () => {
       it("Should to be defined", () => {
         expect(component).toBeDefined();
@@ -50,7 +50,7 @@ describe('NgxPrimerAccordionRootComponent', () => {
         expect(component.accordionRootContext?.instance).toBe(component);
       });
 
-      it('should read the default config during initialized', () => {
+      it('should read the default config during initialization', () => {
         const config = defaultAccordionConfig();
         component.ngOnInit();
 
@@ -107,6 +107,10 @@ describe('NgxPrimerAccordionRootComponent', () => {
           expect(component.isOpen(accordions[1])).toBeFalsy();
         })
       })
+
+      describe("When data binding applied", () => {
+        // 
+      })
     });
 
 
@@ -152,5 +156,24 @@ describe('NgxPrimerAccordionRootComponent', () => {
         expect(component.isOpen('item-2')).toBeTruthy();
       });
     });
+
+    describe('When [NgxPrimerAccordionRootComponent][toggle()] Has Been Called', () => {
+      it('Should toogle previous value to the current value in single mode', () => {
+        //
+      })
+      it('Should toogle previous value to the current value in Mulitple mode', () => {
+        //
+      })
+      describe("When toogle value in single mode", () => {
+        it("Should call [toogleSingle()] internally", () => {
+          //
+        })
+      })
+      describe("When toogle value in multiple mode", () => {
+        it("Should call [toogleMultiple()] internally", () => {
+          //
+        })
+      })
+    })
   })
 });
