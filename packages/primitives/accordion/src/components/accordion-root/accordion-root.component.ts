@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -19,10 +18,8 @@ import {
   Component,
   HostBinding,
   OnInit,
-  booleanAttribute,
   contentChildren,
   inject,
-  input,
   model,
 } from '@angular/core';
 
@@ -125,7 +122,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * @type {string} The accordion type, either 'Single' or 'Multiple'.
    */
-  public readonly type = input(this.accordionConfig.type, {
+  public readonly type = model(this.accordionConfig.type, {
     alias: 'ngxPrimerAccordionType',
   });
 
@@ -135,11 +132,10 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * @type {boolean} True if the accordion is collapsible, false otherwise.
    */
-  public readonly collapsible = input<boolean, boolean>(
+  public readonly collapsible = model<boolean>(
     this.accordionConfig.collapsible,
     {
       alias: 'ngxPrimerAccordionCollapsible',
-      transform: booleanAttribute,
     }
   );
 
@@ -159,7 +155,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * @type {T | T[] | null} The default selected value(s).
    */
-  public readonly defaultValue = input<T | T[] | null>(null, {
+  public readonly defaultValue = model<T | T[] | null>(null, {
     alias: 'ngxPrimerAccordionDefaultValue',
   });
 
@@ -169,9 +165,8 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * @type {boolean} True if the accordion is disabled, false otherwise.
    */
-  public readonly disabled = input<boolean, boolean>(false, {
+  public readonly disabled = model<boolean>(false, {
     alias: 'ngxPrimerAccordionDisabled',
-    transform: booleanAttribute,
   });
 
   /**
@@ -179,7 +174,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * @type {string} The accordion's orientation.
    */
-  public readonly orientation = input(this.accordionConfig.orientation, {
+  public readonly orientation = model(this.accordionConfig.orientation, {
     alias: 'ngxPrimerAccordionOrientation',
   });
 
