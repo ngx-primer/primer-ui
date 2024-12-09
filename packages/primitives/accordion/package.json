@@ -1,6 +1,5 @@
 {
   "name": "@ngx-primer/primitive/accordion",
-  "type": "module",
   "version": "0.0.2",
   "peerDependencies": {
     "@angular/common": "^18.2.0",

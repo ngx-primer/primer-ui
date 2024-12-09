@@ -30,6 +30,52 @@ import { NgxPrimerAccordionRootContextDirective } from '../../directives/compone
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
+/**
+ * `NgxPrimerAccordionRootComponent` is the root component of the accordion, providing the context and structure
+ * for the accordion's item and trigger components. It acts as the container for all accordion-related interactions
+ * and configurations.
+ *
+ * This component integrates with the `NgxPrimerAccordionItemComponent` and `NgxPrimerAccordionTriggerComponent` to
+ * create a fully functioning accordion UI. It manages the overall state, layout, and provides accessibility features
+ * for the accordion elements.
+ *
+ * The component also leverages directives like `NgxPrimerIdGeneratorDirective` to generate unique IDs for each
+ * accordion root instance and `NgxPrimerAccordionRootContextDirective` to provide a shared context across child
+ * components.
+ *
+ * ### Selector
+ * - `ngx-primer-accordion-root`: This is the HTML tag used to declare the accordion root component in templates.
+ *
+ * ### Providers
+ * - `NgxPrimerAccordionRootContext`: The context provider for the accordion, which is injected into child components.
+ *
+ * ### Host Directives
+ * - `NgxPrimerIdGeneratorDirective`: Responsible for generating unique IDs for the accordion root component.
+ * - `NgxPrimerAccordionRootContextDirective`: Provides context for child components like items and triggers within
+ *   the accordion, ensuring that they can communicate and share state seamlessly.
+ *
+ * ### Template and Styling
+ * - The `accordion-root.component.html` file contains the structure of accoridon root whic use content projection `ng-content` to give user flexibility to create theor accordion with our Primitives Api.
+ * - The `accordion-root.component.scss` file defines the styling for the accordion root, including visual presentation
+ *   and responsive design adjustments.
+ *
+ * ### Usage
+ * The `NgxPrimerAccordionRootComponent` is typically used as a wrapper for the entire accordion UI, with each item
+ * and trigger being a child of this root component.
+ *
+ * @public
+ * @component
+ * @selector ngx-primer-accordion-root
+ * @imports [CommonModule] Imports Angular's `CommonModule` to provide essential Angular features.
+ * @providers [NgxPrimerAccordionRootContext] Provides context to child components.
+ * @hostDirectives [
+ *   { directive: NgxPrimerIdGeneratorDirective, inputs: ['ngxPrimerIdAttr'] },
+ *   { directive: NgxPrimerAccordionRootContextDirective }
+ * ]
+ * @templateUrl './accordion-root.component.html'
+ * @styleUrl './accordion-root.component.scss'
+ * @exportAs 'ngxPrimerAccordionRootComponent'
+ */
 @Component({
   selector: 'ngx-primer-accordion-root',
   standalone: true,
@@ -49,12 +95,53 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
   exportAs: 'ngxPrimerAccordionRootComponent',
 })
 export class NgxPrimerAccordionRootComponent<T> implements OnInit {
+  /**
+   * The `idGenerator` is a protected property used to inject an instance of `NgxPrimerIdGeneratorDirective`
+   * through Angular's dependency injection system.
+   *
+   * This generator is used to provide unique ID values for elements within the component or directive.
+   * The property is injected with `host: true` and `optional: true`, meaning it will be fetched from the host
+   * element (if available), but the property will be `null` if the directive is not found.
+   *
+   * @protected
+   * @property
+   * @readonly
+   * @type {NgxPrimerIdGeneratorDirective | null}
+   * @see IdGenerator
+   */
   protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
     host: true,
     optional: true,
   });
 
-  public readonly accordionRootId = this.idGenerator?.resolvedId;
+  /**
+   * Example of how to use the `idGenerator` to retrieve a unique ID.
+   * If the generator is available, it will return a dynamically generated ID.
+   * If not, it falls back to a default ID.
+   *
+   * @protected
+   * @property
+   * @getter
+   * @returns {string} The unique ID or 'default-id' if the generator is not available.
+   */
+  protected get uniqueId(): string {
+    return this.idGenerator?.resolvedId ?? 'ngx-primer-accordion-root';
+  }
+
+  /**
+   * The `accordionRootId` is a read-only property that holds the unique ID for the root element of the accordion.
+   * It leverages the `uniqueId` getter to retrieve a dynamically generated ID from the `idGenerator` or falls back
+   * to a default ID if the generator is not available.
+   *
+   * This ID is useful for setting attributes or accessing the accordion component via its unique identifier.
+   *
+   * @public
+   * @property
+   * @readonly
+   * @type {string}
+   * @see AccordionRootId
+   */
+  public readonly accordionRootId = this.uniqueId;
   /**
    * Injects the `AccordionRootContext` service into the component or directive.
    *
@@ -67,6 +154,10 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * - Facilitates communication between the root and its children.
    * - Allows child components to access shared state or methods provided by the root.
    *
+   * @public
+   * @property
+   * @readonly
+   * @type {NgxPrimerAccordionRootContext}
    * @see AccordionRootContext
    */
   public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
@@ -80,13 +171,17 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * and configurations for the accordion, such as default behaviors, styles,
    * or other shared properties. These configurations can be tailored globally
    * or overridden at specific component levels.
-   * 
-   * 
+   *
+   *
    * ### Purpose
    * - Centralizes the configuration for the accordion component.
    * - Promotes consistency and reusability across multiple accordion instances.
    * - Allows for easy updates and modifications to default settings.
    *
+   * @public
+   * @property
+   * @readonly
+   * @type {NgxPrimerAccordionConfig}
    * @see AccordionConfig
    */
   public readonly accordionConfig = injectAccordionConfig();
@@ -100,12 +195,15 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * ### Type
    * - **QueryList<NgxPrimerAccordionItemComponent>**: A list of accordion items that are part of the current accordion root component.
-   * 
+   *
    *
    * ### Behavior:
    * - The `accordionItems` list includes all `NgxPrimerAccordionItemComponent` instances that are within the root accordion, including descendants.
    * - The list is updated dynamically whenever the accordion content changes (e.g., items are added or removed).
    *
+   * @public
+   * @property
+   * @readonly
    * @type {QueryList<NgxPrimerAccordionItemComponent>} The accordion items within this component.
    */
   public readonly accordionItems = contentChildren(
@@ -120,6 +218,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * The accordion type (Single/Multiple).
    * This defines whether the accordion allows single or multiple items to be open at once.
    *
+   * @public
+   * @property
+   * @readonly
    * @type {string} The accordion type, either 'Single' or 'Multiple'.
    */
   public readonly type = model(this.accordionConfig.type, {
@@ -130,6 +231,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * The collapsible property for the accordion.
    * Determines whether the accordion can collapse or not.
    *
+   * @public
+   * @property
+   * @readonly
    * @type {boolean} True if the accordion is collapsible, false otherwise.
    */
   public readonly collapsible = model<boolean>(
@@ -143,6 +247,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * The currently selected value(s) in the accordion.
    * This represents the values of the open accordion item(s).
    *
+   * @public
+   * @property
+   * @readonly
    * @type {T | T[] | null} The currently selected value(s) or null if no item is selected.
    */
   public readonly value = model<T | T[] | null>(null, {
@@ -153,6 +260,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * The default value for the accordion.
    * This is the initial value to be set if no other value is provided.
    *
+   * @public
+   * @property
+   * @readonly
    * @type {T | T[] | null} The default selected value(s).
    */
   public readonly defaultValue = model<T | T[] | null>(null, {
@@ -163,6 +273,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * Whether the accordion is disabled or not.
    * If true, the accordion and its items cannot be interacted with.
    *
+   * @public
+   * @property
+   * @readonly
    * @type {boolean} True if the accordion is disabled, false otherwise.
    */
   public readonly disabled = model<boolean>(false, {
@@ -172,13 +285,14 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   /**
    * The orientation of the accordion (e.g., horizontal or vertical).
    *
+   * @public
+   * @property
+   * @readonly
    * @type {string} The accordion's orientation.
    */
   public readonly orientation = model(this.accordionConfig.orientation, {
     alias: 'ngxPrimerAccordionOrientation',
   });
-
-  // --------------------------- Method ---------------------------------- //
 
   /**
    * Checks whether the given value is currently open in the accordion.
@@ -189,14 +303,14 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * - For **Multiple** type accordions, it checks if the value is in the list of open values.
    * - For **Single** type accordions, it checks if the given value matches the currently selected value.
    *
-   * @param {T} value The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).
-   *
-   * @returns {boolean} True if the value is open (i.e., selected or expanded), false otherwise.
-   * 
-   *
    * ### Behavior:
    * - **Multiple Type**: If the accordion type is set to "Multiple", the method checks if the value exists in the list of selected/open values.
    * - **Single Type**: If the accordion type is set to "Single", the method checks if the value matches the currently selected value.
+   *
+   * @public
+   * @method
+   * @param {T} value The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).
+   * @returns {boolean} True if the value is open (i.e., selected or expanded), false otherwise.
    */
   public isOpen(value: T): boolean {
     return this.type() === 'Multiple'
@@ -213,13 +327,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * The method updates the `value` property to reflect the new state of the accordion.
    *
-   * ### Parameters
-   * - `value` (`T`): The value to toggle in the accordion. This could be any type that the accordion holds.
-   *
-   * ### Returns
-   * This method does not return anything. It modifies the internal state of the accordion based on the toggled value.
-   * 
-   *
    * ### Behavior:
    * - **Single Accordion Mode**:
    *   - In single-value mode (`type() === 'Single'`), if the value is already open, it will be set to `null` (closed) unless `collapsible` is set to `false`.
@@ -227,6 +334,11 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * - **Multi Accordion Mode**:
    *   - If the accordion allows multiple open values (`type() !== 'Single'`), it will toggle the presence of the value in the list of selected values.
    *   - If the value is currently open, it is removed from the list; if it's closed, it is added to the list.
+   *
+   * @public
+   * @method
+   * @param {T} value The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).
+   * @returns {void}
    */
   public toggle(value: T): void {
     const isOpenValue = this.isOpen(value);
@@ -240,11 +352,40 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     }
   }
 
+  /**
+   * Toggles the state of a single accordion item.
+   * If the accordion is not collapsible and the item is being opened, the action is ignored.
+   * Otherwise, it updates the internal value to either `null` (if closing) or the provided `value` (if opening).
+   *
+   * This method is used for managing the single accordion item toggle behavior, ensuring that only one item is open
+   * at a time when the accordion is not collapsible.
+   *
+   * @public
+   * @method
+   * @param {T} value The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).
+   * @param {boolean} isOpen Indicates whether the accordion item is being opened (`true`) or closed (`false`).
+   * @returns {void} This method does not return anything.
+   */
   protected toogleSingle(value: T, isOpen: boolean) {
     if (isOpen && !this.collapsible()) return;
     this.value.set(isOpen ? null : value);
   }
 
+  /**
+   * Toggles the state of multiple accordion items.
+   * If the item is being opened (`isOpenValue = false`), it adds the value to the list of open items.
+   * If the item is being closed (`isOpenValue = true`), it removes the value from the list of open items.
+   *
+   * This method is used for managing multiple accordion items where more than one item can be open at a time.
+   * It ensures that the internal value is updated with the correct set of open items,
+   * either adding or removing the given `value` based on its current state.
+   *
+   * @public
+   * @method
+   * @param {T} value The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).
+   * @param {boolean} isOpenValue Indicates whether the accordion item is being opened (`false`) or closed (`true`).
+   * @returns {void} This method does not return anything.
+   */
   protected toogleMultiple(value: T, isOpenValue: boolean) {
     const values = Array.isArray(this.value())
       ? [...(this.value() as T[])]
@@ -258,17 +399,60 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     }
   }
 
-  // -------------------------- Host Bindings --------------------------- //
+  /**
+   * Gets the value of the `data-orientation` attribute for the accordion element.
+   * This property is bound to the `orientation` property from the accordion configuration,
+   * allowing the accordion's orientation to be dynamically set as an attribute on the DOM element.
+   *
+   * The value of `data-orientation` will reflect the current orientation defined in the accordion configuration,
+   * such as `Vertical` or `Horizontal`.
+   *
+   * @public
+   * @method
+   * @getter
+   * @returns {string} The value of the `orientation` property from the accordion configuration (e.g., 'Vertical' or 'Horizontal').
+   */
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
     return this.accordionConfig.orientation;
   }
 
+  /**
+   * Gets the value of the `data-disabled` attribute for the accordion element.
+   *
+   * This property is bound to the result of the `disabled()` method, which determines whether the
+   * accordion is disabled or not. If the accordion is disabled, the `data-disabled` attribute
+   * will be added with an empty string value; otherwise, it will be removed (i.e., set to `null`).
+   *
+   * This is useful for styling or DOM-related behaviors that depend on whether the accordion is
+   * disabled or not. It allows external tools or styles to target the accordion element based on
+   * its disabled state.
+   *
+   * @public
+   * @method
+   * @getter
+   * @returns {string | null} An empty string `''` if the accordion is disabled, or `null` if it is not.
+   */
   @HostBinding('attr.data-disabled')
   public get dataDisabledAttr() {
     return this.disabled() ? '' : null;
   }
 
+  /**
+   * Gets the value of the `data-type` attribute for the accordion element.
+   *
+   * This property is bound to the result of the `type()` method, which determines the type of
+   * the accordion (e.g., `Single` or `Multiple`). The `data-type` attribute is dynamically set
+   * on the DOM element, reflecting the current accordion type.
+   *
+   * This is useful for targeting the accordion element in styles or for other DOM-related
+   * behaviors based on its type, allowing different types of accordions to be easily identified
+   * and styled differently if needed.
+   *
+   * @public
+   * @getter
+   * @returns {string} The value of the accordion's type (e.g., 'Single' or 'Multiple') from the `type()` method.
+   */
   @HostBinding('attr.data-type')
   public get dataTypeAttr() {
     return this.type();
@@ -302,13 +486,20 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * ### Returns
    * This method does not return anything. It performs initialization tasks and optionally invokes the callback.
-   * 
+   *
    *
    * ### Description
    * - **Context Setup**: The `accordionRootContext.instance` is set to the current accordion instance,
    *   making it accessible for child components through dependency injection.
    * - **Default Value**: If a default value is set for the accordion, it will be applied at initialization.
    * - **Callback Execution**: If the `doneFn` callback is provided, it is executed with the current context and value.
+   *
+   * @public
+   * @method
+   * @param {function} [doneFn] An optional callback function that is executed after the initialization.
+   *   It receives an object containing the current `context` and `value` of the accordion.
+   * @returns {void} This method does not return any value.
+   *
    */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     if (this.defaultValue()) {
@@ -316,23 +507,91 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     }
 
     if (doneFn) {
-      setTimeout(() => doneFn({
-        context: this.accordionRootContext
-      }))
+      setTimeout(() =>
+        doneFn({
+          context: this.accordionRootContext,
+        })
+      );
     }
   }
 
-  moveFocus(currentIndex: number, direction: number) {
+  /**
+   * Moves the focus to the next or previous accordion item based on the given direction.
+   *
+   * This method calculates the next index of the accordion item based on the current index and the direction,
+   * ensuring the focus wraps around if the index goes beyond the bounds of the accordion items list.
+   * It then sets focus to the calculated item.
+   *
+   * ### Parameters
+   * - `currentIndex` (number): The index of the currently focused accordion item.
+   * - `direction` (number): The direction in which to move the focus. A positive value moves the focus forward,
+   *   while a negative value moves the focus backward.
+   *
+   * ### Returns
+   * This method does not return anything. It only updates the focus of the accordion item.
+   *
+   * ### Description
+   * - **Index Calculation**: The method uses modular arithmetic to ensure that the next index wraps around the list of items.
+   * - **Focus Setting**: Once the next index is calculated, the method sets focus to the corresponding accordion item.
+   *
+   * @public
+   * @method
+   * @param {number} currentIndex The index of the currently focused accordion item.
+   * @param {number} direction The direction in which to move the focus (positive for forward, negative for backward).
+   * @returns {void} This method does not return any value.
+   */
+  public moveFocus(currentIndex: number, direction: number) {
     const accordionItems = this.accordionItems();
-    const nextIndex = (currentIndex + direction + accordionItems.length) % accordionItems.length;
-    accordionItems[nextIndex].focus()
+    const nextIndex =
+      (currentIndex + direction + accordionItems.length) %
+      accordionItems.length;
+    accordionItems[nextIndex].focus();
   }
 
-  moveFocusToEnd(){
-    this.accordionItems()[this.accordionItems().length -1].focus();
+  /**
+   * Moves the focus to the last accordion item in the list.
+   *
+   * This method sets the focus to the last accordion item in the list of accordion items.
+   * It ensures that the focus is moved to the final item, regardless of the current focus.
+   *
+   * ### Parameters
+   * This method does not take any parameters.
+   *
+   * ### Returns
+   * This method does not return anything. It only updates the focus to the last accordion item.
+   *
+   * ### Description
+   * - **Focus Setting**: The method accesses the last item in the accordion list and sets focus to it.
+   *
+   * @public
+   * @method
+   * @returns {void} This method does not return any value.
+   */
+
+  public moveFocusToEnd() {
+    this.accordionItems()[this.accordionItems().length - 1].focus();
   }
 
-  moveFocusToStart() {
+  /**
+   * Moves the focus to the first accordion item in the list.
+   *
+   * This method sets the focus to the first accordion item in the list of accordion items.
+   * It ensures that the focus is moved to the first item, regardless of the current focus.
+   *
+   * ### Parameters
+   * This method does not take any parameters.
+   *
+   * ### Returns
+   * This method does not return anything. It only updates the focus to the first accordion item.
+   *
+   * ### Description
+   * - **Focus Setting**: The method accesses the first item in the accordion list and sets focus to it.
+   *
+   * @public
+   * @method
+   * @returns {void} This method does not return any value.
+   */
+  public moveFocusToStart() {
     this.accordionItems()[0].focus();
   }
 }
