@@ -594,4 +594,142 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   public moveFocusToStart() {
     this.accordionItems()[0].focus();
   }
+
+  /**
+   * Expands all accordion items.
+   *
+   * This method expands all accordion items by calling the `toggleAll` method with a value of `true`,
+   * ensuring that all items are opened.
+   *
+   * ### Parameters
+   * This method does not take any parameters.
+   *
+   * ### Returns
+   * This method does not return anything. It only expands all accordion items.
+   *
+   * ### Description
+   * - **Expanding Items**: The method calls `toggleAll` with the argument `true` to expand all items.
+   * - **Condition for Single Type**: If the accordion is of type "Single", the method does nothing.
+   *
+   * @public
+   * @method
+   * @returns {void} This method does not return any value.
+   */
+  public expandAll() {
+    this.toggleAll(true);
+  }
+
+  /**
+   * Collapses all accordion items.
+   *
+   * This method collapses all accordion items by calling the `toggleAll` method with a value of `false`,
+   * ensuring that all items are closed.
+   *
+   * ### Parameters
+   * This method does not take any parameters.
+   *
+   * ### Returns
+   * This method does not return anything. It only collapses all accordion items.
+   *
+   * ### Description
+   * - **Collapsing Items**: The method calls `toggleAll` with the argument `false` to collapse all items.
+   * - **Condition for Single Type**: If the accordion is of type "Single", the method does nothing.
+   *
+   * @public
+   * @method
+   * @returns {void} This method does not return any value.
+   */
+  public collapseAll() {
+    this.toggleAll(false);
+  }
+
+  /**
+   * Toggles the open/closed state of all accordion items based on the provided `isOpen` value.
+   *
+   * This method checks whether the accordion is of type "Single" and, if so, returns early without making any changes.
+   * Otherwise, it toggles the open/closed state of each accordion item, calling the `toogleMultiple` method
+   * on each item, with the inverse of the `isOpen` parameter (`!isOpen`). It also checks whether the accordion item
+   * is disabled before toggling its state.
+   *
+   * ### Parameters
+   * - `isOpen`: A boolean value that specifies whether to open (`true`) or close (`false`)
+   *   all accordion items.
+   *   - `true`: Expands all accordion items.
+   *   - `false`: Collapses all accordion items.
+   *
+   * ### Returns
+   * This method does not return anything. It only updates the open/closed state of all items.
+   *
+   * ### Description
+   * - **Toggling State**: The method iterates over all accordion items and calls `toogleMultiple`
+   *   on each item, passing the inverse of the `isOpen` state.
+   * - **Condition for Single Type**: If the accordion is of type "Single", the method does nothing.
+   * - **Disabled Check**: The method checks whether each item is disabled before attempting to toggle its state.
+   *
+   * @public
+   * @method
+   * @param {boolean} isOpen - The desired open/closed state for all accordion items.
+   * @returns {void} This method does not return any value.
+   */
+  private toggleAll(isOpen: boolean) {
+    if (this.type() === 'Single') return;
+
+    this.accordionItems().forEach(({ value }) => {
+      if (this.disabled()) return;
+      this.toogleMultiple(value(), !isOpen);
+    });
+  }
+
+  public expand(value: T | T[]) {
+    this.toggleValue(value, true);
+  }
+
+  public collapse(value: T | T[]) {
+    this.toggleValue(value, false);
+  }
+
+  private toggleValue(value: T | T[], isExpanding: boolean) {
+    const handleToggle = (v: T) => {
+      const isOpen = this.isOpen(v);
+
+      if (isExpanding && !isOpen) {
+        this.toogleSingle(v, true); // Expanding
+      } else if (!isExpanding && isOpen) {
+        this.toogleSingle(v, false); // Collapsing
+      }
+    };
+
+    if (Array.isArray(value)) {
+      value.forEach(handleToggle);
+    } else {
+      handleToggle(value);
+    }
+  }
+
+  public enable(value: T | T[]) {
+    this.updateDisableState(value, true);
+  }
+
+  public disable(value: T | T[]) {
+    this.updateDisableState(value, false);
+  }
+
+  protected updateDisableState(value: T | T[], enable: boolean) {
+    // Ensure value is always an array, even if it's a single item
+    const values = Array.isArray(value) ? value : [value];
+    
+    const accordionItems = this.accordionItems().filter((item) => values.includes(item.value()));
+  
+    const update = (item: NgxPrimerAccordionItemComponent<T>, enable: boolean) => {
+      const isDisabled = item.disabled();
+      const shouldDisable = !enable;
+  
+      // Only change the state if it's different from the desired state
+      if (isDisabled !== shouldDisable) {
+        item.disabled.set(shouldDisable ? true : false);
+      }
+    };
+  
+    accordionItems.forEach((item) => update(item, enable));
+  }
 }

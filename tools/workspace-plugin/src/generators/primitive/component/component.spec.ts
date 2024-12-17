@@ -16,7 +16,7 @@ describe('primitive-component-generator generator', () => {
     selector: '',
     fileName: '',
     symbolName: '',
-    path: ''
+    path: '',
   };
 
   beforeEach(() => {
