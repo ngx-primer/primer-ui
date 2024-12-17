@@ -31,6 +31,7 @@ export interface NormalizedComponentSchema extends BaseAngularComponentSchema {
   fileName: string;
   symbolName: string;
 }
-export interface PrimitiveComponentGeneratorGeneratorSchema extends NormalizedComponentSchema {
+export interface PrimitiveComponentGeneratorGeneratorSchema
+  extends NormalizedComponentSchema {
   name: string;
 }

@@ -15,7 +15,7 @@ export async function primitiveComponentGeneratorGenerator(
   tree: Tree,
   options: PrimitiveComponentGeneratorGeneratorSchema
 ) {
-  // toodo implement component 
+  // toodo implement component
 }
 
 export default primitiveComponentGeneratorGenerator;

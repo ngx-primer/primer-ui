@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/no-input-rename */
 /**
  * Copyright [2024] [ElhakimDev]
  *
@@ -22,7 +21,7 @@ import {
   computed,
   contentChild,
   inject,
-  input,
+  model,
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
@@ -92,12 +91,20 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     }
   );
 
-  public readonly value = input.required<T>({
+  public readonly value = model<T|null>(null, {
     alias: 'ngxPrimerAccordionItemValue',
   });
 
+
+  /**
+   * Whether the accordion item is disabled.
+   */
+  public readonly disabled = model(false, {
+    alias: 'ngxPrimerAccordionItemDisabled'
+  });
+
   public readonly isOpen = computed<boolean>(() =>
-    this.accordionRoot?.isOpen(this.value())
+    this.accordionRoot?.isOpen(this.value() as T)
   );
 
   @HostBinding('attr.data-orientation')

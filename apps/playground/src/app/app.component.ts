@@ -116,4 +116,6 @@ export class AppComponent {
   ] as const;
 
   accordion2Val = this.accordion2Data[1].value;
+
+  disabled = true;
 }
