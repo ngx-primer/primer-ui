@@ -1,0 +1,29 @@
+{
+  "generators": {
+    "primitive-component-generator": {
+      "factory": "./src/generators/primitive/component/component",
+      "schema": "./src/generators/primitive/component/schema.json",
+      "description": "A generator that can generate primitive component"
+    },
+    "primitive-config-generator": {
+      "factory": "./src/generators/primitive/config/config",
+      "schema": "./src/generators/primitive/config/schema.json",
+      "description": "A generator that can generate primitive config"
+    },
+    "primitive-context-generator": {
+      "factory": "./src/generators/primitive/context/context",
+      "schema": "./src/generators/primitive/context/schema.json",
+      "description": "A generator that can generate primitive context"
+    },
+    "primitive-directive-generator": {
+      "factory": "./src/generators/primitive/directive/directive",
+      "schema": "./src/generators/primitive/directive/schema.json",
+      "description": "A generator that can generate primitive directive"
+    },
+    "primitive-token-generator": {
+      "factory": "./src/generators/primitive/token/token",
+      "schema": "./src/generators/primitive/token/schema.json",
+      "description": "A generator that can generate primitive token"
+    }
+  }
+}
