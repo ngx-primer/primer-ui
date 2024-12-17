@@ -32,12 +32,8 @@ export const defaultAccordionConfig: () => NgxPrimerAccordionConfig = () => ({
     builtIn: true,
   },
   updateConfig(callbackFn: Partial<NgxPrimerAccordionConfig> | ((config: NgxPrimerAccordionConfig) => Partial<NgxPrimerAccordionConfig>)): void {
-    if (typeof callbackFn === 'function') {
-      const updatedConfig = callbackFn(this);
-      Object.assign(this, {...updatedConfig});
-    } else {
-      Object.assign(this, {...callbackFn});
-    }
+    const updatedConfig = typeof callbackFn === 'function' ? callbackFn(this) : {...callbackFn};
+    Object.assign(this, {...updatedConfig});
   },
   resetConfig(target: NgxPrimerAccordionConfig): void {
     Object.assign(target, defaultAccordionConfig());
