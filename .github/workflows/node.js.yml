@@ -48,15 +48,15 @@ jobs:
 
       # Run build (Nx should handle the build, can be adjusted if specific commands are needed)
       - name: Build the project
-        run: pnpm run build --if-present
+        run: pnpm run build
 
       # Run tests using Nx (adjust the test command if needed for Nx-specific testing)
       - name: Run Tests
-        run: pnpm run test --if-present
+        run: pnpm run test
 
       # Optionally, you can also run linting if set up in Nx
       - name: Run Lint
-        run: pnpm run lint --if-present
+        run: pnpm run lint
 
       
       # Format the code
