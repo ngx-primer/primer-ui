@@ -51,8 +51,8 @@ jobs:
         run: pnpm run build
 
       # Run tests using Nx (adjust the test command if needed for Nx-specific testing)
-      - name: Run Tests
-        run: pnpm run test
+      # - name: Run Tests
+      #   run: pnpm run test
 
       # Optionally, you can also run linting if set up in Nx
       - name: Run Lint

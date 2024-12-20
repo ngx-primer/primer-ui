@@ -11,7 +11,7 @@ import { NgxPrimerAccordionOrientation } from '../../../configs/accordion-config
 })
 export class NgxPrimerCollapseExpandAnimationDirective {
   public readonly collapsed = input.required<boolean>({
-    alias: 'ngxPrimerCollapsed',
+    alias: 'ngxPrimerCollapsibleCollapsed',
   });
 
   public readonly collapsibleDirection = input.required<

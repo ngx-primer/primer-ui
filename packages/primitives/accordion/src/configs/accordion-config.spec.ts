@@ -1,4 +1,4 @@
-import { NgxPrimerAccordionConfig, NgxPrimerAccordionOrientation, NgxPrimerAccordionType, defaultAccordionConfig, injectAccordionConfig, provideAccordionConfig } from './accordion-config';
+import { NgxPrimerAccordionConfig, NgxPrimerAccordionOrientation, NgxPrimerAccordionType, defaultAccordionConfig, provideAccordionConfig } from './accordion-config';
 
 import { NgxPrimerAccordionConfigToken } from '../tokens/accordion-config.token';
 import { TestBed } from '@angular/core/testing';

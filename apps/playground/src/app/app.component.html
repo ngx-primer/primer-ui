@@ -56,7 +56,7 @@
           #accordionContent
           ngxPrimerCollapsibleDirective
           [ngxPrimerIdAttr]="'accordion-overview-content-' + item.value"
-          [ngxPrimerCollapsed]="!accordionItem.isOpen()"
+          [ngxPrimerCollapsibleCollapsed]="!accordionItem.isOpen()"
           [ngxPrimerCollapsibleDirection]="accordionRoot.orientation()"
           class="text-gray-500 overflow-hidden"
         >
@@ -111,7 +111,7 @@
         #accordionContent2
         ngxPrimerCollapsibleDirective
         [ngxPrimerIdAttr]="'accordion-info-content-' + item.value"
-        [ngxPrimerCollapsed]="!accordionItem2.isOpen()"
+        [ngxPrimerCollapsibleCollapsed]="!accordionItem2.isOpen()"
         [ngxPrimerCollapsibleDirection]="accordionRoot2.orientation()"
         class="text-gray-500 overflow-hidden"
       >
