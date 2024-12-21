@@ -672,10 +672,11 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @returns {void} This method does not return any value.
    */
   private toggleAll(isOpen: boolean) {
-    if (this.type() === 'Single') return;
+    if (this.type() === 'Single' || this.disabled()) return;
 
-    this.accordionItems().forEach(({ value }) => {
-      if (this.disabled()) return;
+    this.accordionItems().forEach(({ disabled, value }) => {
+      const isItemDisabled = disabled();
+      if (isItemDisabled) return;
       this.toogleMultiple(value(), !isOpen);
     });
   }

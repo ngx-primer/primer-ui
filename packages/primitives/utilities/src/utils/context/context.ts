@@ -9,6 +9,6 @@ export abstract class Context<T = unknown> {
   }
 
   get instance(): T | null {
-    return this._instance() as T;
+    return this._instance() as ReturnType<typeof this._instance>;
   }
 }

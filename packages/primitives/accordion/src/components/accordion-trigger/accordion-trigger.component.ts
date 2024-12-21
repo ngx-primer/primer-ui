@@ -236,7 +236,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
 
   @HostListener('click')
   toogle() {
-    if (this.accordionRoot?.disabled() || this.accordionItem.disabled()) return;
+    if (this.accordionRoot?.disabled() || this.accordionItem?.disabled()) return;
     this.accordionRoot?.toggle(this.accordionItem?.value() as T);
   }
 
@@ -327,7 +327,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   }
 
   focus() {
-    if(this.accordionRoot?.disabled() || this.accordionItem.disabled()) return;
+    if(this.accordionRoot?.disabled() || this.accordionItem?.disabled()) return;
     (this.viewContainerRef.element.nativeElement as HTMLElement).focus({
       preventScroll: false,
     });
