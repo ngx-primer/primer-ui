@@ -469,37 +469,15 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   }
 
   /**
-   * Runs the initialization logic for the accordion component, setting up default values and context.
+   * Initializes the accordion component, setting up default values and context.
    *
-   * This method initializes the accordion component, optionally setting a default value if provided.
-   * It also sets the context instance to allow dependency injection in child components,
-   * preventing the need for manual prop drilling.
+   * This method sets the default value if provided and assigns the context instance
+   * for dependency injection in child components. If a `doneFn` callback is provided,
+   * it will be executed after initialization with the current context.
    *
-   * If a `doneFn` callback is provided, it will be executed after the initialization process
-   * with the current context and value.
-   *
-   * ### Parameters
-   * - `doneFn` (Optional): A callback function that will be executed after initialization.
-   *   It receives an object with the `context` and `value` properties, where:
-   *   - `context`: The current instance of the accordion component's root context.
-   *   - `value`: The current value of the accordion, either the default value or a set value.
-   *
-   * ### Returns
-   * This method does not return anything. It performs initialization tasks and optionally invokes the callback.
-   *
-   *
-   * ### Description
-   * - **Context Setup**: The `accordionRootContext.instance` is set to the current accordion instance,
-   *   making it accessible for child components through dependency injection.
-   * - **Default Value**: If a default value is set for the accordion, it will be applied at initialization.
-   * - **Callback Execution**: If the `doneFn` callback is provided, it is executed with the current context and value.
-   *
-   * @public
-   * @method
-   * @param {function} [doneFn] An optional callback function that is executed after the initialization.
-   *   It receives an object containing the current `context` and `value` of the accordion.
-   * @returns {void} This method does not return any value.
-   *
+   * @param {function} [doneFn] An optional callback function executed after initialization,
+   *   receiving an object with the current `context`.
+   * @returns {void}
    */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     if (this.defaultValue()) {
@@ -522,22 +500,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * ensuring the focus wraps around if the index goes beyond the bounds of the accordion items list.
    * It then sets focus to the calculated item.
    *
-   * ### Parameters
-   * - `currentIndex` (number): The index of the currently focused accordion item.
-   * - `direction` (number): The direction in which to move the focus. A positive value moves the focus forward,
+   * @param {number} currentIndex - The index of the currently focused accordion item.
+   * @param {number} direction - The direction in which to move the focus. A positive value moves the focus forward,
    *   while a negative value moves the focus backward.
-   *
-   * ### Returns
-   * This method does not return anything. It only updates the focus of the accordion item.
-   *
-   * ### Description
-   * - **Index Calculation**: The method uses modular arithmetic to ensure that the next index wraps around the list of items.
-   * - **Focus Setting**: Once the next index is calculated, the method sets focus to the corresponding accordion item.
-   *
-   * @public
-   * @method
-   * @param {number} currentIndex The index of the currently focused accordion item.
-   * @param {number} direction The direction in which to move the focus (positive for forward, negative for backward).
    * @returns {void} This method does not return any value.
    */
   public moveFocus(currentIndex: number, direction: number) {
@@ -554,20 +519,10 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * This method sets the focus to the last accordion item in the list of accordion items.
    * It ensures that the focus is moved to the final item, regardless of the current focus.
    *
-   * ### Parameters
-   * This method does not take any parameters.
-   *
-   * ### Returns
-   * This method does not return anything. It only updates the focus to the last accordion item.
-   *
-   * ### Description
-   * - **Focus Setting**: The method accesses the last item in the accordion list and sets focus to it.
-   *
    * @public
    * @method
    * @returns {void} This method does not return any value.
    */
-
   public moveFocusToEnd() {
     this.accordionItems()[this.accordionItems().length - 1].focus();
   }
@@ -577,15 +532,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *
    * This method sets the focus to the first accordion item in the list of accordion items.
    * It ensures that the focus is moved to the first item, regardless of the current focus.
-   *
-   * ### Parameters
-   * This method does not take any parameters.
-   *
-   * ### Returns
-   * This method does not return anything. It only updates the focus to the first accordion item.
-   *
-   * ### Description
-   * - **Focus Setting**: The method accesses the first item in the accordion list and sets focus to it.
    *
    * @public
    * @method
@@ -598,22 +544,12 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   /**
    * Expands all accordion items.
    *
-   * This method expands all accordion items by calling the `toggleAll` method with a value of `true`,
-   * ensuring that all items are opened.
-   *
-   * ### Parameters
-   * This method does not take any parameters.
-   *
-   * ### Returns
-   * This method does not return anything. It only expands all accordion items.
-   *
-   * ### Description
-   * - **Expanding Items**: The method calls `toggleAll` with the argument `true` to expand all items.
-   * - **Condition for Single Type**: If the accordion is of type "Single", the method does nothing.
+   * Calls `toggleAll` with `true` to open all items.
+   * Does nothing if the accordion type is "Single".
    *
    * @public
    * @method
-   * @returns {void} This method does not return any value.
+   * @returns {void}
    */
   public expandAll() {
     this.toggleAll(true);
@@ -622,22 +558,12 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   /**
    * Collapses all accordion items.
    *
-   * This method collapses all accordion items by calling the `toggleAll` method with a value of `false`,
-   * ensuring that all items are closed.
-   *
-   * ### Parameters
-   * This method does not take any parameters.
-   *
-   * ### Returns
-   * This method does not return anything. It only collapses all accordion items.
-   *
-   * ### Description
-   * - **Collapsing Items**: The method calls `toggleAll` with the argument `false` to collapse all items.
-   * - **Condition for Single Type**: If the accordion is of type "Single", the method does nothing.
+   * Calls `toggleAll` with `false` to close all items.
+   * Does nothing if the accordion type is "Single".
    *
    * @public
    * @method
-   * @returns {void} This method does not return any value.
+   * @returns {void}
    */
   public collapseAll() {
     this.toggleAll(false);
@@ -651,25 +577,11 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * on each item, with the inverse of the `isOpen` parameter (`!isOpen`). It also checks whether the accordion item
    * is disabled before toggling its state.
    *
-   * ### Parameters
-   * - `isOpen`: A boolean value that specifies whether to open (`true`) or close (`false`)
+   * @param {boolean} isOpen - A boolean value that specifies whether to open (`true`) or close (`false`)
    *   all accordion items.
    *   - `true`: Expands all accordion items.
    *   - `false`: Collapses all accordion items.
-   *
-   * ### Returns
-   * This method does not return anything. It only updates the open/closed state of all items.
-   *
-   * ### Description
-   * - **Toggling State**: The method iterates over all accordion items and calls `toogleMultiple`
-   *   on each item, passing the inverse of the `isOpen` state.
-   * - **Condition for Single Type**: If the accordion is of type "Single", the method does nothing.
-   * - **Disabled Check**: The method checks whether each item is disabled before attempting to toggle its state.
-   *
-   * @public
-   * @method
-   * @param {boolean} isOpen - The desired open/closed state for all accordion items.
-   * @returns {void} This method does not return any value.
+   * @returns {void} This method does not return anything. It only updates the open/closed state of all items.
    */
   private toggleAll(isOpen: boolean) {
     if (this.type() === 'Single' || this.disabled()) return;
@@ -681,15 +593,43 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     });
   }
 
+
+  /**
+   * Expands the accordion with the given value(s).
+   * 
+   * If the value is currently collapsed, it will be expanded.
+   * If the value is currently expanded, it will remain expanded.
+   *
+   * @param value - The value or array of values to expand.
+   */
   public expand(value: T | T[]) {
     this.toggleValue(value, true);
   }
 
+  /**
+   * Collapses the specified value(s) in the accordion.
+   * 
+   * If the value is currently expanded, it will be collapsed.
+   * If the value is currently collapsed, it will remain collapsed.
+   *
+   * @param value - The value or array of values to collapse.
+   */
   public collapse(value: T | T[]) {
     this.toggleValue(value, false);
   }
 
-  private toggleValue(value: T | T[], isExpanding: boolean) {
+  
+  /**
+   * Toggles the expansion state of the given value(s).
+   * 
+   * If the value is currently collapsed, it will be expanded.
+   * If the value is currently expanded, it will be collapsed.
+   * 
+   * @protected
+   * @param {T | T[]} value - The value or array of values to toggle.
+   * @param {boolean} isExpanding - A flag indicating whether to expand (true) or collapse (false) the value(s).
+   */
+  protected toggleValue(value: T | T[], isExpanding: boolean) {
     const handleToggle = (v: T) => {
       const isOpen = this.isOpen(v);
 
@@ -707,16 +647,46 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     }
   }
 
+  /**
+   * Enables the specified value(s) by updating their disable state.
+   * 
+   * If the value is currently disabled, it will be enabled.
+   * If the value is currently enabled, it will remain enabled.
+   *
+   * @public
+   * @method
+   * @param value - The value or array of values to be enabled.
+   */
   public enable(value: T | T[]) {
     this.updateDisableState(value, true);
   }
 
+  /**
+   * Disables the specified value(s) by updating their disable state.
+   * 
+   * If the value is currently enabled, it will be disabled.
+   * If the value is currently disabled, it will remain disabled.
+   * 
+   * @public
+   * @method
+   * @param value - The value or array of values to be disabled.
+   * @returns {void}
+   */
   public disable(value: T | T[]) {
     this.updateDisableState(value, false);
   }
 
+  /**
+   * Updates the disable state of the specified value(s).
+   * 
+   * If the value is currently disabled, it will be enabled.
+   * If the value is currently enabled, it will be disabled.
+   * 
+   * @protected
+   * @param {T | T[]} value - The value or array of values to update.
+   * @param {boolean} enable - A flag indicating whether to enable (true) or disable (false) the value(s).
+   */
   protected updateDisableState(value: T | T[], enable: boolean) {
-    // Ensure value is always an array, even if it's a single item
     const values = Array.isArray(value) ? value : [value];
     
     const accordionItems = this.accordionItems().filter((item) => values.includes(item.value()));
@@ -725,7 +695,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
       const isDisabled = item.disabled();
       const shouldDisable = !enable;
   
-      // Only change the state if it's different from the desired state
       if (isDisabled !== shouldDisable) {
         item.disabled.set(shouldDisable ? true : false);
       }
