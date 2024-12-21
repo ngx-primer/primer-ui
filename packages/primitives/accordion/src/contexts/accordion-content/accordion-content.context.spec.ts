@@ -5,7 +5,7 @@ import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'ngx-primer-accordion-content',
-  template: '<div>Accordion Content</div>'
+  template: '<div>Accordion Content</div>',
 })
 class MockAccordionContentComponent {}
 
@@ -16,8 +16,8 @@ describe('NgxPrimerAccordionContentContext', () => {
     TestBed.configureTestingModule({
       providers: [
         NgxPrimerAccordionContentContext,
-        { provide: Component, useClass: MockAccordionContentComponent }
-      ]
+        { provide: Component, useClass: MockAccordionContentComponent },
+      ],
     });
 
     context = TestBed.inject(NgxPrimerAccordionContentContext);

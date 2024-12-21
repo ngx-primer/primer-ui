@@ -1,7 +1,7 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from 'class-variance-authority';
 
 // Define the accordion root theme variant
-export const accordionRootThemeVariant = cva("accordion-root-base h-full", {
+export const accordionRootThemeVariant = cva('accordion-root-base h-full', {
   variants: {
     // Theme mode variants
     variant: {
@@ -18,23 +18,25 @@ export const accordionRootThemeVariant = cva("accordion-root-base h-full", {
     },
     // Size variants
     size: {
-      sm: "max-w-[16rem]",
-      md: "max-w-[24rem]",
-      lg: "max-w-[32rem]",
+      sm: 'max-w-[16rem]',
+      md: 'max-w-[24rem]',
+      lg: 'max-w-[32rem]',
     },
     // Border Radius (optional customization)
     borderRadius: {
-      sm: "rounded-md",
-      md: "rounded-lg",
-      lg: "rounded-xl",
+      sm: 'rounded-md',
+      md: 'rounded-lg',
+      lg: 'rounded-xl',
     },
   },
   defaultVariants: {
-    variant: "light",
-    size: "md",
-    borderRadius: "md",
+    variant: 'light',
+    size: 'md',
+    borderRadius: 'md',
   },
 });
 
 // Define the type for props based on the variants
-export type AccordionRootThemeVariant = VariantProps<typeof accordionRootThemeVariant>;
+export type AccordionRootThemeVariant = VariantProps<
+  typeof accordionRootThemeVariant
+>;

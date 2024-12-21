@@ -5,7 +5,7 @@ import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'ngx-primer-accordion-root',
-  template: '<div></div>'
+  template: '<div></div>',
 })
 class MockAccordionRootComponent {}
 
@@ -14,7 +14,7 @@ describe('NgxPrimerAccordionRootContext', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NgxPrimerAccordionRootContext]
+      providers: [NgxPrimerAccordionRootContext],
     });
     service = TestBed.inject(NgxPrimerAccordionRootContext);
   });

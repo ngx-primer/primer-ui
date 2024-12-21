@@ -58,7 +58,7 @@ describe('NgxPrimerAccordionRootComponent', () => {
 
         for (const key in config) {
           const keyName = key as keyof typeof config;
-          if(typeof config[keyName] === 'function') return; // skip function;
+          if (typeof config[keyName] === 'function') return; // skip function;
           expect(component.accordionConfig[keyName]).toEqual(config[keyName]);
         }
       });

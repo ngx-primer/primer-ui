@@ -9,10 +9,10 @@ import { InjectionToken } from '@angular/core';
 
 /**
  * Injection token for the root component of the NgxPrimerAccordion.
- * 
+ *
  * This token is used to inject the root component of the accordion, which is
  * of type `NgxPrimerAccordionRootComponent<unknown>`.
- * 
+ *
  * @constant
  * @type {InjectionToken<NgxPrimerAccordionRootComponent<unknown>>}
  */
@@ -22,10 +22,10 @@ export const NgxPrimerAccordionRootComponentToken = new InjectionToken<
 
 /**
  * Injection token for the NgxPrimerAccordionItemComponent.
- * 
+ *
  * This token is used to inject the NgxPrimerAccordionItemComponent
  * into other components or services.
- * 
+ *
  * @type {InjectionToken<NgxPrimerAccordionItemComponent<unknown>>}
  */
 export const NgxPrimerAccordionItemComponentToken = new InjectionToken<

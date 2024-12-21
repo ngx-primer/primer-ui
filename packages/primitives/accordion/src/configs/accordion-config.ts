@@ -20,9 +20,13 @@ export interface NgxPrimerAccordionConfig {
     builtIn: boolean;
   };
   // Overloaded method signatures
-  updateConfig(callbackFn: (config: NgxPrimerAccordionConfig) => Partial<NgxPrimerAccordionConfig>): void;
+  updateConfig(
+    callbackFn: (
+      config: NgxPrimerAccordionConfig
+    ) => Partial<NgxPrimerAccordionConfig>
+  ): void;
   updateConfig(newConfig: Partial<NgxPrimerAccordionConfig>): void;
-  resetConfig(target: NgxPrimerAccordionConfig): void
+  resetConfig(target: NgxPrimerAccordionConfig): void;
 }
 export const defaultAccordionConfig: () => NgxPrimerAccordionConfig = () => ({
   type: 'Multiple',
@@ -31,13 +35,20 @@ export const defaultAccordionConfig: () => NgxPrimerAccordionConfig = () => ({
   theme: {
     builtIn: true,
   },
-  updateConfig(callbackFn: Partial<NgxPrimerAccordionConfig> | ((config: NgxPrimerAccordionConfig) => Partial<NgxPrimerAccordionConfig>)): void {
-    const updatedConfig = typeof callbackFn === 'function' ? callbackFn(this) : {...callbackFn};
-    Object.assign(this, {...updatedConfig});
+  updateConfig(
+    callbackFn:
+      | Partial<NgxPrimerAccordionConfig>
+      | ((
+          config: NgxPrimerAccordionConfig
+        ) => Partial<NgxPrimerAccordionConfig>)
+  ): void {
+    const updatedConfig =
+      typeof callbackFn === 'function' ? callbackFn(this) : { ...callbackFn };
+    Object.assign(this, { ...updatedConfig });
   },
   resetConfig(target: NgxPrimerAccordionConfig): void {
     Object.assign(target, defaultAccordionConfig());
-  }
+  },
 });
 export function provideAccordionConfig(
   config: Partial<NgxPrimerAccordionConfig>

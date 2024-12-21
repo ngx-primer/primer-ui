@@ -1,9 +1,11 @@
 <ng-container *ngIf="templateRef(); else fallbackTemplate">
-  <ng-container 
-    *ngTemplateOutlet="templateRef()!; 
-    context: {
-      $implicit: context()
-    }" 
+  <ng-container
+    *ngTemplateOutlet="
+      templateRef()!;
+      context: {
+        $implicit: context()
+      }
+    "
   />
 </ng-container>
 <ng-template #fallbackTemplate>

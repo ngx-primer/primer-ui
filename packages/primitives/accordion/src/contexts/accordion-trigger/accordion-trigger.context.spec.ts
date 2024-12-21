@@ -5,7 +5,7 @@ import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'ngx-primer-accordion-trigger',
-  template: '<div></div>'
+  template: '<div></div>',
 })
 class MockAccordionTriggerComponent {}
 
@@ -14,7 +14,7 @@ describe('NgxPrimerAccordionTriggerContext', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NgxPrimerAccordionTriggerContext]
+      providers: [NgxPrimerAccordionTriggerContext],
     });
 
     context = TestBed.inject(NgxPrimerAccordionTriggerContext);
