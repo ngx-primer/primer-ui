@@ -1,0 +1,38 @@
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+name: Read the Docs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Docusaurus dependencies
+        run: |
+          cd docs/ && npm install
+
+      - name: Build the site
+        run: |
+          cd docs/ && npm run build
+
+      - name: Copy generated files into Read the Docs directory
+        run: |
+          mkdir --parents $READTHEDOCS_OUTPUT/html/
+          cp --recursive docs/build/* $READTHEDOCS_OUTPUT/html/
