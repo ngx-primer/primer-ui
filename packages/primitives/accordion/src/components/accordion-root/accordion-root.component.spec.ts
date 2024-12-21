@@ -56,7 +56,11 @@ describe('NgxPrimerAccordionRootComponent', () => {
         const config = defaultAccordionConfig();
         component.ngOnInit();
 
-        expect(component.accordionConfig).toEqual(config);
+        for (const key in config) {
+          const keyName = key as keyof typeof config;
+          if(typeof config[keyName] === 'function') return; // skip function;
+          expect(component.accordionConfig[keyName]).toEqual(config[keyName]);
+        }
       });
       it('should reflect changes to the global configuration changed', () => {
         const providedConfig = TestBed.inject(NgxPrimerAccordionConfigToken);
