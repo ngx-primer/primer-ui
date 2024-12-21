@@ -1,1 +1,1 @@
-export * from "./accordion-root/accordion-root.css";
+export * from './accordion-root/accordion-root.css';

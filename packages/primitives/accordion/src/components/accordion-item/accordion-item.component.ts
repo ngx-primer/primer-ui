@@ -47,8 +47,8 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
       inputs: ['ngxPrimerIdAttr'],
     },
     {
-      directive: NgxPrimerAccordionItemContextDirective
-    }
+      directive: NgxPrimerAccordionItemContextDirective,
+    },
   ],
 })
 export class NgxPrimerAccordionItemComponent<T> implements OnInit {
@@ -91,16 +91,15 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     }
   );
 
-  public readonly value = model<T|null>(null, {
+  public readonly value = model<T | null>(null, {
     alias: 'ngxPrimerAccordionItemValue',
   });
-
 
   /**
    * Whether the accordion item is disabled.
    */
   public readonly disabled = model(false, {
-    alias: 'ngxPrimerAccordionItemDisabled'
+    alias: 'ngxPrimerAccordionItemDisabled',
   });
 
   public readonly isOpen = computed<boolean>(() =>
@@ -168,9 +167,11 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     if (doneFn) {
       // ensure context being initalized
-      setTimeout(() => doneFn({
-        context: this.accordionItemContext
-      }));
+      setTimeout(() =>
+        doneFn({
+          context: this.accordionItemContext,
+        })
+      );
     }
   }
 
@@ -184,7 +185,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
       ?.instance as NgxPrimerAccordionRootComponent<T>;
   }
 
-  focus(){
+  focus() {
     this.accordionTrigger()?.focus();
   }
 }

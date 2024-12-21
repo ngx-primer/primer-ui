@@ -569,6 +569,10 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     this.toggleAll(false);
   }
 
+  public toogleAllValue() {
+    this.toggleAll();
+  }
+
   /**
    * Toggles the open/closed state of all accordion items based on the provided `isOpen` value.
    *
@@ -583,20 +587,18 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    *   - `false`: Collapses all accordion items.
    * @returns {void} This method does not return anything. It only updates the open/closed state of all items.
    */
-  private toggleAll(isOpen: boolean) {
+  private toggleAll(isOpen?: boolean) {
     if (this.type() === 'Single' || this.disabled()) return;
 
     this.accordionItems().forEach(({ disabled, value }) => {
-      const isItemDisabled = disabled();
-      if (isItemDisabled) return;
-      this.toogleMultiple(value(), !isOpen);
+      if (disabled()) return;
+      this.toogleMultiple(value(), isOpen ?? this.isOpen(value()));
     });
   }
 
-
   /**
    * Expands the accordion with the given value(s).
-   * 
+   *
    * If the value is currently collapsed, it will be expanded.
    * If the value is currently expanded, it will remain expanded.
    *
@@ -608,7 +610,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
 
   /**
    * Collapses the specified value(s) in the accordion.
-   * 
+   *
    * If the value is currently expanded, it will be collapsed.
    * If the value is currently collapsed, it will remain collapsed.
    *
@@ -618,13 +620,12 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     this.toggleValue(value, false);
   }
 
-  
   /**
    * Toggles the expansion state of the given value(s).
-   * 
+   *
    * If the value is currently collapsed, it will be expanded.
    * If the value is currently expanded, it will be collapsed.
-   * 
+   *
    * @protected
    * @param {T | T[]} value - The value or array of values to toggle.
    * @param {boolean} isExpanding - A flag indicating whether to expand (true) or collapse (false) the value(s).
@@ -649,7 +650,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
 
   /**
    * Enables the specified value(s) by updating their disable state.
-   * 
+   *
    * If the value is currently disabled, it will be enabled.
    * If the value is currently enabled, it will remain enabled.
    *
@@ -663,10 +664,10 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
 
   /**
    * Disables the specified value(s) by updating their disable state.
-   * 
+   *
    * If the value is currently enabled, it will be disabled.
    * If the value is currently disabled, it will remain disabled.
-   * 
+   *
    * @public
    * @method
    * @param value - The value or array of values to be disabled.
@@ -678,28 +679,33 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
 
   /**
    * Updates the disable state of the specified value(s).
-   * 
+   *
    * If the value is currently disabled, it will be enabled.
    * If the value is currently enabled, it will be disabled.
-   * 
+   *
    * @protected
    * @param {T | T[]} value - The value or array of values to update.
    * @param {boolean} enable - A flag indicating whether to enable (true) or disable (false) the value(s).
    */
   protected updateDisableState(value: T | T[], enable: boolean) {
     const values = Array.isArray(value) ? value : [value];
-    
-    const accordionItems = this.accordionItems().filter((item) => values.includes(item.value()));
-  
-    const update = (item: NgxPrimerAccordionItemComponent<T>, enable: boolean) => {
+
+    const accordionItems = this.accordionItems().filter((item) =>
+      values.includes(item.value())
+    );
+
+    const update = (
+      item: NgxPrimerAccordionItemComponent<T>,
+      enable: boolean
+    ) => {
       const isDisabled = item.disabled();
       const shouldDisable = !enable;
-  
+
       if (isDisabled !== shouldDisable) {
         item.disabled.set(shouldDisable ? true : false);
       }
     };
-  
+
     accordionItems.forEach((item) => update(item, enable));
   }
 }

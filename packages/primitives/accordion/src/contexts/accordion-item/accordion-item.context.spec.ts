@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'ngx-primer-accordion-item',
-  template: '<div>Accordion Item</div>'
+  template: '<div>Accordion Item</div>',
 })
 class MockAccordionItemComponent {}
 describe('NgxPrimerAccordionItemContext', () => {
@@ -12,7 +12,7 @@ describe('NgxPrimerAccordionItemContext', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NgxPrimerAccordionItemContext]
+      providers: [NgxPrimerAccordionItemContext],
     });
 
     context = TestBed.inject(NgxPrimerAccordionItemContext);

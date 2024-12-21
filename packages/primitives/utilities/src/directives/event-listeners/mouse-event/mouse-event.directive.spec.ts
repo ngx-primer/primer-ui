@@ -9,8 +9,8 @@ describe('MouseEventDirective', () => {
     TestBed.configureTestingModule({
       providers: [
         NgxPrimerMouseEventDirective,
-        { provide: ElementRef, useValue: new ElementRef(null) }
-      ]
+        { provide: ElementRef, useValue: new ElementRef(null) },
+      ],
     });
 
     directive = TestBed.inject(NgxPrimerMouseEventDirective);

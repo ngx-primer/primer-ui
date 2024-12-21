@@ -8,13 +8,8 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 @Component({
   standalone: true,
-  imports: [
-    CommonModule,
-    NgxPrimerCollapseExpandAnimationDirective
-  ],
-  providers: [
-    provideAnimations()
-  ],
+  imports: [CommonModule, NgxPrimerCollapseExpandAnimationDirective],
+  providers: [provideAnimations()],
   template: `
     <div
       ngxPrimerCollapsibleDirective
@@ -32,13 +27,8 @@ class TestComponent {
 describe('NgxPrimerCollapseExpandAnimationDirective', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        TestComponent,
-        NgxPrimerCollapseExpandAnimationDirective,
-      ],
-      providers: [
-        provideAnimations()
-      ]
+      imports: [TestComponent, NgxPrimerCollapseExpandAnimationDirective],
+      providers: [provideAnimations()],
     }).compileComponents();
   });
 

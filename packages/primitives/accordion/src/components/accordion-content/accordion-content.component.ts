@@ -37,8 +37,8 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
       inputs: ['ngxPrimerIdAttr'],
     },
     {
-      directive: NgxPrimerAccordionContentContextDirective
-    }
+      directive: NgxPrimerAccordionContentContextDirective,
+    },
   ],
 })
 export class NgxPrimerAccordionContentComponent<T> implements OnInit {
@@ -95,7 +95,7 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     if (doneFn) {
       doneFn({
-        context: this.accordionContentContext
+        context: this.accordionContentContext,
       });
     }
   }

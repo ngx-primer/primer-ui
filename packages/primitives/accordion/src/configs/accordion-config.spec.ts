@@ -1,4 +1,10 @@
-import { NgxPrimerAccordionConfig, NgxPrimerAccordionOrientation, NgxPrimerAccordionType, defaultAccordionConfig, provideAccordionConfig } from './accordion-config';
+import {
+  NgxPrimerAccordionConfig,
+  NgxPrimerAccordionOrientation,
+  NgxPrimerAccordionType,
+  defaultAccordionConfig,
+  provideAccordionConfig,
+} from './accordion-config';
 
 import { NgxPrimerAccordionConfigToken } from '../tokens/accordion-config.token';
 import { TestBed } from '@angular/core/testing';
@@ -52,10 +58,12 @@ describe('AccordionConfig', () => {
 
   it('should provide custom config', () => {
     TestBed.configureTestingModule({
-      providers: [provideAccordionConfig({
-        type: NgxPrimerAccordionType.Single,
-        collapsible: false,
-      })],
+      providers: [
+        provideAccordionConfig({
+          type: NgxPrimerAccordionType.Single,
+          collapsible: false,
+        }),
+      ],
     });
     const injectedConfig = TestBed.inject(NgxPrimerAccordionConfigToken);
     expect(injectedConfig.type).toBe(NgxPrimerAccordionType.Single);
@@ -69,7 +77,9 @@ describe('AccordionConfig', () => {
     const injectedConfig = TestBed.inject(NgxPrimerAccordionConfigToken);
     expect(injectedConfig.type).toBe(NgxPrimerAccordionType.Multiple);
     expect(injectedConfig.collapsible).toBe(true);
-    expect(injectedConfig.orientation).toBe(NgxPrimerAccordionOrientation.Vertical);
+    expect(injectedConfig.orientation).toBe(
+      NgxPrimerAccordionOrientation.Vertical
+    );
     expect(injectedConfig.theme.builtIn).toBe(true);
   });
 });
