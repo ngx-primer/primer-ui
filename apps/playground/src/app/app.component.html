@@ -22,9 +22,8 @@
       [ngxPrimerAccordionDisabled]="false"
       class="flex min-w-[360px] w-[360px] h-full flex-col border rounded-md shadow-sm shadow-gray-300 border-opacity-50 border-gray-400 overflow-hidden"
     >
-      @for (item of accordionData; track $index) {
+      @for (item of accordionData; track item.value) {
       <ngx-primer-accordion-item
-        [(ngxPrimerAccordionItemDisabled)]="disabled"
         #accordionItem
         [ngxPrimerIdAttr]="'accordion-overview-item-' + item.value"
         [ngxPrimerAccordionItemValue]="item.value"
