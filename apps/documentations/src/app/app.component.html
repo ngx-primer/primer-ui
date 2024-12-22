@@ -1,0 +1,83 @@
+<div class="bg-[#161617] min-h-screen flex flex-col">
+  <header class="border-b border-none w-full">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex items-center justify-between">
+        <div class="text-xl font-semibold text-gray-700">
+          <a href="#" class="hover:text-gray-50 text-gray-200">NgxPrimer</a>
+        </div>
+        <div class="text-sm font-semibold text-gray-700">
+          <a href="#" class="mx-4 text-gray-400">Guide</a>
+          <a href="#" class="mx-4 text-gray-400">Reference</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container mx-auto px-24 py-24 flex flex-row">
+      <div class="w-1/2 h-full">
+        <h1
+          class="h-full text-[72px] leading-[2] font-bold text-foreground-brand"
+        >
+          NgxPrimer
+        </h1>
+        <h2 class="text-[48px] leading-[1] font-bold text-gray-300">
+          Lightweight, Agnostic, Unstyled UI Component
+        </h2>
+        <h2 class="text-[28px] leading-[3] font-bold text-gray-600">
+          Primitive UI to Build Your Own Design System
+        </h2>
+        <div class="flex flex-row gap-x-3 mt-6">
+          <button
+            class="bg-black font-semibold text-gray-100 px-6 py-3 rounded-full"
+          >
+            Get Started
+          </button>
+          <button
+            class="bg-black font-semibold text-gray-500 px-6 py-3 rounded-full"
+          >
+            Quick Start
+          </button>
+          <button
+            class="bg-black font-semibold text-gray-500 px-6 py-3 rounded-full"
+          >
+            Api Reference
+          </button>
+          <button
+            class="bg-black font-semibold text-gray-500 px-6 py-3 rounded-full"
+          >
+            Github
+          </button>
+        </div>
+      </div>
+      <div class="w-1/2">
+        <!-- Logo -->
+      </div>
+    </section>
+    <section class="container mx-auto px-24 flex flex-row">
+      <div class="grid grid-cols-5 gap-4">
+        @for (item of features; track $index) {
+          <div class="bg-black bg-opacity-30 rounded-lg p-6 flex flex-col gap-4">
+            <h3 class="text-[20px] font-semibold text-gray-500 leading-[1.1] mb-8">{{ item.title }}</h3>
+            <p class="text-gray-700 text-sm leading-[1.1] font-semibold">
+              {{ item.description }}
+            </p>
+          </div>
+        }
+      </div>
+    </section>
+  </main>
+
+  <footer
+    class="font-semibold border-t border-gray-950 text-sm h-[100px] items-center flex flex-col justify-center w-full mt-auto"
+  >
+    <div class="container mx-auto">
+      <p class="text-gray-400 text-center">
+        Released under the Apache-2.0 license.
+      </p>
+      <p class="text-gray-400 text-center">
+        Copyright © 2024-present ElhakimDev99
+      </p>
+    </div>
+  </footer>
+</div>

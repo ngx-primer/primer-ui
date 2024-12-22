@@ -298,7 +298,8 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
     if (this.accordionRoot?.disabled() || this.accordionItem?.disabled())
       return;
     (this.viewContainerRef.element.nativeElement as HTMLElement).focus({
-      preventScroll: this.accordionRoot?.accordionConfig?.preventScrolling ?? false,
+      preventScroll:
+        this.accordionRoot?.accordionConfig?.preventScrolling ?? false,
     });
   }
 }
