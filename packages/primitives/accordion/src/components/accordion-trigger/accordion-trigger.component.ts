@@ -23,15 +23,8 @@ import {
   ViewContainerRef,
   inject,
 } from '@angular/core';
-import {
-  NgxPrimerAccordionItemContext,
-  NgxPrimerAccordionTriggerContext,
-} from '../../contexts';
 
-import { NgxPrimerAccordionContentComponent } from '../accordion-content/accordion-content.component';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
-import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import { NgxPrimerAccordionTriggerContextDirective } from '../../directives';
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
 /**
@@ -46,16 +39,12 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
   selector: 'ngx-primer-accordion-trigger',
   standalone: true,
   imports: [CommonModule],
-  providers: [NgxPrimerAccordionTriggerContext],
   templateUrl: './accordion-trigger.component.html',
   styleUrl: './accordion-trigger.component.scss',
   hostDirectives: [
     {
       directive: NgxPrimerIdGeneratorDirective,
       inputs: ['ngxPrimerIdAttr'],
-    },
-    {
-      directive: NgxPrimerAccordionTriggerContextDirective,
     },
   ],
 })
@@ -157,27 +146,10 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
    * @optional
    * @type {NgxPrimerAccordionItemContext | undefined} The accordion item context instance, or `undefined` if not available.
    */
-  public readonly accordionItemContext = inject(NgxPrimerAccordionItemContext, {
-    optional: true,
-  });
-
-  /**
-   * The context for the accordion trigger, injected optionally from the parent component.
-   *
-   * This property holds the context instance for the accordion trigger, which contains
-   * relevant information and methods related to the accordion trigger. The context is injected
-   * optionally, meaning that it may not always be present depending on the component's setup.
-   * The context provides access to properties such as the state of the trigger, its behavior,
-   * and any other configurations specific to the accordion trigger.
-   *
-   * @public
-   * @readonly
-   * @optional
-   * @type {NgxPrimerAccordionTriggerContext | undefined} The accordion trigger context instance, or `undefined` if not available.
-   */
-  public readonly accordionTriggerContext = inject(
-    NgxPrimerAccordionTriggerContext,
+  public readonly accordionItemContext = inject(
+    NgxPrimerAccordionItemComponent,
     {
+      host: true,
       optional: true,
     }
   );
@@ -228,7 +200,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
     if (doneFn) {
       setTimeout(() =>
         doneFn({
-          context: this.accordionTriggerContext,
+          context: this,
         })
       );
     }
@@ -248,7 +220,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
 
   @HostBinding('tabIndex')
   public get tabIndexAttr() {
-    return this.accordionItem.isOpen() ? 0 : -1;
+    return this.accordionItem?.isOpen() ? 0 : -1;
   }
 
   @HostBinding('attr.data-focus')
@@ -275,17 +247,15 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
 
   @HostBinding('attr.aria-controls')
   public get dataControlsAttr() {
-    return this.accordionItem?.accordionContent()?.accordionContentId;
+    return this.accordionItem?.accordionContent?.accordionContentId;
   }
 
   @HostListener('keydown', ['$event'])
   public onKeyDown(event: KeyboardEvent) {
-    const currentIndex = this.accordionRoot
-      .accordionItems()
-      .findIndex(
-        (item: NgxPrimerAccordionItemComponent<T>) =>
-          item.accordionTrigger() === this
-      );
+    const currentIndex = this.accordionRoot?.accordionItems.findIndex(
+      (item: NgxPrimerAccordionItemComponent<T>) =>
+        item?.accordionTrigger === this
+    ) as number;
 
     switch (event.key) {
       case 'Enter':
@@ -294,44 +264,41 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
         event.preventDefault();
         break;
       case 'ArrowDown':
-        this.accordionRoot.moveFocus(currentIndex, 1);
+        this.accordionRoot?.moveFocus(currentIndex, 1);
         event.preventDefault();
         break;
       case 'ArrowUp':
-        this.accordionRoot.moveFocus(currentIndex, -1);
+        this.accordionRoot?.moveFocus(currentIndex, -1);
         event.preventDefault();
         break;
       case 'Home':
-        this.accordionRoot.moveFocusToStart();
+        this.accordionRoot?.moveFocusToStart();
         event.preventDefault();
         break;
       case 'End':
-        this.accordionRoot.moveFocusToEnd();
+        this.accordionRoot?.moveFocusToEnd();
         event.preventDefault();
         break;
     }
   }
 
   public get accordionItem() {
-    return this.accordionItemContext
-      ?.instance as NgxPrimerAccordionItemComponent<T>;
+    return this.accordionItemContext;
   }
 
   public get accordionRoot() {
-    return this.accordionItem?.accordionRootContext
-      ?.instance as NgxPrimerAccordionRootComponent<T>;
+    return this.accordionItem?.accordionRoot;
   }
 
   public get accordionContent() {
-    return this.accordionItem?.accordionItemContext
-      ?.instance as NgxPrimerAccordionContentComponent<T>;
+    return this.accordionItem?.accordionContent;
   }
 
   public focus() {
     if (this.accordionRoot?.disabled() || this.accordionItem?.disabled())
       return;
     (this.viewContainerRef.element.nativeElement as HTMLElement).focus({
-      preventScroll: false,
+      preventScroll: this.accordionRoot?.accordionConfig?.preventScrolling ?? false,
     });
   }
 }

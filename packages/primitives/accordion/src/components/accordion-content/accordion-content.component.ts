@@ -17,27 +17,19 @@
 import { Component, HostBinding, OnInit, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { NgxPrimerAccordionContentContext } from '../../contexts/accordion-content/accordion-content.context';
-import { NgxPrimerAccordionContentContextDirective } from '../../directives';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
-import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
-import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-content',
   standalone: true,
   imports: [CommonModule],
-  providers: [NgxPrimerAccordionContentContext],
   templateUrl: './accordion-content.component.html',
   styleUrl: './accordion-content.component.scss',
   hostDirectives: [
     {
       directive: NgxPrimerIdGeneratorDirective,
       inputs: ['ngxPrimerIdAttr'],
-    },
-    {
-      directive: NgxPrimerAccordionContentContextDirective,
     },
   ],
 })
@@ -50,15 +42,9 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
   public readonly accordionContentId = this.idGenerator?.resolvedId;
 
   protected readonly accordionItemContext = inject(
-    NgxPrimerAccordionItemContext,
+    NgxPrimerAccordionItemComponent,
     {
-      optional: true,
-    }
-  );
-
-  protected readonly accordionContentContext = inject(
-    NgxPrimerAccordionContentContext,
-    {
+      host: true,
       optional: true,
     }
   );
@@ -80,12 +66,17 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
 
   @HostBinding('attr.data-is-open')
   public get dataIsOpenAttr() {
-    return this.accordionItem.isOpen();
+    return this.accordionItem?.isOpen();
   }
 
   @HostBinding('attr.aria-labelledby')
   public get dataAriaLabelledByAttr() {
-    return this.accordionItem?.accordionTrigger()?.accordionTriggerId;
+    return this.accordionItem?.accordionTrigger?.accordionTriggerId;
+  }
+
+  @HostBinding('attr.data-value')
+  public get dataValueAttr() {
+    return this.accordionItem?.value() as T;
   }
 
   ngOnInit(): void {
@@ -95,23 +86,20 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     if (doneFn) {
       doneFn({
-        context: this.accordionContentContext,
+        context: this,
       });
     }
   }
 
-  protected get accordionContent() {
-    return this.accordionContentContext
-      ?.instance as NgxPrimerAccordionContentComponent<T>;
+  public get accordionItem() {
+    return this.accordionItemContext;
   }
 
-  protected get accordionItem() {
-    return this.accordionItemContext
-      ?.instance as NgxPrimerAccordionItemComponent<T>;
+  public get accordionRoot() {
+    return this.accordionItem?.accordionRoot;
   }
 
-  protected get accordionRoot() {
-    return this.accordionItem?.accordionRootContext
-      ?.instance as NgxPrimerAccordionRootComponent<T>;
+  public get accordionTrigger() {
+    return this.accordionItem?.accordionTrigger;
   }
 }

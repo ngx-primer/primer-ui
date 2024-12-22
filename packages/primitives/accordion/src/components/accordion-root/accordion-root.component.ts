@@ -25,8 +25,6 @@ import {
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
-import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
-import { NgxPrimerAccordionRootContextDirective } from '../../directives/component-context';
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
@@ -80,14 +78,10 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
   selector: 'ngx-primer-accordion-root',
   standalone: true,
   imports: [CommonModule],
-  providers: [NgxPrimerAccordionRootContext],
   hostDirectives: [
     {
       directive: NgxPrimerIdGeneratorDirective,
       inputs: ['ngxPrimerIdAttr'],
-    },
-    {
-      directive: NgxPrimerAccordionRootContextDirective,
     },
   ],
   templateUrl: './accordion-root.component.html',
@@ -142,27 +136,6 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @see AccordionRootId
    */
   public readonly accordionRootId = this.uniqueId;
-  /**
-   * Injects the `AccordionRootContext` service into the component or directive.
-   *
-   * This property provides access to the root context of an accordion,
-   * enabling interaction or data sharing between the accordion root
-   * and its child components, such as items, triggers, and content.
-   *
-   *
-   * ### Purpose
-   * - Facilitates communication between the root and its children.
-   * - Allows child components to access shared state or methods provided by the root.
-   *
-   * @public
-   * @property
-   * @readonly
-   * @type {NgxPrimerAccordionRootContext}
-   * @see AccordionRootContext
-   */
-  public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
-    optional: true,
-  });
 
   /**
    * Provides the configuration for the accordion component by injecting the `AccordionConfig` service.
@@ -206,7 +179,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @readonly
    * @type {QueryList<NgxPrimerAccordionItemComponent>} The accordion items within this component.
    */
-  public readonly accordionItems = contentChildren(
+  protected readonly accordionItemsContext = contentChildren(
     NgxPrimerAccordionItemComponent,
     {
       descendants: true,
@@ -487,7 +460,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     if (doneFn) {
       setTimeout(() =>
         doneFn({
-          context: this.accordionRootContext,
+          context: this,
         })
       );
     }
@@ -506,7 +479,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @returns {void} This method does not return any value.
    */
   public moveFocus(currentIndex: number, direction: number) {
-    const accordionItems = this.accordionItems();
+    const accordionItems = this.accordionItems;
     const nextIndex =
       (currentIndex + direction + accordionItems.length) %
       accordionItems.length;
@@ -524,7 +497,8 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @returns {void} This method does not return any value.
    */
   public moveFocusToEnd() {
-    this.accordionItems()[this.accordionItems().length - 1].focus();
+    const lastIndexOfAccordionItem = this.accordionItems?.length - 1;
+    this.accordionItems[lastIndexOfAccordionItem]?.focus();
   }
 
   /**
@@ -538,7 +512,8 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    * @returns {void} This method does not return any value.
    */
   public moveFocusToStart() {
-    this.accordionItems()[0].focus();
+    const firstIndexOfAccordionItems = 0;
+    this.accordionItems[firstIndexOfAccordionItems]?.focus();
   }
 
   /**
@@ -590,7 +565,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   private toggleAll(isOpen?: boolean) {
     if (this.type() === 'Single' || this.disabled()) return;
 
-    this.accordionItems().forEach(({ disabled, value }) => {
+    this.accordionItems?.forEach(({ disabled, value }) => {
       if (disabled()) return;
       this.toogleMultiple(value(), isOpen ?? this.isOpen(value()));
     });
@@ -690,7 +665,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   protected updateDisableState(value: T | T[], enable: boolean) {
     const values = Array.isArray(value) ? value : [value];
 
-    const accordionItems = this.accordionItems().filter((item) =>
+    const accordionItems = this.accordionItems?.filter((item) =>
       values.includes(item.value())
     );
 
@@ -707,5 +682,9 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     };
 
     accordionItems.forEach((item) => update(item, enable));
+  }
+
+  public get accordionItems() {
+    return this.accordionItemsContext();
   }
 }
