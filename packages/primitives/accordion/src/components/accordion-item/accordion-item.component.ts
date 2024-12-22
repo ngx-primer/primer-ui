@@ -26,10 +26,7 @@ import {
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionContentComponent } from '../accordion-content/accordion-content.component';
-import { NgxPrimerAccordionItemContext } from '../../contexts/accordion-item/accordion-item.context';
-import { NgxPrimerAccordionItemContextDirective } from '../../directives';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import { NgxPrimerAccordionRootContext } from '../../contexts/accordion-root/accordion-root.context';
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
@@ -37,7 +34,6 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
   selector: 'ngx-primer-accordion-item',
   standalone: true,
   imports: [CommonModule],
-  providers: [NgxPrimerAccordionItemContext],
   templateUrl: './accordion-item.component.html',
   styleUrl: './accordion-item.component.scss',
   exportAs: 'ngxPrimerAccordionItemComponent',
@@ -45,9 +41,6 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
     {
       directive: NgxPrimerIdGeneratorDirective,
       inputs: ['ngxPrimerIdAttr'],
-    },
-    {
-      directive: NgxPrimerAccordionItemContextDirective,
     },
   ],
 })
@@ -59,20 +52,20 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     optional: true,
   });
 
-  public readonly accordionItemId = this.idGenerator?.resolvedId;
+  protected readonly accordionItemId = this.idGenerator?.resolvedId;
 
-  public readonly accordionRootContext = inject(NgxPrimerAccordionRootContext, {
-    optional: true,
-  });
-
-  public readonly accordionItemContext = inject(NgxPrimerAccordionItemContext, {
-    optional: true,
-  });
+  protected readonly accordionRootContext = inject(
+    NgxPrimerAccordionRootComponent,
+    {
+      optional: true,
+      host: true,
+    }
+  );
 
   /**
    * Accordion content instance.
    */
-  public readonly accordionContent = contentChild(
+  protected readonly accordionContentContext = contentChild(
     NgxPrimerAccordionContentComponent,
     {
       descendants: true,
@@ -83,7 +76,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   /**
    * Accordion trigger instance.
    */
-  public readonly accordionTrigger = contentChild(
+  protected readonly accordionTriggerContext = contentChild(
     NgxPrimerAccordionTriggerComponent,
     {
       descendants: true,
@@ -102,8 +95,8 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     alias: 'ngxPrimerAccordionItemDisabled',
   });
 
-  public readonly isOpen = computed<boolean>(() =>
-    this.accordionRoot?.isOpen(this.value() as T)
+  public readonly isOpen = computed<boolean>(
+    () => this.accordionRoot?.isOpen(this.value() as T) ?? false
   );
 
   @HostBinding('attr.data-orientation')
@@ -169,23 +162,25 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
       // ensure context being initalized
       setTimeout(() =>
         doneFn({
-          context: this.accordionItemContext,
+          context: this,
         })
       );
     }
   }
 
-  protected get accordionItem() {
-    return this.accordionItemContext
-      ?.instance as NgxPrimerAccordionItemComponent<T>;
+  public get accordionRoot() {
+    return this.accordionRootContext;
   }
 
-  protected get accordionRoot() {
-    return this.accordionItem?.accordionRootContext
-      ?.instance as NgxPrimerAccordionRootComponent<T>;
+  public get accordionContent() {
+    return this.accordionContentContext();
   }
 
-  focus() {
-    this.accordionTrigger()?.focus();
+  public get accordionTrigger() {
+    return this.accordionTriggerContext();
+  }
+
+  public focus() {
+    this.accordionTrigger?.focus();
   }
 }

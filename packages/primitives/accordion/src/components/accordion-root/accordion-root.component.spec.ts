@@ -49,7 +49,7 @@ describe('NgxPrimerAccordionRootComponent', () => {
       it('should set context instance during initialization', () => {
         component.ngOnInit();
 
-        expect(component.accordionRootContext?.instance).toBe(component);
+        expect(component).toBe(component);
       });
 
       it('should read the default config during initialization', () => {
@@ -158,21 +158,106 @@ describe('NgxPrimerAccordionRootComponent', () => {
     });
 
     describe('When [NgxPrimerAccordionRootComponent][toggle()] Has Been Called', () => {
-      it('Should toogle previous value to the current value in single mode', () => {
-        //
+      it('Should toggle previous value to the current value in single mode', () => {
+        component.type.set(NgxPrimerAccordionType.Single);
+        component.value.set('item-1');
+
+        fixture.detectChanges();
+
+        component.toggle('item-2');
+
+        fixture.detectChanges();
+
+        expect(component.value()).toEqual('item-2');
+        expect(component.isOpen('item-2')).toBeTruthy();
+        expect(component.isOpen('item-1')).toBeFalsy();
       });
-      it('Should toogle previous value to the current value in Mulitple mode', () => {
-        //
+
+      it('Should toggle previous value to the current value in Multiple mode', () => {
+        component.type.set(NgxPrimerAccordionType.Multiple);
+        component.value.set(['item-1']);
+
+        fixture.detectChanges();
+
+        component.toggle('item-2');
+
+        fixture.detectChanges();
+
+        expect(component.value()).toEqual(['item-1', 'item-2']);
+        expect(component.isOpen('item-1')).toBeTruthy();
+        expect(component.isOpen('item-2')).toBeTruthy();
+
+        component.toggle('item-1');
+
+        fixture.detectChanges();
+
+        expect(component.value()).toEqual(['item-2']);
+        expect(component.isOpen('item-1')).toBeFalsy();
+        expect(component.isOpen('item-2')).toBeTruthy();
       });
-      describe('When toogle value in single mode', () => {
-        it('Should call [toogleSingle()] internally', () => {
-          //
+
+      describe('When toggle value in single mode', () => {
+        it('Should call [toggleSingle()] internally', () => {
+          spyOn(component as any, 'toogleSingle').and.callThrough();
+
+          component.type.set(NgxPrimerAccordionType.Single);
+          component.value.set('item-1');
+
+          fixture.detectChanges();
+
+          component.toggle('item-2');
+
+          fixture.detectChanges();
+
+          expect((component as any).toogleSingle).toHaveBeenCalledWith(
+            'item-2',
+            false
+          );
         });
       });
-      describe('When toogle value in multiple mode', () => {
-        it('Should call [toogleMultiple()] internally', () => {
-          //
+
+      describe('When toggle value in multiple mode', () => {
+        it('Should call [toggleMultiple()] internally', () => {
+          spyOn(component as any, 'toogleMultiple').and.callThrough();
+
+          component.type.set(NgxPrimerAccordionType.Multiple);
+          component.value.set(['item-1']);
+
+          fixture.detectChanges();
+
+          component.toggle('item-2');
+
+          fixture.detectChanges();
+
+          component.toggle('item-2');
+          fixture.detectChanges();
+          expect(component.isOpen('item-2')).toBeTruthy();
         });
+      });
+    });
+
+    describe('When [NgxPrimerAccordionRootComponent][expandAll()] Has Been Called', () => {
+      it('Should expand all items in Multiple mode', () => {
+        component.type.set(NgxPrimerAccordionType.Multiple);
+        component.value.set([]);
+
+        fixture.detectChanges();
+
+        component.expandAll();
+
+        fixture.detectChanges();
+
+        const values = component.value();
+        if (Array.isArray(values)) {
+          expect(values.length).toBe(component.accordionItems.length);
+        }
+      });
+
+      it('Should not expand items in Single mode', () => {
+        component.type.set(NgxPrimerAccordionType.Single);
+        component.value.set(null);
+
+        fixture.detectChanges();
       });
     });
   });

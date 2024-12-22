@@ -19,7 +19,7 @@ export interface NgxPrimerAccordionConfig {
   theme: {
     builtIn: boolean;
   };
-  // Overloaded method signatures
+  preventScrolling?: boolean;
   updateConfig(
     callbackFn: (
       config: NgxPrimerAccordionConfig
@@ -35,6 +35,7 @@ export const defaultAccordionConfig: () => NgxPrimerAccordionConfig = () => ({
   theme: {
     builtIn: true,
   },
+  preventScrolling: true,
   updateConfig(
     callbackFn:
       | Partial<NgxPrimerAccordionConfig>
