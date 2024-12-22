@@ -74,6 +74,11 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
     return this.accordionItem?.accordionTrigger?.accordionTriggerId;
   }
 
+  @HostBinding('attr.data-value')
+  public get dataValueAttr() {
+    return this.accordionItem?.value() as T;
+  }
+
   ngOnInit(): void {
     this.runInitializationFn();
   }
