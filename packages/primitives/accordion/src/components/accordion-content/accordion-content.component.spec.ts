@@ -34,18 +34,18 @@ describe('NgxPrimerAccordionContentComponent', () => {
   it('should have data-orientation attribute', () => {
     spyOn(
       component.accordionRoot as NgxPrimerAccordionRootComponent<unknown>,
-      'orientation'
+      'orientation',
     ).and.returnValue('vertical');
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('data-orientation')).toBe(
-      'vertical'
+      'vertical',
     );
   });
 
   it('should have data-expanded attribute', () => {
     spyOn(
       component.accordionItem as NgxPrimerAccordionItemComponent<unknown>,
-      'isOpen'
+      'isOpen',
     ).and.returnValue(true);
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('data-expanded')).toBe('true');
@@ -54,7 +54,7 @@ describe('NgxPrimerAccordionContentComponent', () => {
   it('should have data-is-open attribute', () => {
     spyOn(
       component.accordionItem as NgxPrimerAccordionItemComponent<unknown>,
-      'isOpen'
+      'isOpen',
     ).and.returnValue(true);
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('data-is-open')).toBe('true');
@@ -71,7 +71,7 @@ describe('NgxPrimerAccordionContentComponent', () => {
     }
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('aria-labelledby')).toBe(
-      mockTriggerId
+      mockTriggerId,
     );
   });
 });

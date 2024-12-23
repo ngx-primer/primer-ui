@@ -9,7 +9,7 @@ import { PrimitiveTokenGeneratorGeneratorSchema } from './schema';
 
 export async function primitiveTokenGeneratorGenerator(
   tree: Tree,
-  options: PrimitiveTokenGeneratorGeneratorSchema
+  options: PrimitiveTokenGeneratorGeneratorSchema,
 ) {
   const projectRoot = `libs/${options.name}`;
   addProjectConfiguration(tree, options.name, {

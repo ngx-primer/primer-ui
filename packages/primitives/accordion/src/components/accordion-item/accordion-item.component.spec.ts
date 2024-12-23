@@ -38,7 +38,7 @@ describe('NgxPrimerAccordionItemComponent', () => {
     });
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('data-orientation')).toBe(
-      'horizontal'
+      'horizontal',
     );
   });
 

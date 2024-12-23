@@ -4,8 +4,8 @@ import { Component, input } from '@angular/core';
   selector: 'app-feature-card',
   imports: [],
   templateUrl: './app-feature-card.component.html',
-  styleUrl: './app-feature-card.component.scss'
+  styleUrl: './app-feature-card.component.scss',
 })
 export class AppFeatureCardComponent {
-  item = input<{ title: string, description: string }>();
+  item = input<{ title: string; description: string }>();
 }

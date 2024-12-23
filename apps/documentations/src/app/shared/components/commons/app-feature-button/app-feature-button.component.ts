@@ -9,20 +9,20 @@ import { RouterLink } from '@angular/router';
   imports: [CommonModule, RouterLink],
   templateUrl: './app-feature-button.component.html',
   styleUrl: './app-feature-button.component.scss',
-  standalone: true
+  standalone: true,
 })
 export class AppFeatureButtonComponent {
   public text = input('', {
-    alias: 'text'
+    alias: 'text',
   });
 
   public hyperlink = input(false, {
-    alias: 'hyperlink'
+    alias: 'hyperlink',
   });
 
   public hyperlinkTarget = input('#', {
-    alias: 'target'
-  })
+    alias: 'target',
+  });
 
   public get buttonText(): string {
     return this.text();

@@ -12,7 +12,7 @@ export class SlotContextDirective<T> {
   public readonly context = input<T>();
   static ngTemplateContextGuard<TContext>(
     dir: SlotContextDirective<TContext>,
-    ctx: unknown
+    ctx: unknown,
   ): ctx is SlotContext<TContext> {
     return true;
   }

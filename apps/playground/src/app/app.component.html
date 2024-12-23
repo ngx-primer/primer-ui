@@ -29,48 +29,48 @@
       class="flex min-w-[360px] w-[360px] h-full flex-col border rounded-md shadow-sm shadow-gray-300 border-opacity-50 border-gray-400 overflow-hidden"
     >
       @for (item of accordionData; track item.value) {
-      <ngx-primer-accordion-item
-        #accordionItem
-        [ngxPrimerIdAttr]="'accordion-overview-item-' + item.value"
-        [ngxPrimerAccordionItemValue]="item.value"
-        class="flex border-b flex-col"
-      >
-        <ngx-primer-accordion-trigger
-          #accordionTrigger
-          [ngxPrimerIdAttr]="'accordion-overview-trigger-' + item.value"
-          class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100 focus:outline-none focus:bg-slate-100"
-          [ngClass]="{
-            'border-b': accordionItem.isOpen()
-          }"
+        <ngx-primer-accordion-item
+          #accordionItem
+          [ngxPrimerIdAttr]="'accordion-overview-item-' + item.value"
+          [ngxPrimerAccordionItemValue]="item.value"
+          class="flex border-b flex-col"
         >
-          <div class="text-gray-800">
-            {{ item.label }}
-          </div>
-          <div>
-            <ng-icon
-              #accordionTrigerIcon
-              [name]="'heroChevronDownMini'"
-              class="transition-all ease-in-out duration-300"
-              [ngClass]="{
-                'transform -rotate-180': accordionItem.isOpen()
-              }"
-            />
-          </div>
-        </ngx-primer-accordion-trigger>
-        <ngx-primer-accordion-content
-          #accordionContent
-          ngxPrimerCollapsibleDirective
-          [ngxPrimerIdAttr]="'accordion-overview-content-' + item.value"
-          [ngxPrimerCollapsibleCollapsed]="!accordionItem.isOpen()"
-          [ngxPrimerCollapsibleDirection]="accordionRoot.orientation()"
-          class="text-gray-500 overflow-hidden"
-        >
-          <!-- {{ accordionContent.idGenerator()?.generatedId | json }} -->
-          <span>
-            {{ item.content }}
-          </span>
-        </ngx-primer-accordion-content>
-      </ngx-primer-accordion-item>
+          <ngx-primer-accordion-trigger
+            #accordionTrigger
+            [ngxPrimerIdAttr]="'accordion-overview-trigger-' + item.value"
+            class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100 focus:outline-none focus:bg-slate-100"
+            [ngClass]="{
+              'border-b': accordionItem.isOpen(),
+            }"
+          >
+            <div class="text-gray-800">
+              {{ item.label }}
+            </div>
+            <div>
+              <ng-icon
+                #accordionTrigerIcon
+                [name]="'heroChevronDownMini'"
+                class="transition-all ease-in-out duration-300"
+                [ngClass]="{
+                  'transform -rotate-180': accordionItem.isOpen(),
+                }"
+              />
+            </div>
+          </ngx-primer-accordion-trigger>
+          <ngx-primer-accordion-content
+            #accordionContent
+            ngxPrimerCollapsibleDirective
+            [ngxPrimerIdAttr]="'accordion-overview-content-' + item.value"
+            [ngxPrimerCollapsibleCollapsed]="!accordionItem.isOpen()"
+            [ngxPrimerCollapsibleDirection]="accordionRoot.orientation()"
+            class="text-gray-500 overflow-hidden"
+          >
+            <!-- {{ accordionContent.idGenerator()?.generatedId | json }} -->
+            <span>
+              {{ item.content }}
+            </span>
+          </ngx-primer-accordion-content>
+        </ngx-primer-accordion-item>
       }
     </ngx-primer-accordion-root>
   </div>
@@ -83,48 +83,48 @@
     [ngxPrimerAccordionType]="'Single'"
   >
     @for (item of accordion2Data; track $index) {
-    <ngx-primer-accordion-item
-      #accordionItem2
-      [ngxPrimerIdAttr]="'accordion-info-item-' + item.value"
-      class="flex border-b flex-col"
-      [ngxPrimerAccordionItemValue]="item.value"
-    >
-      <ngx-primer-accordion-trigger
-        #accordionTrigger2
-        [ngxPrimerIdAttr]="'accordion-info-trigger-' + item.value"
-        class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100 focus:outline-none focus:bg-slate-100"
-        [ngClass]="{
-          'border-b': accordionItem2.isOpen()
-        }"
+      <ngx-primer-accordion-item
+        #accordionItem2
+        [ngxPrimerIdAttr]="'accordion-info-item-' + item.value"
+        class="flex border-b flex-col"
+        [ngxPrimerAccordionItemValue]="item.value"
       >
-        <div class="text-gray-800">
-          {{ item.label }}
-        </div>
-        <div>
-          <ng-icon
-            #accordionTrigerIcon
-            [name]="
-              accordionItem2.isOpen()
-                ? 'heroChevronUpMini'
-                : 'heroChevronDownMini'
-            "
-            class="transition-all ease-in-out"
-          />
-        </div>
-      </ngx-primer-accordion-trigger>
-      <ngx-primer-accordion-content
-        #accordionContent2
-        ngxPrimerCollapsibleDirective
-        [ngxPrimerIdAttr]="'accordion-info-content-' + item.value"
-        [ngxPrimerCollapsibleCollapsed]="!accordionItem2.isOpen()"
-        [ngxPrimerCollapsibleDirection]="accordionRoot2.orientation()"
-        class="text-gray-500 overflow-hidden"
-      >
-        <span>
-          {{ item.content }}
-        </span>
-      </ngx-primer-accordion-content>
-    </ngx-primer-accordion-item>
+        <ngx-primer-accordion-trigger
+          #accordionTrigger2
+          [ngxPrimerIdAttr]="'accordion-info-trigger-' + item.value"
+          class="flex flex-row w-full justify-between p-2 cursor-pointer hover:bg-gray-100 focus:outline-none focus:bg-slate-100"
+          [ngClass]="{
+            'border-b': accordionItem2.isOpen(),
+          }"
+        >
+          <div class="text-gray-800">
+            {{ item.label }}
+          </div>
+          <div>
+            <ng-icon
+              #accordionTrigerIcon
+              [name]="
+                accordionItem2.isOpen()
+                  ? 'heroChevronUpMini'
+                  : 'heroChevronDownMini'
+              "
+              class="transition-all ease-in-out"
+            />
+          </div>
+        </ngx-primer-accordion-trigger>
+        <ngx-primer-accordion-content
+          #accordionContent2
+          ngxPrimerCollapsibleDirective
+          [ngxPrimerIdAttr]="'accordion-info-content-' + item.value"
+          [ngxPrimerCollapsibleCollapsed]="!accordionItem2.isOpen()"
+          [ngxPrimerCollapsibleDirection]="accordionRoot2.orientation()"
+          class="text-gray-500 overflow-hidden"
+        >
+          <span>
+            {{ item.content }}
+          </span>
+        </ngx-primer-accordion-content>
+      </ngx-primer-accordion-item>
     }
   </ngx-primer-accordion-root>
 </div>

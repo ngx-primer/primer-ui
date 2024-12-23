@@ -35,7 +35,7 @@ describe('NgxPrimerCollapseExpandAnimationDirective', () => {
   it('should create an instance', () => {
     const fixture = TestBed.createComponent(TestComponent);
     const directiveEl = fixture.debugElement.query(
-      By.directive(NgxPrimerCollapseExpandAnimationDirective)
+      By.directive(NgxPrimerCollapseExpandAnimationDirective),
     );
     expect(directiveEl).toBeTruthy();
   });

@@ -184,7 +184,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     {
       descendants: true,
       read: NgxPrimerAccordionItemComponent,
-    }
+    },
   );
 
   /**
@@ -213,7 +213,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     this.accordionConfig.collapsible,
     {
       alias: 'ngxPrimerAccordionCollapsible',
-    }
+    },
   );
 
   /**
@@ -287,7 +287,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
    */
   public isOpen(value: T): boolean {
     return this.type() === 'Multiple'
-      ? (this.value() as T[] | null)?.includes(value) ?? false
+      ? ((this.value() as T[] | null)?.includes(value) ?? false)
       : this.value() === value;
   }
 
@@ -461,7 +461,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
       setTimeout(() =>
         doneFn({
           context: this,
-        })
+        }),
       );
     }
   }
@@ -666,12 +666,12 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     const values = Array.isArray(value) ? value : [value];
 
     const accordionItems = this.accordionItems?.filter((item) =>
-      values.includes(item.value())
+      values.includes(item.value()),
     );
 
     const update = (
       item: NgxPrimerAccordionItemComponent<T>,
-      enable: boolean
+      enable: boolean,
     ) => {
       const isDisabled = item.disabled();
       const shouldDisable = !enable;

@@ -28,7 +28,7 @@ export class NgxPrimerIdGeneratorDirective {
   protected readonly _viewContainerRef = inject(ViewContainerRef);
 
   protected readonly _element = computed(
-    () => this._viewContainerRef.element.nativeElement as HTMLElement
+    () => this._viewContainerRef.element.nativeElement as HTMLElement,
   );
   protected readonly _hostNodeRef = computed(() => ({
     tagName: this._element().tagName,

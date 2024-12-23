@@ -22,8 +22,8 @@ export interface NgxPrimerAccordionConfig {
   preventScrolling?: boolean;
   updateConfig(
     callbackFn: (
-      config: NgxPrimerAccordionConfig
-    ) => Partial<NgxPrimerAccordionConfig>
+      config: NgxPrimerAccordionConfig,
+    ) => Partial<NgxPrimerAccordionConfig>,
   ): void;
   updateConfig(newConfig: Partial<NgxPrimerAccordionConfig>): void;
   resetConfig(target: NgxPrimerAccordionConfig): void;
@@ -40,8 +40,8 @@ export const defaultAccordionConfig: () => NgxPrimerAccordionConfig = () => ({
     callbackFn:
       | Partial<NgxPrimerAccordionConfig>
       | ((
-          config: NgxPrimerAccordionConfig
-        ) => Partial<NgxPrimerAccordionConfig>)
+          config: NgxPrimerAccordionConfig,
+        ) => Partial<NgxPrimerAccordionConfig>),
   ): void {
     const updatedConfig =
       typeof callbackFn === 'function' ? callbackFn(this) : { ...callbackFn };
@@ -52,7 +52,7 @@ export const defaultAccordionConfig: () => NgxPrimerAccordionConfig = () => ({
   },
 });
 export function provideAccordionConfig(
-  config: Partial<NgxPrimerAccordionConfig>
+  config: Partial<NgxPrimerAccordionConfig>,
 ): Provider {
   return [
     {

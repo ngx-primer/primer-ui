@@ -8,9 +8,8 @@ describe('AppBannerTextComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppBannerTextComponent]
-    })
-    .compileComponents();
+      imports: [AppBannerTextComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AppBannerTextComponent);
     component = fixture.componentInstance;
