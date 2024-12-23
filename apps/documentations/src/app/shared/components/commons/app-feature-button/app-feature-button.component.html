@@ -1,0 +1,12 @@
+@if (!hyperlink()) {
+  <button 
+    class="bg-[#0546f1] font-semibold text-gray-100 text-xs sm:text-sm xl:text-md p-2 sm:py-2 sm:px-2 md:px-4 md:py-2 rounded-lg md:rounded-xl">
+    {{ buttonText }}
+  </button>
+} @else {
+  <a 
+    [routerLink]="hyperlinkTarget()"
+    class="bg-[#0546f1]/100 font-semibold text-xs sm:text-sm xl:text-md p-2 sm:py-2 sm:px-2 md:px-4 md:py-2 rounded-lg md:rounded-xl">
+    {{ buttonText }}
+  </a>
+}
