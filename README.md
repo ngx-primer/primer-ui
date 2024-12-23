@@ -47,8 +47,12 @@ export class AppModule {}
 
 ```html
 <ngx-primer-accordion-root [type]="'Single'" [collapsible]="true">
-  <ngx-primer-accordion-item [value]="'item1'">Item 1 Content</ngx-primer-accordion-item>
-  <ngx-primer-accordion-item [value]="'item2'">Item 2 Content</ngx-primer-accordion-item>
+  <ngx-primer-accordion-item [value]="'item1'"
+    >Item 1 Content</ngx-primer-accordion-item
+  >
+  <ngx-primer-accordion-item [value]="'item2'"
+    >Item 2 Content</ngx-primer-accordion-item
+  >
 </ngx-primer-accordion-root>
 ```
 

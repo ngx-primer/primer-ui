@@ -9,7 +9,7 @@ import { PrimitiveContextGeneratorGeneratorSchema } from './schema';
 
 export async function primitiveContextGeneratorGenerator(
   tree: Tree,
-  options: PrimitiveContextGeneratorGeneratorSchema
+  options: PrimitiveContextGeneratorGeneratorSchema,
 ) {
   const projectRoot = `libs/${options.name}`;
   addProjectConfiguration(tree, options.name, {

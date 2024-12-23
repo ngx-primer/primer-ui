@@ -9,7 +9,7 @@ import { PrimitiveDirectiveGeneratorGeneratorSchema } from './schema';
 
 export async function primitiveDirectiveGeneratorGenerator(
   tree: Tree,
-  options: PrimitiveDirectiveGeneratorGeneratorSchema
+  options: PrimitiveDirectiveGeneratorGeneratorSchema,
 ) {
   const projectRoot = `libs/${options.name}`;
   addProjectConfiguration(tree, options.name, {

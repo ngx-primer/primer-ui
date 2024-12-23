@@ -59,7 +59,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     {
       optional: true,
       host: true,
-    }
+    },
   );
 
   /**
@@ -70,7 +70,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     {
       descendants: true,
       read: NgxPrimerAccordionContentComponent,
-    }
+    },
   );
 
   /**
@@ -81,7 +81,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
     {
       descendants: true,
       read: NgxPrimerAccordionTriggerComponent,
-    }
+    },
   );
 
   public readonly value = model<T | null>(null, {
@@ -96,7 +96,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
   });
 
   public readonly isOpen = computed<boolean>(
-    () => this.accordionRoot?.isOpen(this.value() as T) ?? false
+    () => this.accordionRoot?.isOpen(this.value() as T) ?? false,
   );
 
   @HostBinding('attr.data-orientation')
@@ -163,7 +163,7 @@ export class NgxPrimerAccordionItemComponent<T> implements OnInit {
       setTimeout(() =>
         doneFn({
           context: this,
-        })
+        }),
       );
     }
   }

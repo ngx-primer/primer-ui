@@ -81,7 +81,12 @@ The `ngx-primer-accordion-root` component offers several input properties for cu
 Example with advanced options:
 
 ```html
-<ngx-primer-accordion-root [type]="'Single'" [collapsible]="true" [orientation]="'horizontal'" [disabled]="false">
+<ngx-primer-accordion-root
+  [type]="'Single'"
+  [collapsible]="true"
+  [orientation]="'horizontal'"
+  [disabled]="false"
+>
   <ngx-primer-accordion-item [value]="1">
     <div ngxPrimerAccordionHeader>Item 1 Header</div>
     <div ngxPrimerAccordionBody>Content for item 1</div>

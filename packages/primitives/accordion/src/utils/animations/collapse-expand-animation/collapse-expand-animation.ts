@@ -93,7 +93,7 @@ const expandedState = state(
       expandedHeight: '500px',
       expandedWidth: '500px',
     },
-  }
+  },
 );
 
 /**
@@ -145,7 +145,7 @@ const collapsedState = state(
       collapsedHeight: '0px',
       collapsedWidth: '0px',
     },
-  }
+  },
 );
 
 /**
@@ -183,7 +183,7 @@ export const collapsibleTransition = {
         timingDuration: animationTimingDuration,
         easingFunction: animationEasingFn,
       },
-    }
+    },
   ),
 };
 

@@ -46,7 +46,7 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
     {
       host: true,
       optional: true,
-    }
+    },
   );
 
   @HostBinding('role')

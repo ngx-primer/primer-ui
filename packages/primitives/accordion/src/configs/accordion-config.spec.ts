@@ -78,7 +78,7 @@ describe('AccordionConfig', () => {
     expect(injectedConfig.type).toBe(NgxPrimerAccordionType.Multiple);
     expect(injectedConfig.collapsible).toBe(true);
     expect(injectedConfig.orientation).toBe(
-      NgxPrimerAccordionOrientation.Vertical
+      NgxPrimerAccordionOrientation.Vertical,
     );
     expect(injectedConfig.theme.builtIn).toBe(true);
   });

@@ -13,7 +13,7 @@ import { PrimitiveComponentGeneratorGeneratorSchema } from './schema';
 
 export async function primitiveComponentGeneratorGenerator(
   tree: Tree,
-  options: PrimitiveComponentGeneratorGeneratorSchema
+  options: PrimitiveComponentGeneratorGeneratorSchema,
 ) {
   // toodo implement component
 }

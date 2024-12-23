@@ -70,7 +70,7 @@ describe('NgxPrimerAccordionRootComponent', () => {
         fixture.detectChanges();
 
         expect(component.accordionConfig.type).toEqual(
-          NgxPrimerAccordionType.Multiple
+          NgxPrimerAccordionType.Multiple,
         );
         expect(component.accordionConfig.collapsible).toBeTruthy();
       });
@@ -211,7 +211,7 @@ describe('NgxPrimerAccordionRootComponent', () => {
 
           expect((component as any).toogleSingle).toHaveBeenCalledWith(
             'item-2',
-            false
+            false,
           );
         });
       });

@@ -151,7 +151,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
     {
       host: true,
       optional: true,
-    }
+    },
   );
 
   /**
@@ -201,7 +201,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
       setTimeout(() =>
         doneFn({
           context: this,
-        })
+        }),
       );
     }
   }
@@ -254,7 +254,7 @@ export class NgxPrimerAccordionTriggerComponent<T> implements OnInit {
   public onKeyDown(event: KeyboardEvent) {
     const currentIndex = this.accordionRoot?.accordionItems.findIndex(
       (item: NgxPrimerAccordionItemComponent<T>) =>
-        item?.accordionTrigger === this
+        item?.accordionTrigger === this,
     ) as number;
 
     switch (event.key) {
