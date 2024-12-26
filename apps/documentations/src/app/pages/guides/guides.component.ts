@@ -1,4 +1,4 @@
-import { BehaviorSubject, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError } from 'rxjs';
 import { Component, OnInit, inject } from '@angular/core';
 
 import { AppComponent } from '../../app.component';
@@ -17,12 +17,12 @@ export class GuidesComponent implements OnInit {
   protected appComponent = inject(AppComponent, {
     optional: true,
   });
-  appGuidesRoute = new BehaviorSubject([] as MenuItem[]);
+  appGuidesRoute$ = new BehaviorSubject([] as MenuItem[]);
   ngOnInit(): void {
     this.loadGuideRoutes();
   }
   protected loadGuideRoutes() {
-    this.appComponent?.menuItems
+    this.appComponent?.getMenuItems()
       .pipe(catchError(async (e) => this.handleLoadRouteError(e)))
       .subscribe({
         next: (value) => this.handleLoadRouteSuccess(value as MenuItem[]),
@@ -32,61 +32,15 @@ export class GuidesComponent implements OnInit {
     console.log(e);
   }
   protected handleLoadRouteSuccess(value: MenuItem[]) {
-    const baseRoutes = value.filter((value) => value.path === 'guides');
-    const finalRoutes = baseRoutes.map((route) => ({
-      ...route,
-      children: [...(route.children ?? []), ...this.dynamicRoutes],
-    }));
-    this.appGuidesRoute.next(finalRoutes);
+    // console.log(value);
+    const menus = value as MenuItem[];
+    console.log(menus[0].children?.filter((menu) => menu.path === 'guides') ?? []);
+    
+    this.appGuidesRoute$.next(menus[0].children?.filter((menu) => menu.path === 'guides') ?? []);
   }
 
-  public get dynamicRoutes(): MenuItem[] {
-    return [
-      {
-        path: 'introduction',
-        title: 'Introduction',
-      },
-      {
-        path: 'overview',
-        title: 'Overview',
-      },
-      {
-        path: 'core-concept',
-        title: 'Core Concept',
-      },
-      {
-        path: 'installation',
-        title: 'Installation',
-      },
-      {
-        path: 'getting-started',
-        title: 'Getting Started',
-      },
-      {
-        path: 'configuration',
-        title: 'Configuration',
-      },
-      {
-        path: 'routing',
-        title: 'Routing',
-      },
-      {
-        path: 'state-management',
-        title: 'State Management',
-      },
-      {
-        path: 'dependency-injection',
-        title: 'Dependency Injection',
-      },
-      {
-        path: 'testing',
-        title: 'Testing',
-      },
-      {
-        path: 'deployment',
-        title: 'Deployment',
-      },
-    ];
+  public get guideRoutes$(): Observable<MenuItem[]> { 
+    return this.appGuidesRoute$.asObservable();
   }
 
   // TrackBy for the main items

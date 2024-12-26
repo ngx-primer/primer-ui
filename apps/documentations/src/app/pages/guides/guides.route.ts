@@ -6,7 +6,7 @@ export const guidesRoutes: Route[] = [
     children: [
       {
         path: '',
-        redirectTo: 'introduction',
+        redirectTo: 'installation',
         pathMatch: 'full',
       },
       {

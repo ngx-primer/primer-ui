@@ -17,13 +17,16 @@ export class AppComponent implements OnInit {
 
   menuItems = new BehaviorSubject([] as MenuItem[]);
   ngOnInit(): void {
-    console.log("ensure only init once per refresh")
+    // console.log("ensure only init once per refresh")
     this.loadAppMenu();
   }
   protected loadAppMenu() {
-    console.log(this.menuService);
-    this.menuService.getMenuTree().subscribe({
+    this.menuService.getAppMenus().subscribe({
       next: (value) => this.menuItems.next(value)
     })
+  }
+  
+  getMenuItems() {
+    return this.menuItems.asObservable();
   }
 }

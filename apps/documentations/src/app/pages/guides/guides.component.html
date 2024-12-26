@@ -2,7 +2,7 @@
   <section left-section>
     <div class="flex flex-col">
       <ng-container
-        *ngFor="let item of appGuidesRoute | async; trackBy: trackByItem"
+        *ngFor="let item of appGuidesRoute$ | async; trackBy: trackByItem"
       >
         <a
           [routerLink]="item.path.replace('guides', '/guides')"

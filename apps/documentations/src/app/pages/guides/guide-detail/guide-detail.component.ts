@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { GuidesComponent } from '../guides.component';
-import { HttpClient } from '@angular/common/http';
 import { PageContent } from '../../../core/interfaces/content.type';
 import { PageContentService } from '../../../core/services/page-content/page-content.service';
 import { Title } from '@angular/platform-browser';
@@ -33,18 +32,20 @@ export class GuideDetailComponent implements OnInit, OnDestroy {
 
   protected subscribeToRouteChanges() {
     this.activatedRoute.params.subscribe((params) => {
-      const routeTitle = this.guidesComponent?.dynamicRoutes.find(
-        (route) => route.path === params['slug'],
-      )?.title;
-      if (routeTitle) {
-        this.initializePageMetaData(params, routeTitle);
-      }
+      console.log(params);
+      this.guidesComponent?.appGuidesRoute$.subscribe({
+        next: (routes) => {
+          const routeTitle = routes.find((route) => route.path === params['slug'])?.title;
+          console.log(routeTitle);
+          this.initializePageMetaData(params, routeTitle ?? '');
+        }
+      });
     });
   }
 
   protected initializePageMetaData(params: Record<string, unknown>, routeTitle: string) {
     this.slug$.next(params['slug'] as string);
-    this.pageTitle$.next(routeTitle ?? 'default-title');
+    this.pageTitle$.next(routeTitle ?? params['slug'] as string); 
     let documentTitle = this.titleService.getTitle()?.split(' | ')[0];
     documentTitle = documentTitle + ' | ' + this.pageTitle$.getValue();
     this.titleService.setTitle(documentTitle);
