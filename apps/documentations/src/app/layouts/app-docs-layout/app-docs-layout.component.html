@@ -1,0 +1,28 @@
+<nav
+  class="sticky top-0 z-50 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg h-16 border-b w-full flex items-center"
+>
+  <div class="container mx-auto px-4 py-2">
+    <div class="flex items-center justify-between">
+      <div class="text-xl font-semibold text-gray-700">
+        <a routerLink="/" class="hover:text-gray-50 text-gray-200">NgxPrimer</a>
+      </div>
+      <div class="text-sm font-semibold text-gray-700">
+        <a href="#" class="mx-4 text-gray-400">Guide</a>
+        <a href="#" class="mx-4 text-gray-400">Reference</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div
+  class="container mx-auto flex flex-col md:flex-row h-screen overflow-y-auto"
+>
+  <aside class="left-sidebar w-full md:w-1/5 py-8" aria-label="light-sidebar">
+    <ng-content select="[left-section]" />
+  </aside>
+  <main class="w-full md:w-2/3 overflow-y-auto border-x p-8">
+    <ng-content select="[main-section]" />
+  </main>
+  <aside class="right-sidebar w-full md:w-1/5 py-8" aria-label="right-sidebar">
+    <ng-content select="[right-section]" />
+  </aside>
+</div>

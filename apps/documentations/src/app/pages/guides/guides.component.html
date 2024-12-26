@@ -1,0 +1,45 @@
+<app-docs-layout>
+  <section left-section>
+    <div class="flex flex-col">
+      <ng-container
+        *ngFor="let item of appGuidesRoute | async; trackBy: trackByItem"
+      >
+        <a
+          [routerLink]="item.path.replace('guides', '/guides')"
+          style="cursor: pointer"
+          class="!hover:cursor-pointer mb-2 hover:font-bold hover:text-blue-700"
+          routerLinkActive="font-bold text-blue-700"
+          >{{ item.title }}</a
+        >
+        <ng-container *ngIf="item.children">
+          <ng-container
+            *ngFor="let child of item.children; trackBy: trackByChild"
+          >
+            <a
+              [routerLink]="child.path.replace('guides/', '')"
+              style="cursor: pointer"
+              class="!hover:cursor-pointer border-l pl-4 transition-all ease-in-out duration-100 hover:text-blue-600 hover:font-bold hover:border-l-2 hover:border-blue-600"
+              routerLinkActive="text-blue-700 font-bold border-l-2 border-blue-700"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >{{ child.title }}</a
+            >
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </section>
+  <section main-section>
+    <router-outlet />
+  </section>
+  <section right-section>
+    Everyone has the right to freedom of thought, conscience and religion; this
+    right includes freedom to change his religion or belief, and freedom, either
+    alone or in community with others and in public or private, to manifest his
+    religion or belief in teaching, practice, worship and observance. Everyone
+    has the right to freedom of opinion and expression; this right includes
+    freedom to hold opinions without interference and to seek, receive and
+    impart information and ideas through any media and regardless of frontiers.
+    Everyone has the right to rest and leisure, including reasonable limitation
+    of working hours and periodic holidays with pay.
+  </section>
+</app-docs-layout>

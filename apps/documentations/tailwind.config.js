@@ -2,6 +2,7 @@ const { createGlobPatternsForDependencies } = require('@nx/angular/tailwind');
 const { join } = require('path');
 const tailwindBaseConfig = require('./tailwind-base.config');
 const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,6 +13,10 @@ module.exports = {
   theme: {
     extend: {
       ...tailwindBaseConfig,
+      fontFamily: {
+        'nunito-sans': ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+        'ibm-plex-sans': ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
   plugins: [
