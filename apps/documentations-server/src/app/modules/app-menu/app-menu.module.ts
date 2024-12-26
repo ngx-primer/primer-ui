@@ -3,11 +3,7 @@ import { AppMenuService } from './app-menu.service';
 import { Module } from '@nestjs/common';
 
 @Module({
-  controllers: [
-    AppMenuController
-  ],
-  providers: [
-    AppMenuService
-  ]
+  controllers: [AppMenuController],
+  providers: [AppMenuService],
 })
 export class AppMenuModule {}

@@ -17,5 +17,5 @@ module.exports = {
       generatePackageJson: true,
       watch: true,
     }),
-  ]
+  ],
 };

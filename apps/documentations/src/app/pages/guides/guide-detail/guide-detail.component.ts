@@ -1,7 +1,7 @@
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { GuidesComponent } from '../guides.component';
 import { PageContent } from '../../../core/interfaces/content.type';
@@ -25,44 +25,55 @@ export class GuideDetailComponent implements OnInit, OnDestroy {
   public pageContent$ = new BehaviorSubject<PageContent>({} as PageContent);
   public pageContentError$ = new BehaviorSubject<boolean>(false);
   protected pageService = inject(PageContentService);
+  protected activatedRouteSubscription!: Subscription;
+  protected appGuideRoutesSubscription: Subscription | undefined;
+  protected pageDataSubscription: Subscription | undefined;
 
   ngOnInit(): void {
     this.subscribeToRouteChanges();
   }
 
   protected subscribeToRouteChanges() {
-    this.activatedRoute.params.subscribe((params) => {
-      console.log(params);
-      this.guidesComponent?.appGuidesRoute$.subscribe({
-        next: (routes) => {
-          const routeTitle = routes.find((route) => route.path === params['slug'])?.title;
-          console.log(routeTitle);
-          this.initializePageMetaData(params, routeTitle ?? '');
-        }
-      });
-    });
+    this.activatedRouteSubscription = this.activatedRoute.params.subscribe(
+      (params) => {
+        this.appGuideRoutesSubscription =
+          this.guidesComponent?.appGuidesRoute$.subscribe({
+            next: (routes) => {
+              const routeTitle = routes.find(
+                (route) => route.path === params['slug'],
+              )?.title;
+              this.initializePageMetaData(params, routeTitle ?? '');
+            },
+          });
+      },
+    );
   }
 
-  protected initializePageMetaData(params: Record<string, unknown>, routeTitle: string) {
+  protected initializePageMetaData(
+    params: Record<string, unknown>,
+    routeTitle: string,
+  ) {
     this.slug$.next(params['slug'] as string);
-    this.pageTitle$.next(routeTitle ?? params['slug'] as string); 
+    this.pageTitle$.next(routeTitle ?? (params['slug'] as string));
     let documentTitle = this.titleService.getTitle()?.split(' | ')[0];
     documentTitle = documentTitle + ' | ' + this.pageTitle$.getValue();
     this.titleService.setTitle(documentTitle);
 
-    this.pageService.getPageData({
-      page: "guides",
-      params: params["slug"] as string,
-    }).subscribe({
-      next: (page) => {
-        this.pageContent$.next(page as PageContent);
-        this.pageContentError$.next(false);
-      },
-      error: (err) => {
-        this.pageContentError$.next(true);
-        throw err
-      }
-    });
+    this.pageDataSubscription = this.pageService
+      .getPageData({
+        page: 'guides',
+        params: params['slug'] as string,
+      })
+      .subscribe({
+        next: (page) => {
+          this.pageContent$.next(page as PageContent);
+          this.pageContentError$.next(false);
+        },
+        error: (err) => {
+          this.pageContentError$.next(true);
+          throw err;
+        },
+      });
   }
 
   ngOnDestroy(): void {
@@ -72,17 +83,19 @@ export class GuideDetailComponent implements OnInit, OnDestroy {
     if (this.pageContent$) {
       this.pageContent$.complete();
     }
-    if(this.pageTitle$) {
+    if (this.pageTitle$) {
       this.pageTitle$.complete();
     }
-    if(this.pageContentError$) {
+    if (this.pageContentError$) {
       this.pageContentError$.complete();
     }
+
+    this.activatedRouteSubscription?.unsubscribe();
+    this.appGuideRoutesSubscription?.unsubscribe();
+    this.pageDataSubscription?.unsubscribe();
   }
 
   get pageSections() {
-    return this.pageContent$
-      .getValue()
-      .sections?.map((section) => section)
+    return this.pageContent$.getValue().sections?.map((section) => section);
   }
 }

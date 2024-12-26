@@ -3,18 +3,14 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { AppMenuService } from './app-menu.service';
 
 export interface MenuItem {
-  path: string,
-  title: string,
-  children?: MenuItem[]
+  path: string;
+  title: string;
+  children?: MenuItem[];
 }
 
 @Controller()
 export class AppMenuController {
-
-  constructor(
-    private readonly appMenuService: AppMenuService,
-  ) {
-  }
+  constructor(private readonly appMenuService: AppMenuService) {}
 
   @Get('app-docs-menus')
   public index() {

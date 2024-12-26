@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, catchError } from 'rxjs';
 import { Component, OnInit, inject } from '@angular/core';
 
 import { AppComponent } from '../../app.component';
@@ -18,15 +18,17 @@ export class GuidesComponent implements OnInit {
     optional: true,
   });
   appGuidesRoute$ = new BehaviorSubject([] as MenuItem[]);
+  appMenuSubscription!: Subscription;
   ngOnInit(): void {
     this.loadGuideRoutes();
   }
   protected loadGuideRoutes() {
-    this.appComponent?.getMenuItems()
-      .pipe(catchError(async (e) => this.handleLoadRouteError(e)))
+    this.appMenuSubscription = this.appComponent
+      ?.getMenuItems()
+      ?.pipe(catchError(async (e) => this.handleLoadRouteError(e)))
       .subscribe({
         next: (value) => this.handleLoadRouteSuccess(value as MenuItem[]),
-      });
+      }) as Subscription;
   }
   protected handleLoadRouteError(e: Error) {
     console.log(e);
@@ -34,12 +36,16 @@ export class GuidesComponent implements OnInit {
   protected handleLoadRouteSuccess(value: MenuItem[]) {
     // console.log(value);
     const menus = value as MenuItem[];
-    console.log(menus[0].children?.filter((menu) => menu.path === 'guides') ?? []);
-    
-    this.appGuidesRoute$.next(menus[0].children?.filter((menu) => menu.path === 'guides') ?? []);
+    console.log(
+      menus[0].children?.filter((menu) => menu.path === 'guides') ?? [],
+    );
+
+    this.appGuidesRoute$.next(
+      menus[0].children?.filter((menu) => menu.path === 'guides') ?? [],
+    );
   }
 
-  public get guideRoutes$(): Observable<MenuItem[]> { 
+  public get guideRoutes$(): Observable<MenuItem[]> {
     return this.appGuidesRoute$.asObservable();
   }
 
@@ -51,5 +57,8 @@ export class GuidesComponent implements OnInit {
   // TrackBy for the child items
   trackByChild(index: number, child: MenuItem): string {
     return child.path; // Use a unique property such as 'path'
+  }
+  onDestroy() {
+    this.appMenuSubscription.unsubscribe();
   }
 }

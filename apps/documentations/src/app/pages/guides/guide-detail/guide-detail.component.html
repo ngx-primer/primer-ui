@@ -2,12 +2,11 @@
 
 @if (pageContentError$ | async) {
   <div>error while fetching content</div>
-}
-@else {
+} @else {
   @for (section of pageSections; track $index) {
     <section class="mt-8">
       <h2 class="text-2xl font-semibold mb-2">{{ section.title }}</h2>
-      @if(section.items.length) {
+      @if (section.items.length) {
         @for (item of section.items; track $index) {
           @switch (item.type) {
             @case ('text') {
@@ -15,7 +14,7 @@
             }
             @case ('list') {
               <ul class="list-disc list-inside text-lg text-gray-700 mb-4">
-                @for (listItem of (item.data || []); track $index) {
+                @for (listItem of item.data || []; track $index) {
                   <li>{{ listItem }}</li>
                 }
               </ul>
@@ -26,4 +25,3 @@
     </section>
   }
 }
-

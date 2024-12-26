@@ -1,6 +1,6 @@
-import { Injectable, inject } from "@angular/core";
+import { Injectable, inject } from '@angular/core';
 
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
 export interface MenuItem {
   path: string;
@@ -8,11 +8,11 @@ export interface MenuItem {
   children?: MenuItem[];
 }
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MenuService {
   private readonly http: HttpClient = inject(HttpClient);
-  
+
   public getAppMenus() {
     return this.http.get<MenuItem[]>('/api/app-docs-menus');
   }
