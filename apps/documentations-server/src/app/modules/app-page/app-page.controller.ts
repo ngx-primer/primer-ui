@@ -1,4 +1,4 @@
-import { Get, Param, Controller, Logger, Res } from "@nestjs/common";
+import { Get, Param, Controller, Logger } from "@nestjs/common";
 import { AppPageService } from "./app-page.service";
 import { Subscription } from "rxjs";
 import { Token } from "marked";
