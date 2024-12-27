@@ -3,6 +3,9 @@
  * This is only a minimal backend to get started.
  */
 
+import { WinstonModule, utilities as nestWinstonModuleUtilities } from 'nest-winston';
+import { format, transports } from 'winston';
+
 import { AppModule } from './app/app.module';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -16,8 +19,37 @@ declare const module: {
   };
 };
 
+
+
+export const WinstonLoggerFactory = (appName: string) => {
+  let consoleFormat; 
+
+  const DEBUG = process.env.DEBUG
+  const USE_JSON_LOGGER = process.env.USE_JSON_LOGGER
+
+  if (USE_JSON_LOGGER === 'true') {
+    consoleFormat = format.combine(format.ms(), format.timestamp(), format.json());
+  } else {
+    consoleFormat = format.combine(
+      format.timestamp(),
+      format.ms(),
+      nestWinstonModuleUtilities.format.nestLike(appName, {
+        colors: true,
+        prettyPrint: true,
+      }),
+    );
+  }
+
+  return WinstonModule.createLogger({
+    level: DEBUG ? 'debug' : 'info',
+    transports: [new transports.Console({ format: consoleFormat })],
+  });
+};
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: WinstonLoggerFactory('DocumentationsServer-Angular'),
+  });
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3000;
@@ -33,7 +65,9 @@ async function bootstrap() {
         return { path, method };
       });
 
-    console.log('Registered Routes:', routes);
+    Logger.log(
+      `Registered routes: ${JSON.stringify(routes, null, 2)}`,
+    );
   }
 
   await app.listen(port);
