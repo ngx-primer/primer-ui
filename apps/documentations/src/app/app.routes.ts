@@ -19,15 +19,8 @@ export const appRoutes: Route[] = [
     },
   },
   {
-    path: 'guides',
-    loadComponent: () =>
-      import('./pages/guides/guides.component').then((c) => c.GuidesComponent),
-    loadChildren: () =>
-      import('./pages/guides/guides.route').then((r) => r.guidesRoutes),
-    data: {
-      sideMenu: {
-        title: 'Guides',
-      },
-    },
+    path: 'docs',
+    loadComponent: () => import('./content/content.component').then((c) => c.ContentComponent),
+    loadChildren: () => import('./content/content.route').then((r) => r.contentRoutes),
   },
 ];

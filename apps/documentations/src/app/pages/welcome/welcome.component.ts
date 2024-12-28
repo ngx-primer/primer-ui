@@ -53,22 +53,17 @@ export class WelcomeComponent {
     {
       text: 'Get Started',
       hyperlink: true,
-      target: 'get-started',
+      target: '/docs/overview/introduction',
     },
     {
       text: 'Guides',
       hyperlink: true,
-      target: '/guides',
-    },
-    {
-      text: 'Quick Start',
-      hyperlink: true,
-      target: 'quick-start',
+      target: '/docs/guides/installation',
     },
     {
       text: 'Api Reference',
       hyperlink: true,
-      target: 'api-reference',
+      target: '/docs/api-reference/overview',
     },
   ];
 }

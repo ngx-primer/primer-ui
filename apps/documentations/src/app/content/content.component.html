@@ -2,21 +2,31 @@
   <section left-section>
     <div class="flex flex-col">
       <ng-container
-        *ngFor="let item of appGuidesRoute$ | async; trackBy: trackByItem"
+        *ngFor="let item of appSideMenuItems$ | async; trackBy: trackByItem"
       >
-        <a
-          [routerLink]="item.path.replace('guides', '/guides')"
-          style="cursor: pointer"
-          class="!hover:cursor-pointer mb-2 hover:font-bold hover:text-blue-700"
-          routerLinkActive="font-bold text-blue-700"
-          >{{ item.title }}</a
-        >
+        <ng-container *ngIf="item.children; else noChildren">
+          <a
+            [routerLink]="item.path"
+            style="cursor: pointer"
+            class="!hover:cursor-pointer mb-2 hover:font-bold hover:text-blue-700"
+            routerLinkActive="font-bold text-blue-700"
+            >{{ item.title }}</a
+          >
+        </ng-container>
+        <ng-template #noChildren>
+          <p
+            style="cursor: pointer"
+            class="!hover:cursor-pointer mb-2 hover:font-bold hover:text-blue-700"
+            routerLinkActive="font-bold text-blue-700"
+            >{{ item.title }}</p
+          >
+        </ng-template>
         <ng-container *ngIf="item.children">
           <ng-container
             *ngFor="let child of item.children; trackBy: trackByChild"
           >
             <a
-              [routerLink]="child.path.replace('guides/', '')"
+              [routerLink]="item.path + '/' + child.path"
               style="cursor: pointer"
               class="!hover:cursor-pointer border-l pl-4 transition-all ease-in-out duration-100 hover:text-blue-600 hover:font-bold hover:border-l-2 hover:border-blue-600"
               routerLinkActive="text-blue-700 font-bold border-l-2 border-blue-700"
@@ -29,6 +39,13 @@
     </div>
   </section>
   <section main-section>
+    <ng-container *ngIf="appPageContentService.pageContent$ | async as pageMeta">
+      <div class="flex flex-row gap-x-2 items-center">        
+        <h1 class="text-2xl font-bold">{{ pageMeta.pageTitle! | pageTitle }}</h1>
+        <span>></span>
+        <h1 class="text-2xl">{{ pageMeta.pageSubtitle! | pageTitle }}</h1>
+      </div>
+    </ng-container>
     <router-outlet />
   </section>
   <section right-section>
