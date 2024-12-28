@@ -1,4 +1,5 @@
-*
+-
+
 # Overview of @ngx-primer
 
 ## Introduction

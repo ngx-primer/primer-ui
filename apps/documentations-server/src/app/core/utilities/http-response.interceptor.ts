@@ -27,10 +27,12 @@ export class ApiResponseInterceptor<T> implements NestInterceptor<T> {
       });
     } catch (error) {
       return new Observable((observer) => {
-        observer.next(failureResponse(
-          'Request failed',
-          error.response || error.message || error,
-        ));
+        observer.next(
+          failureResponse(
+            'Request failed',
+            error.response || error.message || error,
+          ),
+        );
         observer.complete();
       });
     }

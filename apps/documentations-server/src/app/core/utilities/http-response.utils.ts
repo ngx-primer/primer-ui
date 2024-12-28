@@ -9,7 +9,7 @@ export function createApiResponse<T>(
   success: boolean,
   message: string,
   data?: T,
-  error?: Error | Record<string, unknown> | unknown
+  error?: Error | Record<string, unknown> | unknown,
 ): ApiResponseHelper<T> {
   return {
     success,
@@ -19,5 +19,7 @@ export function createApiResponse<T>(
   };
 }
 
-export const successResponse = <T>(message: string, data: T) =>  createApiResponse(true, message, data);
-export const failureResponse = <E>(message: string, error: E) =>  createApiResponse(false, message, null, error);
+export const successResponse = <T>(message: string, data: T) =>
+  createApiResponse(true, message, data);
+export const failureResponse = <E>(message: string, error: E) =>
+  createApiResponse(false, message, null, error);
