@@ -1,6 +1,4 @@
--
-
-# Overview of @ngx-primer
+# Overview
 
 ## Introduction
 

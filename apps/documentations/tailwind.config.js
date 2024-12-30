@@ -17,9 +17,24 @@ module.exports = {
         'nunito-sans': ['Nunito Sans', ...defaultTheme.fontFamily.sans],
         'ibm-plex-sans': ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            pre: {
+              'background-color': theme('colors.gray.800'), // Keep prose pre styles
+            },
+            code: {
+              'background-color': theme('colors.transparent'), // Remove background
+              padding: '0',
+              'border-radius': '0',
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(({ addUtilities }) => {
       addUtilities({
         '.text-foreground-brand': {
@@ -28,7 +43,7 @@ module.exports = {
           '-webkit-background-clip': 'text',
           '-webkit-text-fill-color': 'transparent',
         },
-      });
-    }),
+      })
+    })
   ],
 };

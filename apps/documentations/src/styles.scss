@@ -1,7 +1,48 @@
+@import 'highlight.js/styles/atom-one-dark.css'; // Dark theme
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* You can add global styles to this file, and also import other style files */
+.content-detail * {
+  width: 100%;
+}
+.content-detail pre {
+  padding: 0;
+}
+
+pre {
+  background-color: #282c34 !important; /* Dark background similar to Pinia */
+  color: #ffffff !important; /* Text color */
+  padding: 16px !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+}
+
+code {
+  font-family: 'Fira Code', monospace !important;
+  font-size: 14px !important;
+}
+
+/* Customize syntax tokens */
+.hljs-keyword {
+  color: #c678dd !important; /* Keywords in purple */
+}
+
+.hljs-string {
+  color: #98c379 !important; /* Strings in green */
+}
+
+.hljs-comment {
+  color: #5c6370; /* Comments in gray */
+  font-style: italic !important;
+}
+
+.hljs-function {
+  color: #61afef !important; /* Functions in blue */
+}
+
+.hljs-number {
+  color: #d19a66 !important; /* Numbers in orange */
+}

@@ -1,8 +1,6 @@
 import { Get, Param, Controller, Logger } from '@nestjs/common';
 import { AppPageService } from './app-page.service';
 import { Subscription } from 'rxjs';
-import { Token } from 'marked';
-
 @Controller()
 export class AppPageController {
   constructor(protected readonly appPageService: AppPageService) {}
@@ -13,7 +11,7 @@ export class AppPageController {
   async get(@Param('path') path: string, @Param('slug') slug: string) {
     Logger.log('AppPageController, Call get', { path, slug });
     try {
-      const data: string | Token = await this.appPageService.loadContent(
+      const data = await this.appPageService.loadContent(
         path,
         slug,
       );

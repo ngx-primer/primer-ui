@@ -1,13 +1,11 @@
 import { Injectable, Logger } from '@nestjs/common';
 
 import { ContentFetchingService } from '../../core/services/content-fetching/content-fetching.service';
-import { MarkdownService } from '../../core/services/markdown-service/markdown-service.service';
 
 @Injectable()
 export class AppPageService {
   constructor(
     protected contentFetchingService: ContentFetchingService,
-    protected markdownService: MarkdownService,
   ) {}
 
   async loadContent(path: string, slug: string) {
@@ -21,13 +19,13 @@ export class AppPageService {
         slug,
         content,
       });
-      const parsedContent = await this.markdownService.parse(content, true);
+      // const parsedContent = await this.markdownService.process(content);
       Logger.log('AppPageService, Success parsing content', {
         path,
         slug,
-        parsedContent,
+        content,
       });
-      return parsedContent;
+      return content;
     } catch (error) {
       Logger.error('AppPageService, Error While Loading and Parsing content', {
         error,
