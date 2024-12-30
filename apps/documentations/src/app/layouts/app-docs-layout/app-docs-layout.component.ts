@@ -8,4 +8,5 @@ import { RouterModule } from '@angular/router';
   templateUrl: './app-docs-layout.component.html',
   styleUrl: './app-docs-layout.component.scss',
 })
-export class AppDocsLayoutComponent {}
+export class AppDocsLayoutComponent {
+}

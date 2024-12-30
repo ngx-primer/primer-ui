@@ -1,7 +1,7 @@
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, Pipe, PipeTransform, TrackByFunction, inject } from '@angular/core';
 import { MenuItem, MenuService } from '../core/services/menu-service/menu-service.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, distinctUntilChanged, takeUntil } from 'rxjs';
 
 import { AppDocsLayoutComponent } from '../layouts/app-docs-layout/app-docs-layout.component';
 import { CommonModule } from '@angular/common';
@@ -31,12 +31,13 @@ export class CustomTitlePipe implements PipeTransform {
 export class ContentComponent implements OnInit, OnDestroy {
   protected readonly appRouter = inject(ActivatedRoute);
   protected readonly appMenuService = inject(MenuService);
+  protected readonly appContentService = inject(PageContentService);
   protected readonly appPageContentService = inject(PageContentService);
   protected readonly changeDetectorRef = inject(ChangeDetectorRef);
   protected destroy$ = new Subject<void>();
   trackByItem: TrackByFunction<MenuItem> = (index, item) => item.path;
   trackByChild: TrackByFunction<MenuItem> = (index, child) => child.path;
-
+  
   ngOnInit(): void {
     this.appMenuService.getAppMenus()
       .pipe(takeUntil(this.destroy$))
@@ -50,6 +51,15 @@ export class ContentComponent implements OnInit, OnDestroy {
           this.appMenuService.rawMenuItems.complete();
         }, 
       });
+
+    this.appContentService.pagination$.pipe(
+      takeUntil(this.destroy$),
+      distinctUntilChanged(),
+    ).subscribe({
+      next: (data) => {
+        console.log('Pagination data', data);
+      },
+    })
   }
 
   ngOnDestroy(): void {
@@ -59,5 +69,9 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   public get appSideMenuItems$() {
     return this.appMenuService.sideMenuItems$;
+  }
+
+  public get appPageContentPagination$() {
+    return this.appPageContentService.pagination$;
   }
 }

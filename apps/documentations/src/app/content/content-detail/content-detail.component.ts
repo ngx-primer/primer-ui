@@ -116,6 +116,15 @@ export class ContentDetailComponent implements OnInit, OnDestroy {
     if (children) {
       const sideMenuItems = children.filter((child) => child.path === pageSlug);
       this.appMenuService.sideMenuItems.next([...sideMenuItems]);
+
+      const {pageSubtitle} = this.appContentService.pageContent.value;
+      // Set up pagination
+      this.appContentService.pagination.next({
+        page: sideMenuItems[0]?.children?.findIndex((child) => child.path === pageSubtitle) ?? 0,
+        next: (sideMenuItems[0]?.children?.findIndex((child) => child.path === pageSubtitle) ?? -1) + 1,
+        prev: (sideMenuItems[0]?.children?.findIndex((child) => child.path === pageSubtitle) ?? -1) - 1,
+        length: sideMenuItems[0]?.children?.length ?? 0,
+      })
     }
   }
 
@@ -142,7 +151,7 @@ export class ContentDetailComponent implements OnInit, OnDestroy {
       })
     );
   }
-
+  
   private cleanup() {
     this.destroy$.next();
     this.destroy$.complete();

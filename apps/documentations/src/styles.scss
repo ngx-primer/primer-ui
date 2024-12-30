@@ -46,3 +46,10 @@ code {
 .hljs-number {
   color: #d19a66 !important; /* Numbers in orange */
 }
+
+h1 {
+  background: linear-gradient(to right, #0546FF 5%, #F637E3 15%, #FA2C04 75%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
