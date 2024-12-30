@@ -25,7 +25,7 @@ import {
 } from '@angular/core';
 
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/utilities';
 
 /**
  * Represents the accordion trigger component in the `ngx-primer` accordion library.

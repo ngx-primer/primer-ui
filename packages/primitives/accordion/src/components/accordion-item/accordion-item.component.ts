@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionContentComponent } from '../accordion-content/accordion-content.component';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { NgxPrimerAccordionTriggerComponent } from '../accordion-trigger/accordion-trigger.component';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/utilities';
 
 @Component({
   selector: 'ngx-primer-accordion-item',

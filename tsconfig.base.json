@@ -15,11 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngx-primer/primitive/accordion": [
+      "@ngx-primer/accordion": [
         "packages/primitives/accordion/src/index.ts"
       ],
-      "@ngx-primer/primitive/slot": ["packages/primitives/slot/src/index.ts"],
-      "@ngx-primer/primitive/utilities": [
+      "@ngx-primer/slot": ["packages/primitives/slot/src/index.ts"],
+      "@ngx-primer/utilities": [
         "packages/primitives/utilities/src/index.ts"
       ],
       "workspace-plugin": ["tools/workspace-plugin/src/index.ts"]

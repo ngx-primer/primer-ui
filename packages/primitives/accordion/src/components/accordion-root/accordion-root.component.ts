@@ -25,7 +25,7 @@ import {
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
+import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/utilities';
 import { injectAccordionConfig } from '../../configs/accordion-config';
 
 /**

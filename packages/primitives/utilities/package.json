@@ -1,5 +1,5 @@
 {
-  "name": "@ngx-primer/primitive/utilities",
+  "name": "@ngx-primer/utilities",
   "version": "0.0.2",
   "peerDependencies": {
     "@angular/core": "^19.0.0",

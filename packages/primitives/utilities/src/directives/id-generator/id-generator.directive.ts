@@ -37,10 +37,23 @@ export class NgxPrimerIdGeneratorDirective {
   }));
 
   protected readonly _resolvedId = computed(() => {
-    const { id, ...parts } = this.resolveHostId();
-    return id ?? Object.values(parts).join('-');
+    // const { id, ...parts } = this.resolveHostId() as {
+    //   customPrefix: string | undefined;
+    //   componentName: string  | undefined;
+    //   uniquedIdentifierKey: string | undefined;
+    //   id: string | undefined
+    // };
+    // return id ?? Object.values(parts).join('-');
+    return ''
   });
 
+  /**
+   * Resolves the host element's ID.
+   * If the element already has an ID, it returns that ID.
+   * Otherwise, it constructs an ID using the custom prefix, component name, and unique identifier key.
+   *
+   * @returns An object containing the resolved ID parts.
+   */
   protected resolveHostId() {
     if (this._element().id.length !== 0) {
       return { id: this._element().id };
