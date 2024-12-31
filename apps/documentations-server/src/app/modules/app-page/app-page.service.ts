@@ -11,6 +11,10 @@ export class AppPageService {
   async loadContent(path: string, slug: string) {
     Logger.log('AppPageService, Call loadContent', { path, slug });
     try {
+
+      if(path === 'api-reference') {
+        slug = 'primitives/accordion/accordion.ngxprimeraccordionrootcomponent'
+      }
       const content = await this.contentFetchingService.load(
         `${path}/${slug}.md`,
       );

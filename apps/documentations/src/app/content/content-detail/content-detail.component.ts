@@ -12,6 +12,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeDocument from 'rehype-document'
 import rehypeFormat from 'rehype-format'
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify'
 import remarkRehype from 'remark-rehype'
@@ -131,8 +132,9 @@ export class ContentDetailComponent implements OnInit, OnDestroy {
   protected async parsePageContent(input: string) {
     const processor = unified()
       .use(parse)
-      .use(remarkRehype)
+      .use(remarkRehype, {allowDangerousHtml: true})
       .use(rehypeDocument)
+      .use(rehypeRaw)
       .use(rehypeFormat)
       .use(rehypeHighlight)
       .use(rehypeSlug)

@@ -53,3 +53,45 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Table styles */
+.table {
+  width: 100%; /* Min-width penuh untuk tabel */
+  border-collapse: collapse; /* Tabel lebih rapat tanpa ruang antar sel */
+}
+
+/* Table header (th) styles */
+.table th {
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem; /* py-2 */
+  text-align: left; /* text-left */
+  background-color: #f3f4f6; /* bg-gray-100 */
+  width: 100px; /* Lebar tetap untuk semua kolom */
+}
+
+/* Table cell (td) styles */
+.table td {
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem; /* py-2 */
+  text-align: left; /* text-left */
+  width: 100px; /* Lebar tetap untuk semua kolom */
+}
+
+/* Menyediakan lebar tetap untuk semua kolom kecuali kolom terakhir */
+.table th:not(:last-child),
+.table td:not(:last-child) {
+  width: auto;
+}
+
+/* Alternating row colors */
+.table tr:nth-child(odd) {
+  background-color: #f9fafb; /* bg-gray-50 */
+}
+
+.table tr:nth-child(even) {
+  background-color: #ffffff; /* bg-white */
+}

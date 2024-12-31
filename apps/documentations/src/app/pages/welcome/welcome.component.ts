@@ -63,7 +63,7 @@ export class WelcomeComponent {
     {
       text: 'Api Reference',
       hyperlink: true,
-      target: '/docs/api-reference/overview',
+      target: '/docs/api-reference/accordion',
     },
   ];
 }
