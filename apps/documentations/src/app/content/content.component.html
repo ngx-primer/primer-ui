@@ -55,7 +55,12 @@
         [routerLink]="
           '/docs/' + (appSideMenuItems$ | async)?.[0]?.path + '/' + (appSideMenuItems$ | async)?.[0]?.children?.[(appPageContentPagination$ | async)?.prev!]?.path
         " 
-        *ngIf="(appPageContentPagination$ | async)?.prev !== -1" class="card w-1/2 p-4 border rounded-lg hover:bg-gray-100 cursor-pointer">
+        *ngIf="(appPageContentPagination$ | async)?.prev !== -1" 
+        class="card w-1/2 p-4 border rounded-lg hover:bg-gray-100 cursor-pointer"
+        [ngClass]="{
+          'w-full': (appPageContentPagination$ | async)?.next === (appPageContentPagination$ | async)?.length
+        }"
+      >
         <div class="card-content">
           <span class="text-gray-500">Previous</span>
           <h2 class="text-xl font-bold">
@@ -67,7 +72,12 @@
         [routerLink]="
           '/docs/' + (appSideMenuItems$ | async)?.[0]?.path + '/' + (appSideMenuItems$ | async)?.[0]?.children?.[(appPageContentPagination$ | async)?.next!]?.path
         " 
-        *ngIf="(appPageContentPagination$ | async)?.next !== (appPageContentPagination$ | async)?.length" class="card w-1/2 p-4 border rounded-lg hover:bg-gray-100 cursor-pointer">
+        *ngIf="(appPageContentPagination$ | async)?.next !== (appPageContentPagination$ | async)?.length" 
+        class="card w-1/2 p-4 border rounded-lg hover:bg-gray-100 cursor-pointer"
+        [ngClass]="{
+          'w-full': (appPageContentPagination$ | async)?.prev === -1
+        }"
+      >
         <div class="card-content text-right">
           <span class="text-gray-500">Next</span>
           <h2 class="text-xl font-bold">
