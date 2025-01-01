@@ -1,23 +1,8 @@
-/**
- * Copyright [2024] [ElhakimDev]
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { Component, HostBinding, OnInit, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
+import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
 import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/utilities';
 
 @Component({
@@ -34,13 +19,28 @@ import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/utilities';
   ],
 })
 export class NgxPrimerAccordionContentComponent<T> implements OnInit {
+  /**
+   * Id generator for the accordion content.
+   * 
+   * @default NgxPrimerIdGeneratorDirective
+   */
   protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
     host: true,
     optional: true,
   });
 
+  /**
+   * Unique id for the accordion content.
+   * 
+   * @default 'ngx-primer-accordion-content'
+   */
   public readonly accordionContentId = this.idGenerator?.resolvedId;
 
+  /**
+   * Accordion item component.
+   * 
+   * @default NgxPrimerAccordionItemComponent
+   */
   protected readonly accordionItemContext = inject(
     NgxPrimerAccordionItemComponent,
     {
@@ -49,57 +49,106 @@ export class NgxPrimerAccordionContentComponent<T> implements OnInit {
     },
   );
 
+  /**
+   * Accordion item component.
+   */
+  public get accordionItem(): NgxPrimerAccordionItemComponent<T> | null | undefined {
+    return this.accordionItemContext;
+  }
+
+  /**
+   * Accordion root component.
+   */
+  public get accordionRoot(): NgxPrimerAccordionRootComponent<T> | null | undefined {
+    return this.accordionItem?.accordionRoot;
+  }
+
+  /**
+   * Accordion trigger component.
+   * 
+   * Binds the accordion trigger component to the accordion item trigger.
+   */
+  public get accordionTrigger() {
+    return this.accordionItem?.accordionTrigger;
+  }
+
+  /**
+   * Accordion content component.
+   * 
+   * Binds the id attribute to the accordion content id.
+   */
   @HostBinding('role')
-  public get roleAttr() {
+  public get roleAttr(): string {
     return 'region';
   }
 
+  /**
+   * Accordion content component.
+   * 
+   * Binds the id attribute to the accordion content id.
+   */
   @HostBinding('attr.data-orientation')
-  public get dataOrientationAttr() {
+  public get dataOrientationAttr(): string | null | undefined {
     return this.accordionRoot?.orientation();
   }
 
+  /**
+   * Accordion content component.
+   * 
+   * Binds the data-expanded attribute to the accordion item isOpen state.
+   */
   @HostBinding('attr.data-expanded')
-  public get dataExpandedAttr() {
+  public get dataExpandedAttr(): boolean | null | undefined {
     return this.accordionItem?.isOpen();
   }
 
+  /**
+   * Accordion content component.
+   * 
+   * Binds the data-is-open attribute to the accordion item isOpen state.
+   */
   @HostBinding('attr.data-is-open')
-  public get dataIsOpenAttr() {
+  public get dataIsOpenAttr(): boolean | null | undefined {
     return this.accordionItem?.isOpen();
   }
 
+  /**
+   * Accordion content component.
+   * 
+   * Binds the aria-labelledby attribute to the accordion trigger id.
+   */
   @HostBinding('attr.aria-labelledby')
-  public get dataAriaLabelledByAttr() {
+  public get dataAriaLabelledByAttr(): string | null | undefined {
     return this.accordionItem?.accordionTrigger?.accordionTriggerId;
   }
 
+  /**
+   * Accordion content component.
+   * 
+   * Binds the data-value attribute to the accordion item value.
+   */
   @HostBinding('attr.data-value')
-  public get dataValueAttr() {
+  public get dataValueAttr(): T | null | undefined {
     return this.accordionItem?.value() as T;
   }
 
+  /**
+   * Initializes the component.
+   */
   ngOnInit(): void {
     this.runInitializationFn();
   }
 
+  /**
+   * Runs the initialization function if provided.
+   * 
+   * @param doneFn - Optional callback function to be executed during initialization.
+   */
   protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
     if (doneFn) {
       doneFn({
         context: this,
       });
     }
-  }
-
-  public get accordionItem() {
-    return this.accordionItemContext;
-  }
-
-  public get accordionRoot() {
-    return this.accordionItem?.accordionRoot;
-  }
-
-  public get accordionTrigger() {
-    return this.accordionItem?.accordionTrigger;
   }
 }

@@ -28,19 +28,44 @@ import { injectAccordionConfig } from '../../configs/accordion-config';
   exportAs: 'ngxPrimerAccordionRootComponent',
 })
 export class NgxPrimerAccordionRootComponent<T> implements OnInit {
+  /**
+   * Id generator for the accordion root.
+   * 
+   * @default NgxPrimerIdGeneratorDirective
+   */
   protected readonly idGenerator = inject(NgxPrimerIdGeneratorDirective, {
     host: true,
     optional: true,
   });
 
+  /**
+   * Unique id for the accordion root.
+   * 
+   * @default 'ngx-primer-accordion-root'
+   */
   protected get uniqueId(): string {
     return this.idGenerator?.resolvedId ?? 'ngx-primer-accordion-root';
   }
 
+  /**
+   * Id for the accordion root.
+   * 
+   * @default this.uniqueId
+   */
   public readonly accordionRootId = this.uniqueId;
   
+  /**
+   * Accordion configuration.
+   * 
+   * @default {}
+   */
   public readonly accordionConfig = injectAccordionConfig();
 
+  /**
+   * Accordion items context.
+   * 
+   * @default []
+   */
   protected readonly accordionItemsContext = contentChildren(
     NgxPrimerAccordionItemComponent,
     {
@@ -49,10 +74,20 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     },
   );
 
+  /**
+   * Accordion type.
+   * 
+   * @default 'Single'
+   */
   public readonly type = model(this.accordionConfig.type, {
     alias: 'ngxPrimerAccordionType',
   });
 
+  /**
+   * Accordion collapsible.
+   * 
+   * @default true
+   */
   public readonly collapsible = model<boolean>(
     this.accordionConfig.collapsible,
     {
@@ -60,28 +95,60 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     },
   );
 
+  /**
+   * Accordion value.
+   * 
+   * @default null
+   */
   public readonly value = model<T | T[] | null>(null, {
     alias: 'ngxPrimerAccordionValue',
   });
 
+  /**
+   * Accordion default value.
+   * 
+   * @default null
+   */
   public readonly defaultValue = model<T | T[] | null>(null, {
     alias: 'ngxPrimerAccordionDefaultValue',
   });
 
+  /**
+   * Accordion disabled.
+   * 
+   * @default false
+   */
   public readonly disabled = model<boolean>(false, {
     alias: 'ngxPrimerAccordionDisabled',
   });
 
+  /**
+   * Accordion orientation.
+   * 
+   * @default 'vertical'
+   */
   public readonly orientation = model(this.accordionConfig.orientation, {
     alias: 'ngxPrimerAccordionOrientation',
   });
 
+  /**
+   * Chek if the value is open.
+   * 
+   * @param value The value to check if it is open.
+   * @returns boolean
+   */
   public isOpen(value: T): boolean {
     return this.type() === 'Multiple'
       ? ((this.value() as T[] | null)?.includes(value) ?? false)
       : this.value() === value;
   }
 
+  /**
+   * Toggle the value.
+   * 
+   * @param value The value to toggle.
+   * @returns void
+   */
   public toggle(value: T): void {
     const isOpenValue = this.isOpen(value);
 
@@ -94,11 +161,25 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     }
   }
 
+  /**
+   * Toggle the value.
+   * 
+   * @param value The value to toggle.
+   * @param isOpen Flag to check if the value is open.
+   * @returns void
+   */
   protected toogleSingle(value: T, isOpen: boolean) {
     if (isOpen && !this.collapsible()) return;
     this.value.set(isOpen ? null : value);
   }
   
+  /**
+   * Toggles Multiple value.
+   * 
+   * @param value The value to toggle.
+   * @param isOpenValue Flag to check if the value is open.
+   * @returns void
+   */
   protected toogleMultiple(value: T, isOpenValue: boolean) {
     const values = Array.isArray(this.value())
       ? [...(this.value() as T[])]
@@ -112,40 +193,7 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     }
   }
 
-  @HostBinding('attr.data-orientation')
-  public get dataOrientationAttr() {
-    return this.accordionConfig.orientation;
-  }
-
-  @HostBinding('attr.data-disabled')
-  public get dataDisabledAttr() {
-    return this.disabled() ? '' : null;
-  }
-
-  @HostBinding('attr.data-type')
-  public get dataTypeAttr() {
-    return this.type();
-  }
-
-  ngOnInit(): void {
-    this.runInitializationFn();
-  }
-
-  protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
-    if (this.defaultValue()) {
-      this.value.set(this.defaultValue()); // Set default value if provided.
-    }
-
-    if (doneFn) {
-      setTimeout(() =>
-        doneFn({
-          context: this,
-        }),
-      );
-    }
-  }
-
-  public moveFocus(currentIndex: number, direction: number) {
+  public moveFocus(currentIndex: number, direction = 1) {
     const accordionItems = this.accordionItems;
     const nextIndex =
       (currentIndex + direction + accordionItems.length) %
@@ -154,13 +202,11 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
   }
 
   public moveFocusToEnd() {
-    const lastIndexOfAccordionItem = this.accordionItems?.length - 1;
-    this.accordionItems[lastIndexOfAccordionItem]?.focus();
+    this.moveFocus(this.accordionItems.length - 1);
   }
 
   public moveFocusToStart() {
-    const firstIndexOfAccordionItems = 0;
-    this.accordionItems[firstIndexOfAccordionItems]?.focus();
+    this.moveFocus(0);
   }
 
   public expandAll() {
@@ -242,5 +288,38 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
 
   public get accordionItems() {
     return this.accordionItemsContext();
+  }
+  
+  @HostBinding('attr.data-orientation')
+  public get dataOrientationAttr() {
+    return this.accordionConfig.orientation;
+  }
+
+  @HostBinding('attr.data-disabled')
+  public get dataDisabledAttr() {
+    return this.disabled() ? '' : null;
+  }
+
+  @HostBinding('attr.data-type')
+  public get dataTypeAttr() {
+    return this.type();
+  }
+
+  ngOnInit(): void {
+    this.runInitializationFn();
+  }
+
+  protected runInitializationFn(doneFn?: <P>(args?: P) => void): void {
+    if (this.defaultValue()) {
+      this.value.set(this.defaultValue()); // Set default value if provided.
+    }
+
+    if (doneFn) {
+      setTimeout(() =>
+        doneFn({
+          context: this,
+        }),
+      );
+    }
   }
 }
