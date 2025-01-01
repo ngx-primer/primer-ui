@@ -193,6 +193,12 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     }
   }
 
+  /**
+   * Move the focus.
+   * 
+   * @param currentIndex The current index.
+   * @param direction The direction number to move the focus.
+   */
   public moveFocus(currentIndex: number, direction = 1) {
     const accordionItems = this.accordionItems;
     const nextIndex =
@@ -201,26 +207,46 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     accordionItems[nextIndex].focus();
   }
 
+  /**
+   * Move the focus to the end.
+   */
   public moveFocusToEnd() {
     this.moveFocus(this.accordionItems.length - 1);
   }
 
+  /**
+   * Move the focus to the start.
+   */
   public moveFocusToStart() {
     this.moveFocus(0);
   }
 
+  /**
+   * Expand all accordion items.
+   */
   public expandAll() {
     this.toggleAll(true);
   }
 
+  /**
+   * Collapse all accordion items.
+   */
   public collapseAll() {
     this.toggleAll(false);
   }
 
+  /**
+   * Toggle all accordion items.
+   */
   public toogleAllValue() {
     this.toggleAll();
   }
 
+  /**
+   * Toggle all accordion items.
+   * 
+   * @param isOpen The flag to check if the value is open.
+   */
   private toggleAll(isOpen?: boolean) {
     if (this.type() === 'Single' || this.disabled()) return;
 
@@ -230,14 +256,30 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     });
   }
 
+  /**
+   * Expand the value.
+   * 
+   * @param value The value to expand.
+   */
   public expand(value: T | T[]) {
     this.toggleValue(value, true);
   }
 
+  /**
+   * Collapse the value.
+   * 
+   * @param value The value to collapse.
+   */
   public collapse(value: T | T[]) {
     this.toggleValue(value, false);
   }
 
+  /**
+   * Toggle the value.
+   * 
+   * @param value The value to toggle.
+   * @param isExpanding The flag to check if the value is expanding.
+   */
   protected toggleValue(value: T | T[], isExpanding: boolean) {
     const handleToggle = (v: T) => {
       const isOpen = this.isOpen(v);
@@ -256,14 +298,30 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     }
   }
 
+  /**
+   * Enable the value.
+   * 
+   * @param value The value to enable.
+   */
   public enable(value: T | T[]) {
     this.updateDisableState(value, true);
   }
 
+  /**
+   * Disable the value.
+   * 
+   * @param value The value to disable.
+   */
   public disable(value: T | T[]) {
     this.updateDisableState(value, false);
   }
 
+  /**
+   * Update the disable state.
+   * 
+   * @param value The value to update the disable state.
+   * @param enable The flag to check if the value is enable.
+   */
   protected updateDisableState(value: T | T[], enable: boolean) {
     const values = Array.isArray(value) ? value : [value];
 
@@ -286,20 +344,34 @@ export class NgxPrimerAccordionRootComponent<T> implements OnInit {
     accordionItems.forEach((item) => update(item, enable));
   }
 
+  /**
+   * Accordion items.
+   * 
+   * @default []
+   */
   public get accordionItems() {
     return this.accordionItemsContext();
   }
   
+  /**
+   * Bind data-orientation attribute value.
+   */
   @HostBinding('attr.data-orientation')
   public get dataOrientationAttr() {
     return this.accordionConfig.orientation;
   }
 
+  /**
+   * Bind data-disabled attribute value.
+   */
   @HostBinding('attr.data-disabled')
   public get dataDisabledAttr() {
     return this.disabled() ? '' : null;
   }
 
+  /**
+   * Bind data-type attribute value.
+   */
   @HostBinding('attr.data-type')
   public get dataTypeAttr() {
     return this.type();
