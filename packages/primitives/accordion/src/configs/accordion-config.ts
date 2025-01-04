@@ -2,14 +2,25 @@ import { Provider, inject } from '@angular/core';
 
 import { NgxPrimerAccordionConfigToken } from '../tokens/accordion-config.token';
 
+/**
+ * Accordion type.
+ */
 export enum NgxPrimerAccordionType {
   Single = 'Single',
   Multiple = 'Multiple',
 }
+
+/**
+ * Accordion orientation.
+ */
 export enum NgxPrimerAccordionOrientation {
   Vertical = 'Vertical',
   Horizontal = 'Horizontal',
 }
+
+/**
+ * Accordion configuration.
+ */
 export interface NgxPrimerAccordionConfig {
   type: NgxPrimerAccordionType | keyof typeof NgxPrimerAccordionType;
   collapsible: boolean;
@@ -28,6 +39,10 @@ export interface NgxPrimerAccordionConfig {
   updateConfig(newConfig: Partial<NgxPrimerAccordionConfig>): void;
   resetConfig(target: NgxPrimerAccordionConfig): void;
 }
+
+/**
+ * Default accordion configuration.
+ */
 export const defaultAccordionConfig: () => NgxPrimerAccordionConfig = () => ({
   type: 'Multiple',
   collapsible: true,
@@ -51,6 +66,13 @@ export const defaultAccordionConfig: () => NgxPrimerAccordionConfig = () => ({
     Object.assign(target, defaultAccordionConfig());
   },
 });
+
+/**
+ * Provide accordion configuration.
+ *
+ * @param config - Accordion configuration.
+ * @returns Accordion configuration provider.
+ */
 export function provideAccordionConfig(
   config: Partial<NgxPrimerAccordionConfig>,
 ): Provider {
@@ -64,6 +86,12 @@ export function provideAccordionConfig(
     },
   ];
 }
+
+/**
+ * Inject accordion configuration.
+ *
+ * @returns Accordion configuration.
+ */
 export function injectAccordionConfig(): NgxPrimerAccordionConfig {
   return (
     inject(NgxPrimerAccordionConfigToken, {

@@ -2,6 +2,7 @@ const { createGlobPatternsForDependencies } = require('@nx/angular/tailwind');
 const { join } = require('path');
 const tailwindBaseConfig = require('./tailwind-base.config');
 const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,9 +13,28 @@ module.exports = {
   theme: {
     extend: {
       ...tailwindBaseConfig,
+      fontFamily: {
+        'nunito-sans': ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+        'ibm-plex-sans': ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            pre: {
+              'background-color': theme('colors.gray.800'), // Keep prose pre styles
+            },
+            code: {
+              'background-color': theme('colors.transparent'), // Remove background
+              padding: '0',
+              'border-radius': '0',
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(({ addUtilities }) => {
       addUtilities({
         '.text-foreground-brand': {
@@ -23,7 +43,7 @@ module.exports = {
           '-webkit-background-clip': 'text',
           '-webkit-text-fill-color': 'transparent',
         },
-      });
-    }),
+      })
+    })
   ],
 };

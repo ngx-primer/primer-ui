@@ -1,0 +1,4801 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.48.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@ngx-primer/accordion!",
+  "docComment": "",
+  "name": "@ngx-primer/accordion",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@ngx-primer/accordion!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@ngx-primer/accordion!accordionRootThemeVariant:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "accordionRootThemeVariant: (props?: "
+            },
+            {
+              "kind": "Content",
+              "text": "({\n    variant?: \"light\" | \"dark\" | null | undefined;\n    size?: \"sm\" | \"md\" | \"lg\" | null | undefined;\n    borderRadius?: \"sm\" | \"md\" | \"lg\" | null | undefined;\n} & import(\"class-variance-authority/dist/types\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "ClassProp",
+              "canonicalReference": "class-variance-authority!ClassProp:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "src/themes/accordion-root/accordion-root.css.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "props",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "accordionRootThemeVariant"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@ngx-primer/accordion!AccordionRootThemeVariant:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type AccordionRootThemeVariant = "
+            },
+            {
+              "kind": "Reference",
+              "text": "VariantProps",
+              "canonicalReference": "class-variance-authority!VariantProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<typeof "
+            },
+            {
+              "kind": "Reference",
+              "text": "accordionRootThemeVariant",
+              "canonicalReference": "@ngx-primer/accordion!accordionRootThemeVariant:var"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/themes/accordion-root/accordion-root.css.ts",
+          "releaseTag": "Public",
+          "name": "AccordionRootThemeVariant",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!animationEasingFn:var",
+          "docComment": "/**\n * A cubic-bezier function that defines the easing curve for animations. This easing function starts and ends slowly, with a faster middle phase.\n *\n * The control points for the cubic-bezier function are: - (0.5, 0.0): The first control point, which defines the initial slope of the curve. - (0.5, 1): The second control point, which defines the ending slope of the curve.\n *\n * This easing function can be used to create smooth animations that have a consistent speed throughout.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "animationEasingFn = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"cubic-bezier(0.5, 0.0, 0.5, 1)\""
+            }
+          ],
+          "fileUrlPath": "src/utils/animations/collapse-expand-animation/collapse-expand-animation.ts",
+          "initializerTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "animationEasingFn",
+          "variableTypeTokenRange": {
+            "startIndex": 0,
+            "endIndex": 0
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!animationTimingDuration:var",
+          "docComment": "/**\n * The duration of the animation timing for collapse and expand animations.\n *\n * This constant defines the duration of the animation in milliseconds. It is used to control the speed of the collapse and expand animations.\n *\n * @constant {string} animationTimingDuration - The duration of the animation timing.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "animationTimingDuration = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"200ms\""
+            }
+          ],
+          "fileUrlPath": "src/utils/animations/collapse-expand-animation/collapse-expand-animation.ts",
+          "initializerTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "animationTimingDuration",
+          "variableTypeTokenRange": {
+            "startIndex": 0,
+            "endIndex": 0
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!animationTriggerName:var",
+          "docComment": "/**\n * The name of the animation trigger used for collapsible animations in the ngx-primer library. This trigger can be used to apply collapse and expand animations to elements.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "animationTriggerName = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"ngxPrimerCollapsibleAnimation\""
+            }
+          ],
+          "fileUrlPath": "src/utils/animations/collapse-expand-animation/collapse-expand-animation.ts",
+          "initializerTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "animationTriggerName",
+          "variableTypeTokenRange": {
+            "startIndex": 0,
+            "endIndex": 0
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!collapseExpandAnimation:var",
+          "docComment": "/**\n * Defines the collapse and expand animation for an accordion component.\n *\n * This animation is triggered by the specified `animationTriggerName` and includes the following states and transitions: - `collapsibleState.collapse`: The state when the accordion is collapsed. - `collapsibleState.expanded`: The state when the accordion is expanded. - `collapsibleTransition.default`: The default transition between the collapsed and expanded states.\n *\n * @constant  @type {AnimationTriggerMetadata}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "collapseExpandAnimation: "
+            },
+            {
+              "kind": "Content",
+              "text": "import(\"@angular/animations\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "AnimationTriggerMetadata",
+              "canonicalReference": "@angular/animations!AnimationTriggerMetadata:interface"
+            }
+          ],
+          "fileUrlPath": "src/utils/animations/collapse-expand-animation/collapse-expand-animation.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "collapseExpandAnimation",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "Enum",
+          "canonicalReference": "@ngx-primer/accordion!CollapsibleState:enum",
+          "docComment": "/**\n * Enum representing the state of a collapsible element.\n *\n * @enum {string}  @property {string} Collapsed - The state when the element is collapsed.  @property {string} Expanded - The state when the element is expanded.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare enum CollapsibleState "
+            }
+          ],
+          "fileUrlPath": "src/utils/animations/collapse-expand-animation/collapse-expand-animation.ts",
+          "releaseTag": "Public",
+          "name": "CollapsibleState",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@ngx-primer/accordion!CollapsibleState.Collapsed:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Collapsed = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"collapsed\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Collapsed"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@ngx-primer/accordion!CollapsibleState.Expanded:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Expanded = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"Expanded\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "Expanded"
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!collapsibleState:var",
+          "docComment": "/**\n * An object representing the state of a collapsible element.\n *\n * @property {string} collapse - The state when the element is collapsed.  @property {string} expanded - The state when the element is expanded.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "collapsibleState: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    collapse: import(\"@angular/animations\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "AnimationStateMetadata",
+              "canonicalReference": "@angular/animations!AnimationStateMetadata:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    expanded: import(\"@angular/animations\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "AnimationStateMetadata",
+              "canonicalReference": "@angular/animations!AnimationStateMetadata:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            }
+          ],
+          "fileUrlPath": "src/utils/animations/collapse-expand-animation/collapse-expand-animation.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "collapsibleState",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!collapsibleTransition:var",
+          "docComment": "/**\n * An animation transition configuration for a collapsible element.\n *\n * This configuration defines the transition between the collapsed and expanded states of a collapsible element using Angular animations.\n *\n * @constant  @type {Object}  @property {Object} default - The default transition configuration.  @property {string} default.transition - The transition states between collapsed and expanded.  @property {Array} default.animate - The animation parameters including timing duration and easing function.  @property {Object} default.params - The parameters for the animation.  @property {string} default.params.timingDuration - The duration of the animation.  @property {string} default.params.easingFunction - The easing function for the animation.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "collapsibleTransition: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    default: import(\"@angular/animations\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "AnimationTransitionMetadata",
+              "canonicalReference": "@angular/animations!AnimationTransitionMetadata:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            }
+          ],
+          "fileUrlPath": "src/utils/animations/collapse-expand-animation/collapse-expand-animation.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "collapsibleTransition",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionConfigToken:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "NgxPrimerAccordionConfigToken: "
+            },
+            {
+              "kind": "Reference",
+              "text": "InjectionToken",
+              "canonicalReference": "@angular/core!InjectionToken:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NgxPrimerAccordionConfig",
+              "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionConfig:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "src/tokens/accordion-config.token.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "NgxPrimerAccordionConfigToken",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class NgxPrimerAccordionContentComponent<T> implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnInit",
+              "canonicalReference": "@angular/core!OnInit:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/components/accordion-content/accordion-content.component.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "NgxPrimerAccordionContentComponent",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#accordionContentId:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly accordionContentId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionContentId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#accordionItem:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionItem(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionItemComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionItem",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#accordionItemContext:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly accordionItemContext: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionItemComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionItemContext",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#accordionRoot:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionRoot(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@ngx-primer/accordion\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionRootComponent",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionRootComponent_2:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | null | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionRoot",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#accordionTrigger:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionTrigger(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@ngx-primer/accordion\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionTriggerComponent",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionTriggerComponent_2:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionTrigger",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#dataAriaLabelledByAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataAriaLabelledByAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataAriaLabelledByAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#dataExpandedAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataExpandedAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataExpandedAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#dataIsOpenAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataIsOpenAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataIsOpenAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#dataOrientationAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataOrientationAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"../../configs/accordion-config\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionOrientation",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionOrientation:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | \"Vertical\" | \"Horizontal\" | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataOrientationAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#dataValueAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataValueAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataValueAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#idGenerator:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly idGenerator: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerIdGeneratorDirective",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerIdGeneratorDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "idGenerator",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#ngOnInit:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ngOnInit(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "ngOnInit"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent.ɵcmp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵcmp: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵComponentDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵComponentDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionContentComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>, \"ngx-primer-accordion-content\", never, {}, {}, never, [\"*\"], true, [{ directive: typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i1.NgxPrimerIdGeneratorDirective",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerIdGeneratorDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "; inputs: { \"ngxPrimerIdAttr\": \"ngxPrimerIdAttr\"; }; outputs: {}; }]>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵcmp",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent.ɵfac:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵfac: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵFactoryDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵFactoryDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionContentComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>, never>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵfac",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#roleAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get roleAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "roleAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent#runInitializationFn:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected runInitializationFn(doneFn?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<P>(args?: P) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "doneFn",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "runInitializationFn"
+            }
+          ],
+          "implementsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponentToken:var",
+          "docComment": "/**\n * Injection token for the NgxPrimerAccordionContentComponent. This token is used to inject the NgxPrimerAccordionContentComponent into other components or services.\n *\n * @type {InjectionToken<NgxPrimerAccordionContentComponent<unknown>>}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "NgxPrimerAccordionContentComponentToken: "
+            },
+            {
+              "kind": "Reference",
+              "text": "InjectionToken",
+              "canonicalReference": "@angular/core!InjectionToken:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NgxPrimerAccordionContentComponent",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<unknown>>"
+            }
+          ],
+          "fileUrlPath": "src/tokens/accordion-component.token.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "NgxPrimerAccordionContentComponentToken",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class NgxPrimerAccordionItemComponent<T> implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnInit",
+              "canonicalReference": "@angular/core!OnInit:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/components/accordion-item/accordion-item.component.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "NgxPrimerAccordionItemComponent",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#accordionContent:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionContent(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionContentComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionContent",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#accordionContentContext:member",
+              "docComment": "/**\n * Accordion content instance.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly accordionContentContext: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Signal",
+                  "canonicalReference": "@angular/core!Signal:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionContentComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionContentComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | undefined>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionContentContext",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#accordionItemId:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly accordionItemId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionItemId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#accordionRoot:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionRoot(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionRootComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionRoot",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#accordionRootContext:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly accordionRootContext: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionRootComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionRootContext",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#accordionTrigger:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionTrigger(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionTriggerComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionTrigger",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#accordionTriggerContext:member",
+              "docComment": "/**\n * Accordion trigger instance.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly accordionTriggerContext: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Signal",
+                  "canonicalReference": "@angular/core!Signal:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionTriggerComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | undefined>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionTriggerContext",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#dataDisabledAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataDisabledAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataDisabledAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#dataIsOpenAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataIsOpenAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataIsOpenAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#dataOrientationAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataOrientationAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"../../configs/accordion-config\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionOrientation",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionOrientation:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | \"Vertical\" | \"Horizontal\" | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataOrientationAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#dataValueAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataValueAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataValueAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#disabled:member",
+              "docComment": "/**\n * Whether the accordion item is disabled.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly disabled: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ModelSignal",
+                  "canonicalReference": "@angular/core!ModelSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "disabled",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#focus:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "focus(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "focus"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#idGenerator:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly idGenerator: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerIdGeneratorDirective",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerIdGeneratorDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "idGenerator",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#injector:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly injector: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Injector",
+                  "canonicalReference": "@angular/core!Injector:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "injector",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#isOpen:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly isOpen: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Signal",
+                  "canonicalReference": "@angular/core!Signal:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "isOpen",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#ngOnInit:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ngOnInit(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "ngOnInit"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent.ɵcmp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵcmp: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵComponentDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵComponentDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionItemComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>, \"ngx-primer-accordion-item\", [\"ngxPrimerAccordionItemComponent\"], { \"value\": { \"alias\": \"ngxPrimerAccordionItemValue\"; \"required\": false; \"isSignal\": true; }; \"disabled\": { \"alias\": \"ngxPrimerAccordionItemDisabled\"; \"required\": false; \"isSignal\": true; }; }, { \"value\": \"ngxPrimerAccordionItemValueChange\"; \"disabled\": \"ngxPrimerAccordionItemDisabledChange\"; }, [\"accordionContentContext\", \"accordionTriggerContext\"], [\"*\"], true, [{ directive: typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i1.NgxPrimerIdGeneratorDirective",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerIdGeneratorDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "; inputs: { \"ngxPrimerIdAttr\": \"ngxPrimerIdAttr\"; }; outputs: {}; }]>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵcmp",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent.ɵfac:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵfac: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵFactoryDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵFactoryDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionItemComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>, never>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵfac",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#runInitializationFn:member(1)",
+              "docComment": "/**\n * Runs the initialization logic for the accordion component, setting up default values and context.\n *\n * This method initializes the accordion component, optionally setting a default value if provided. It also sets the context instance to allow dependency injection in child components, preventing the need for manual prop drilling.\n *\n * If a `doneFn` callback is provided, it will be executed after the initialization process with the current context and value.\n *\n * ### Parameters - `doneFn` (Optional): A callback function that will be executed after initialization. It receives an object with the `context` and `value` properties, where: - `context`: The current instance of the accordion component's root context. - `value`: The current value of the accordion, either the default value or a set value.\n *\n * ### Returns This method does not return anything. It performs initialization tasks and optionally invokes the callback.\n *\n * ### Example Usage\n * ```typescript\n * // In the accordion component\n * this.runInitializationFn((params) => {\n *   console.log('Accordion initialized with context:', params.context);\n *   console.log('Initial value:', params.value);\n * });\n * ```\n *\n * ### Description - **Context Setup**: The `accordionRootContext.instance` is set to the current accordion instance, making it accessible for child components through dependency injection. - **Default Value**: If a default value is set for the accordion, it will be applied at initialization. - **Callback Execution**: If the `doneFn` callback is provided, it is executed with the current context and value.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected runInitializationFn(doneFn?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<P>(args?: P) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "doneFn",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "runInitializationFn"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent#value:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ModelSignal",
+                  "canonicalReference": "@angular/core!ModelSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T | null>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "value",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponentToken:var",
+          "docComment": "/**\n * Injection token for the NgxPrimerAccordionItemComponent.\n *\n * This token is used to inject the NgxPrimerAccordionItemComponent into other components or services.\n *\n * @type {InjectionToken<NgxPrimerAccordionItemComponent<unknown>>}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "NgxPrimerAccordionItemComponentToken: "
+            },
+            {
+              "kind": "Reference",
+              "text": "InjectionToken",
+              "canonicalReference": "@angular/core!InjectionToken:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NgxPrimerAccordionItemComponent",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<unknown>>"
+            }
+          ],
+          "fileUrlPath": "src/tokens/accordion-component.token.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "NgxPrimerAccordionItemComponentToken",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent:class",
+          "docComment": "/**\n * `NgxPrimerAccordionRootComponent` is the root component of the accordion, providing the context and structure for the accordion's item and trigger components. It acts as the container for all accordion-related interactions and configurations.\n *\n * This component integrates with the `NgxPrimerAccordionItemComponent` and `NgxPrimerAccordionTriggerComponent` to create a fully functioning accordion UI. It manages the overall state, layout, and provides accessibility features for the accordion elements.\n *\n * The component also leverages directives like `NgxPrimerIdGeneratorDirective` to generate unique IDs for each accordion root instance and `NgxPrimerAccordionRootContextDirective` to provide a shared context across child components.\n *\n * ### Selector - `ngx-primer-accordion-root`: This is the HTML tag used to declare the accordion root component in templates.\n *\n * ### Providers - `NgxPrimerAccordionRootContext`: The context provider for the accordion, which is injected into child components.\n *\n * ### Host Directives - `NgxPrimerIdGeneratorDirective`: Responsible for generating unique IDs for the accordion root component. - `NgxPrimerAccordionRootContextDirective`: Provides context for child components like items and triggers within the accordion, ensuring that they can communicate and share state seamlessly.\n *\n * ### Template and Styling - The `accordion-root.component.html` file contains the structure of accoridon root whic use content projection `ng-content` to give user flexibility to create theor accordion with our Primitives Api. - The `accordion-root.component.scss` file defines the styling for the accordion root, including visual presentation and responsive design adjustments.\n *\n * ### Usage The `NgxPrimerAccordionRootComponent` is typically used as a wrapper for the entire accordion UI, with each item and trigger being a child of this root component.\n *\n * @component  @selector ngx-primer-accordion-root  @imports [CommonModule] Imports Angular's `CommonModule` to provide essential Angular features.  @providers [NgxPrimerAccordionRootContext] Provides context to child components.  @hostDirectives [ { directive: NgxPrimerIdGeneratorDirective, inputs: ['ngxPrimerIdAttr'] }, { directive: NgxPrimerAccordionRootContextDirective } ]  @templateUrl './accordion-root.component.html'  @styleUrl './accordion-root.component.scss'  @exportAs 'ngxPrimerAccordionRootComponent'\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class NgxPrimerAccordionRootComponent<T> implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnInit",
+              "canonicalReference": "@angular/core!OnInit:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/components/accordion-root/accordion-root.component.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "NgxPrimerAccordionRootComponent",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#accordionConfig:member",
+              "docComment": "/**\n * Provides the configuration for the accordion component by injecting the `AccordionConfig` service.\n *\n * The `accordionConfig` property allows access to customizable settings and configurations for the accordion, such as default behaviors, styles, or other shared properties. These configurations can be tailored globally or overridden at specific component levels.\n *\n * ### Purpose - Centralizes the configuration for the accordion component. - Promotes consistency and reusability across multiple accordion instances. - Allows for easy updates and modifications to default settings.\n *\n * @property\n *\n * @type {NgxPrimerAccordionConfig}\n *\n * @see\n *\n * AccordionConfig\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly accordionConfig: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"../../configs/accordion-config\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionConfig",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionConfig:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionConfig",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#accordionItems:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionItems(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "readonly "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionItemComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionItems",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#accordionItemsContext:member",
+              "docComment": "/**\n * The list of accordion item instances that belong to this accordion root.\n *\n * This property is a `QueryList` that holds all the accordion items (i.e., `NgxPrimerAccordionItemComponent`) within the current accordion component. The `QueryList` is updated automatically to reflect any changes in the content of the accordion (e.g., if new items are added or removed).\n *\n * ### Type - **QueryList<NgxPrimerAccordionItemComponent>**: A list of accordion items that are part of the current accordion root component.\n *\n * ### Behavior: - The `accordionItems` list includes all `NgxPrimerAccordionItemComponent` instances that are within the root accordion, including descendants. - The list is updated dynamically whenever the accordion content changes (e.g., items are added or removed).\n *\n * @property\n *\n * @type {QueryList<NgxPrimerAccordionItemComponent>} The accordion items within this component.\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly accordionItemsContext: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Signal",
+                  "canonicalReference": "@angular/core!Signal:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<readonly "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionItemComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>[]>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionItemsContext",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#accordionRootId:member",
+              "docComment": "/**\n * The `accordionRootId` is a read-only property that holds the unique ID for the root element of the accordion. It leverages the `uniqueId` getter to retrieve a dynamically generated ID from the `idGenerator` or falls back to a default ID if the generator is not available.\n *\n * This ID is useful for setting attributes or accessing the accordion component via its unique identifier.\n *\n * @property\n *\n * @type {string}\n *\n * @see\n *\n * AccordionRootId\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly accordionRootId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionRootId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#collapse:member(1)",
+              "docComment": "/**\n * Collapses the specified value(s) in the accordion.\n *\n * If the value is currently expanded, it will be collapsed. If the value is currently collapsed, it will remain collapsed.\n *\n * @param value - The value or array of values to collapse.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "collapse(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "collapse"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#collapseAll:member(1)",
+              "docComment": "/**\n * Collapses all accordion items.\n *\n * Calls `toggleAll` with `false` to close all items. Does nothing if the accordion type is \"Single\".\n *\n * @method\n *\n * @returns {void}\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "collapseAll(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "collapseAll"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#collapsible:member",
+              "docComment": "/**\n * The collapsible property for the accordion. Determines whether the accordion can collapse or not.\n *\n * @property\n *\n * @type {boolean} True if the accordion is collapsible, false otherwise.\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly collapsible: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ModelSignal",
+                  "canonicalReference": "@angular/core!ModelSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "collapsible",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#dataDisabledAttr:member",
+              "docComment": "/**\n * Gets the value of the `data-disabled` attribute for the accordion element.\n *\n * This property is bound to the result of the `disabled()` method, which determines whether the accordion is disabled or not. If the accordion is disabled, the `data-disabled` attribute will be added with an empty string value; otherwise, it will be removed (i.e., set to `null`).\n *\n * This is useful for styling or DOM-related behaviors that depend on whether the accordion is disabled or not. It allows external tools or styles to target the accordion element based on its disabled state.\n *\n * @method  @getter\n *\n * @returns {string | null} An empty string `''` if the accordion is disabled, or `null` if it is not.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataDisabledAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"\" | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataDisabledAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#dataOrientationAttr:member",
+              "docComment": "/**\n * Gets the value of the `data-orientation` attribute for the accordion element. This property is bound to the `orientation` property from the accordion configuration, allowing the accordion's orientation to be dynamically set as an attribute on the DOM element.\n *\n * The value of `data-orientation` will reflect the current orientation defined in the accordion configuration, such as `Vertical` or `Horizontal`.\n *\n * @method  @getter\n *\n * @returns {string} The value of the `orientation` property from the accordion configuration (e.g., 'Vertical' or 'Horizontal').\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataOrientationAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"../../configs/accordion-config\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionOrientation",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionOrientation:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | \"Vertical\" | \"Horizontal\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataOrientationAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#dataTypeAttr:member",
+              "docComment": "/**\n * Gets the value of the `data-type` attribute for the accordion element.\n *\n * This property is bound to the result of the `type()` method, which determines the type of the accordion (e.g., `Single` or `Multiple`). The `data-type` attribute is dynamically set on the DOM element, reflecting the current accordion type.\n *\n * This is useful for targeting the accordion element in styles or for other DOM-related behaviors based on its type, allowing different types of accordions to be easily identified and styled differently if needed.\n *\n * @getter\n *\n * @returns {string} The value of the accordion's type (e.g., 'Single' or 'Multiple') from the `type()` method.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataTypeAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"../../configs/accordion-config\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionType",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionType:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | \"Single\" | \"Multiple\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataTypeAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#defaultValue:member",
+              "docComment": "/**\n * The default value for the accordion. This is the initial value to be set if no other value is provided.\n *\n * @property\n *\n * @type {T | T[] | null} The default selected value(s).\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly defaultValue: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ModelSignal",
+                  "canonicalReference": "@angular/core!ModelSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T | T[] | null>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "defaultValue",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#disable:member(1)",
+              "docComment": "/**\n * Disables the specified value(s) by updating their disable state.\n *\n * If the value is currently enabled, it will be disabled. If the value is currently disabled, it will remain disabled.\n *\n * @method\n *\n * @param value - The value or array of values to be disabled.\n *\n * @returns {void}\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "disable(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "disable"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#disabled:member",
+              "docComment": "/**\n * Whether the accordion is disabled or not. If true, the accordion and its items cannot be interacted with.\n *\n * @property\n *\n * @type {boolean} True if the accordion is disabled, false otherwise.\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly disabled: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ModelSignal",
+                  "canonicalReference": "@angular/core!ModelSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "disabled",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#enable:member(1)",
+              "docComment": "/**\n * Enables the specified value(s) by updating their disable state.\n *\n * If the value is currently disabled, it will be enabled. If the value is currently enabled, it will remain enabled.\n *\n * @method\n *\n * @param value - The value or array of values to be enabled.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "enable(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "enable"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#expand:member(1)",
+              "docComment": "/**\n * Expands the accordion with the given value(s).\n *\n * If the value is currently collapsed, it will be expanded. If the value is currently expanded, it will remain expanded.\n *\n * @param value - The value or array of values to expand.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "expand(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "expand"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#expandAll:member(1)",
+              "docComment": "/**\n * Expands all accordion items.\n *\n * Calls `toggleAll` with `true` to open all items. Does nothing if the accordion type is \"Single\".\n *\n * @method\n *\n * @returns {void}\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "expandAll(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "expandAll"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#idGenerator:member",
+              "docComment": "/**\n * The `idGenerator` is a protected property used to inject an instance of `NgxPrimerIdGeneratorDirective` through Angular's dependency injection system.\n *\n * This generator is used to provide unique ID values for elements within the component or directive. The property is injected with `host: true` and `optional: true`, meaning it will be fetched from the host element (if available), but the property will be `null` if the directive is not found.\n *\n * @protected  @property\n *\n * @type {NgxPrimerIdGeneratorDirective | null}\n *\n * @see\n *\n * IdGenerator\n *\n * @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly idGenerator: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerIdGeneratorDirective",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerIdGeneratorDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "idGenerator",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#isOpen:member(1)",
+              "docComment": "/**\n * Checks whether the given value is currently open in the accordion.\n *\n * This method checks the current state of the accordion and determines if the specified value is currently \"open\" (i.e., selected or expanded). The check behavior differs depending on the accordion type: - For **Multiple** type accordions, it checks if the value is in the list of open values. - For **Single** type accordions, it checks if the given value matches the currently selected value.\n *\n * ### Behavior: - **Multiple Type**: If the accordion type is set to \"Multiple\", the method checks if the value exists in the list of selected/open values. - **Single Type**: If the accordion type is set to \"Single\", the method checks if the value matches the currently selected value.\n *\n * @method\n *\n * @param value - The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).\n *\n * @returns {boolean} True if the value is open (i.e., selected or expanded), false otherwise.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "isOpen(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "isOpen"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#moveFocus:member(1)",
+              "docComment": "/**\n * Moves the focus to the next or previous accordion item based on the given direction.\n *\n * This method calculates the next index of the accordion item based on the current index and the direction, ensuring the focus wraps around if the index goes beyond the bounds of the accordion items list. It then sets focus to the calculated item.\n *\n * @param currentIndex - The index of the currently focused accordion item.\n *\n * @param direction - The direction in which to move the focus. A positive value moves the focus forward, while a negative value moves the focus backward.\n *\n * @returns {void} This method does not return any value.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "moveFocus(currentIndex: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", direction: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "currentIndex",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "direction",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "moveFocus"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#moveFocusToEnd:member(1)",
+              "docComment": "/**\n * Moves the focus to the last accordion item in the list.\n *\n * This method sets the focus to the last accordion item in the list of accordion items. It ensures that the focus is moved to the final item, regardless of the current focus.\n *\n * @method\n *\n * @returns {void} This method does not return any value.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "moveFocusToEnd(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "moveFocusToEnd"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#moveFocusToStart:member(1)",
+              "docComment": "/**\n * Moves the focus to the first accordion item in the list.\n *\n * This method sets the focus to the first accordion item in the list of accordion items. It ensures that the focus is moved to the first item, regardless of the current focus.\n *\n * @method\n *\n * @returns {void} This method does not return any value.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "moveFocusToStart(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "moveFocusToStart"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#ngOnInit:member(1)",
+              "docComment": "/**\n * Angular initialization hook. Runs the initialization function when the component is initialized.\n *\n * @returns {void} This method does not return anything.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ngOnInit(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "ngOnInit"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#orientation:member",
+              "docComment": "/**\n * The orientation of the accordion (e.g., horizontal or vertical).\n *\n * @property\n *\n * @type {string} The accordion's orientation.\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly orientation: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ModelSignal",
+                  "canonicalReference": "@angular/core!ModelSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<import(\"../../configs/accordion-config\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionOrientation",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionOrientation:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | \"Vertical\" | \"Horizontal\">"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "orientation",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent.ɵcmp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵcmp: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵComponentDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵComponentDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionRootComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>, \"ngx-primer-accordion-root\", [\"ngxPrimerAccordionRootComponent\"], { \"type\": { \"alias\": \"ngxPrimerAccordionType\"; \"required\": false; \"isSignal\": true; }; \"collapsible\": { \"alias\": \"ngxPrimerAccordionCollapsible\"; \"required\": false; \"isSignal\": true; }; \"value\": { \"alias\": \"ngxPrimerAccordionValue\"; \"required\": false; \"isSignal\": true; }; \"defaultValue\": { \"alias\": \"ngxPrimerAccordionDefaultValue\"; \"required\": false; \"isSignal\": true; }; \"disabled\": { \"alias\": \"ngxPrimerAccordionDisabled\"; \"required\": false; \"isSignal\": true; }; \"orientation\": { \"alias\": \"ngxPrimerAccordionOrientation\"; \"required\": false; \"isSignal\": true; }; }, { \"type\": \"ngxPrimerAccordionTypeChange\"; \"collapsible\": \"ngxPrimerAccordionCollapsibleChange\"; \"value\": \"ngxPrimerAccordionValueChange\"; \"defaultValue\": \"ngxPrimerAccordionDefaultValueChange\"; \"disabled\": \"ngxPrimerAccordionDisabledChange\"; \"orientation\": \"ngxPrimerAccordionOrientationChange\"; }, [\"accordionItemsContext\"], [\"*\"], true, [{ directive: typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i1.NgxPrimerIdGeneratorDirective",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerIdGeneratorDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "; inputs: { \"ngxPrimerIdAttr\": \"ngxPrimerIdAttr\"; }; outputs: {}; }]>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵcmp",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent.ɵfac:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵfac: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵFactoryDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵFactoryDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionRootComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>, never>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵfac",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#runInitializationFn:member(1)",
+              "docComment": "/**\n * Initializes the accordion component, setting up default values and context.\n *\n * This method sets the default value if provided and assigns the context instance for dependency injection in child components. If a `doneFn` callback is provided, it will be executed after initialization with the current context.\n *\n * @param doneFn - An optional callback function executed after initialization, receiving an object with the current `context`.\n *\n * @returns {void}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected runInitializationFn(doneFn?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<P>(args?: P) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "doneFn",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "runInitializationFn"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#toggle:member(1)",
+              "docComment": "/**\n * Toggles the open/closed state of a given accordion value based on the current state.\n *\n * This method checks whether the provided value is currently open and toggles it accordingly: - If the accordion is in 'Single' mode and the value is already open, it will close it, unless `collapsible` is false. - For multi-value accordions, it will add the value to the selected list if closed, or remove it if open.\n *\n * The method updates the `value` property to reflect the new state of the accordion.\n *\n * ### Behavior: - **Single Accordion Mode**: - In single-value mode (`type() === 'Single'`), if the value is already open, it will be set to `null` (closed) unless `collapsible` is set to `false`. - If the value is not open, it will be set as the current value. - **Multi Accordion Mode**: - If the accordion allows multiple open values (`type() !== 'Single'`), it will toggle the presence of the value in the list of selected values. - If the value is currently open, it is removed from the list; if it's closed, it is added to the list.\n *\n * @method\n *\n * @param value - The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).\n *\n * @returns {void}\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "toggle(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "toggle"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#toggleValue:member(1)",
+              "docComment": "/**\n * Toggles the expansion state of the given value(s).\n *\n * If the value is currently collapsed, it will be expanded. If the value is currently expanded, it will be collapsed.\n *\n * @protected\n *\n * @param value - The value or array of values to toggle.\n *\n * @param isExpanding - A flag indicating whether to expand (true) or collapse (false) the value(s).\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected toggleValue(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", isExpanding: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "isExpanding",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "toggleValue"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#toogleAllValue:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "toogleAllValue(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "toogleAllValue"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#toogleMultiple:member(1)",
+              "docComment": "/**\n * Toggles the state of multiple accordion items. If the item is being opened (`isOpenValue = false`), it adds the value to the list of open items. If the item is being closed (`isOpenValue = true`), it removes the value from the list of open items.\n *\n * This method is used for managing multiple accordion items where more than one item can be open at a time. It ensures that the internal value is updated with the correct set of open items, either adding or removing the given `value` based on its current state.\n *\n * @method\n *\n * @param value - The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).\n *\n * @param isOpenValue - Indicates whether the accordion item is being opened (`false`) or closed (`true`).\n *\n * @returns {void} This method does not return anything.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected toogleMultiple(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", isOpenValue: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "isOpenValue",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "toogleMultiple"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#toogleSingle:member(1)",
+              "docComment": "/**\n * Toggles the state of a single accordion item. If the accordion is not collapsible and the item is being opened, the action is ignored. Otherwise, it updates the internal value to either `null` (if closing) or the provided `value` (if opening).\n *\n * This method is used for managing the single accordion item toggle behavior, ensuring that only one item is open at a time when the accordion is not collapsible.\n *\n * @method\n *\n * @param value - The value to check. This can be any type defined for the accordion values (e.g., string, number, etc.).\n *\n * @param isOpen - Indicates whether the accordion item is being opened (`true`) or closed (`false`).\n *\n * @returns {void} This method does not return anything.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected toogleSingle(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", isOpen: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "isOpen",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "toogleSingle"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#type:member",
+              "docComment": "/**\n * The accordion type (Single/Multiple). This defines whether the accordion allows single or multiple items to be open at once.\n *\n * @property\n *\n * @type {string} The accordion type, either 'Single' or 'Multiple'.\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly type: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ModelSignal",
+                  "canonicalReference": "@angular/core!ModelSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<import(\"../../configs/accordion-config\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionType",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionType:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | \"Single\" | \"Multiple\">"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "type",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#uniqueId:member",
+              "docComment": "/**\n * Example of how to use the `idGenerator` to retrieve a unique ID. If the generator is available, it will return a dynamically generated ID. If not, it falls back to a default ID.\n *\n * @protected  @property  @getter\n *\n * @returns {string} The unique ID or 'default-id' if the generator is not available.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected get uniqueId(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "uniqueId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#updateDisableState:member(1)",
+              "docComment": "/**\n * Updates the disable state of the specified value(s).\n *\n * If the value is currently disabled, it will be enabled. If the value is currently enabled, it will be disabled.\n *\n * @protected\n *\n * @param value - The value or array of values to update.\n *\n * @param enable - A flag indicating whether to enable (true) or disable (false) the value(s).\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected updateDisableState(value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", enable: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "enable",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "updateDisableState"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent#value:member",
+              "docComment": "/**\n * The currently selected value(s) in the accordion. This represents the values of the open accordion item(s).\n *\n * @property\n *\n * @type {T | T[] | null} The currently selected value(s) or null if no item is selected.\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ModelSignal",
+                  "canonicalReference": "@angular/core!ModelSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T | T[] | null>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "value",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponentToken:var",
+          "docComment": "/**\n * Injection token for the root component of the NgxPrimerAccordion.\n *\n * This token is used to inject the root component of the accordion, which is of type `NgxPrimerAccordionRootComponent<unknown>`.\n *\n * @constant  @type {InjectionToken<NgxPrimerAccordionRootComponent<unknown>>}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "NgxPrimerAccordionRootComponentToken: "
+            },
+            {
+              "kind": "Reference",
+              "text": "InjectionToken",
+              "canonicalReference": "@angular/core!InjectionToken:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NgxPrimerAccordionRootComponent",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionRootComponent:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<unknown>>"
+            }
+          ],
+          "fileUrlPath": "src/tokens/accordion-component.token.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "NgxPrimerAccordionRootComponentToken",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent:class",
+          "docComment": "/**\n * Represents the accordion trigger component in the `ngx-primer` accordion library. This component is responsible for handling the user interaction (click, keydown events) with the accordion trigger. It interacts with other accordion components like items and content, and supports dynamic accessibility attributes.\n *\n * @component\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class NgxPrimerAccordionTriggerComponent<T> implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "OnInit",
+              "canonicalReference": "@angular/core!OnInit:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/components/accordion-trigger/accordion-trigger.component.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "NgxPrimerAccordionTriggerComponent",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#accordionContent:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionContent(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@ngx-primer/accordion\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionContentComponent",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionContentComponent_2:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionContent",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#accordionItem:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionItem(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionItemComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionItem",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#accordionItemContext:member",
+              "docComment": "/**\n * The context for the accordion item, injected optionally from the parent component.\n *\n * This property holds the context instance for the accordion item, which contains relevant information and methods related to the accordion item. The context is injected optionally, meaning that it may not always be present depending on the component's setup. The context provides access to properties like the state of the accordion item (open/closed), its content, and other relevant configurations specific to the accordion item.\n *\n * @optional  @type {NgxPrimerAccordionItemContext | undefined} The accordion item context instance, or `undefined` if not available.\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly accordionItemContext: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionItemComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionItemComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionItemContext",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#accordionRoot:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get accordionRoot(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@ngx-primer/accordion\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionRootComponent",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionRootComponent_2:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any> | null | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionRoot",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#accordionTriggerId:member",
+              "docComment": "/**\n * The unique identifier for the accordion trigger element.\n *\n * This property assigns the unique ID of the accordion root component to the trigger element. It uses the `uniqueId` getter to fetch the ID, ensuring that the trigger element is correctly associated with its corresponding accordion root in the DOM. This ID is important for accessibility purposes and ensuring unique identification for interactions with the accordion trigger.\n *\n * @property\n *\n * @returns {string} The unique ID for the accordion trigger, derived from the accordion root's unique ID.\n *\n * @public @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly accordionTriggerId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accordionTriggerId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#dataControlsAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataControlsAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataControlsAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#dataExpandedAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataExpandedAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataExpandedAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#dataFocusAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataFocusAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataFocusAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#dataIsOpenAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataIsOpenAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataIsOpenAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#dataOrientationAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get dataOrientationAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"../../configs/accordion-config\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionOrientation",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionOrientation:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | \"Vertical\" | \"Horizontal\" | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataOrientationAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#focus:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "focus(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "focus"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#idGenerator:member",
+              "docComment": "/**\n * The `idGenerator` is a protected property used to inject an instance of `NgxPrimerIdGeneratorDirective` through Angular's dependency injection system.\n *\n * This generator is used to provide unique ID values for elements within the component or directive. The property is injected with `host: true` and `optional: true`, meaning it will be fetched from the host element (if available), but the property will be `null` if the directive is not found.\n *\n * @protected  @property\n *\n * @host  @optional  @type {NgxPrimerIdGeneratorDirective | null}\n *\n * @see\n *\n * IdGenerator\n *\n * @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly idGenerator: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerIdGeneratorDirective",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerIdGeneratorDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "idGenerator",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#ngOnInit:member(1)",
+              "docComment": "/**\n * Lifecycle hook that is called after the component has been initialized.\n *\n * This method is executed when the Angular component is initialized, and it triggers the `runInitializationFn` method to perform any necessary setup or initialization tasks for the accordion trigger component.\n *\n * The `ngOnInit` lifecycle hook ensures that the initialization logic runs at the appropriate time in the component's lifecycle, after all the component's dependencies have been injected and the component's input properties have been set.\n *\n * @method\n *\n * @returns {void} This method does not return anything.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ngOnInit(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "ngOnInit"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#onKeyDown:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onKeyDown(event: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KeyboardEvent",
+                  "canonicalReference": "!KeyboardEvent:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "event",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "onKeyDown"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent.ɵcmp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵcmp: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵComponentDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵComponentDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionTriggerComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>, \"ngx-primer-accordion-trigger\", never, {}, {}, never, [\"*\"], true, [{ directive: typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i1.NgxPrimerIdGeneratorDirective",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerIdGeneratorDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "; inputs: { \"ngxPrimerIdAttr\": \"ngxPrimerIdAttr\"; }; outputs: {}; }]>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵcmp",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent.ɵfac:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵfac: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵFactoryDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵFactoryDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionTriggerComponent",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>, never>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵfac",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#platformId:member",
+              "docComment": "/**\n * Injects the PLATFORM_ID token, which provides information about the current platform (e.g., browser or server). This is used to determine platform-specific behaviors, such as rendering and handling platform-specific logic (e.g., browser-only operations).\n *\n * The `platformId` is typically used in combination with Angular's `isPlatformBrowser` and `isPlatformServer` utility functions to handle platform-specific behavior at runtime.\n *\n * @protected  @property\n *\n * @type {Object}\n *\n * @see\n *\n * https://angular.io/api/core/PLATFORM_ID\n *\n * @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly platformId: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Object",
+                  "canonicalReference": "!Object:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "platformId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#roleAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get roleAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "roleAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#runInitializationFn:member(1)",
+              "docComment": "/**\n * Runs the initialization logic for the accordion trigger component, optionally executing a callback after initialization.\n *\n * This method performs setup tasks for the accordion trigger, and if a callback function (`doneFn`) is provided, it is executed after the initialization logic is complete. The callback receives an object containing the `context` of the accordion trigger component.\n *\n * The method ensures that the initialization process is executed asynchronously using `setTimeout`, allowing for the callback to run after the component's setup has finished.\n *\n * ### Parameters - `doneFn` (Optional): A callback function that will be invoked after the initialization is complete. It receives an object with the following properties: - `context`: The context of the accordion trigger component, which can be used in child components for dependency injection.\n *\n * ### Returns This method does not return anything. It performs initialization tasks and optionally calls the provided callback.\n *\n * @method\n *\n * @param doneFn - An optional callback function to execute after initialization.\n *\n * @returns {void} This method does not return anything.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected runInitializationFn(doneFn?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<P>(args?: P) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "doneFn",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "runInitializationFn"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#tabIndexAttr:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get tabIndexAttr(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "0 | -1"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "tabIndexAttr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#toogle:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "toogle(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "toogle"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#uniqueId:member",
+              "docComment": "/**\n * Retrieves the unique identifier for the accordion component.\n *\n * This getter returns the resolved ID generated by the `idGenerator` directive, or a default value of `'ngx-primer-accordion-trigger'` if the generator is not available. It ensures that each instance of the accordion component has a unique ID for accessibility, DOM interaction, and other purposes requiring a unique reference.\n *\n * @protected  @property  @getter\n *\n * @returns {string} The unique identifier for the accordion component.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected get uniqueId(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "uniqueId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent#viewContainerRef:member",
+              "docComment": "/**\n * Injects the `ViewContainerRef` service, which provides a reference to the container where views (such as components or templates) are dynamically inserted.\n *\n * The `viewContainerRef` allows manipulation of views within the component, such as adding or removing dynamic components, managing the view lifecycle, and working with embedded views. It is commonly used in scenarios where you need to programmatically insert or manage content within the DOM.\n *\n * @protected  @property\n *\n * @type {ViewContainerRef}\n *\n * @see\n *\n * https://angular.io/api/core/ViewContainerRef\n *\n * @readonly\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected readonly viewContainerRef: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ViewContainerRef",
+                  "canonicalReference": "@angular/core!ViewContainerRef:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "viewContainerRef",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponentToken:var",
+          "docComment": "/**\n * Injection token for the NgxPrimerAccordionTriggerComponent. This token is used to inject the NgxPrimerAccordionTriggerComponent into other components or services.\n *\n * @type {InjectionToken<NgxPrimerAccordionTriggerComponent<unknown>>}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "NgxPrimerAccordionTriggerComponentToken: "
+            },
+            {
+              "kind": "Reference",
+              "text": "InjectionToken",
+              "canonicalReference": "@angular/core!InjectionToken:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NgxPrimerAccordionTriggerComponent",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerAccordionTriggerComponent:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<unknown>>"
+            }
+          ],
+          "fileUrlPath": "src/tokens/accordion-component.token.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "NgxPrimerAccordionTriggerComponentToken",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@ngx-primer/accordion!NgxPrimerCollapseExpandAnimationDirective:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class NgxPrimerCollapseExpandAnimationDirective "
+            }
+          ],
+          "fileUrlPath": "src/directives/animations/collapse-expand-animation/collapse-expand-animation.directive.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "NgxPrimerCollapseExpandAnimationDirective",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerCollapseExpandAnimationDirective#animationParams:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get animationParams(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        value: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CollapsibleState",
+                  "canonicalReference": "@ngx-primer/accordion!CollapsibleState:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n        params: {\n            collapsedHeight: string;\n            collapsedWidth: string;\n            expandedHeight: string;\n            expandedWidth: string;\n            duration: string;\n        };\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "animationParams",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerCollapseExpandAnimationDirective#collapsed:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly collapsed: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "InputSignal",
+                  "canonicalReference": "@angular/core!InputSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "collapsed",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerCollapseExpandAnimationDirective#collapsibleDirection:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly collapsibleDirection: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "import(\"@angular/core\")."
+                },
+                {
+                  "kind": "Reference",
+                  "text": "InputSignal",
+                  "canonicalReference": "@angular/core!InputSignal:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerAccordionOrientation",
+                  "canonicalReference": "@ngx-primer/accordion!~NgxPrimerAccordionOrientation:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | \"Vertical\" | \"Horizontal\">"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "collapsibleDirection",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerCollapseExpandAnimationDirective.ɵdir:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵdir: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵDirectiveDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵDirectiveDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerCollapseExpandAnimationDirective",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerCollapseExpandAnimationDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \"[ngxPrimerCollapsibleDirective]\", [\"ngxPrimerCollapsibleDirective\"], { \"collapsed\": { \"alias\": \"ngxPrimerCollapsibleCollapsed\"; \"required\": true; \"isSignal\": true; }; \"collapsibleDirection\": { \"alias\": \"ngxPrimerCollapsibleDirection\"; \"required\": true; \"isSignal\": true; }; }, {}, never, never, true, never>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵdir",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@ngx-primer/accordion!NgxPrimerCollapseExpandAnimationDirective.ɵfac:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static ɵfac: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "i0.ɵɵFactoryDeclaration",
+                  "canonicalReference": "@angular/core!ɵɵFactoryDeclaration:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NgxPrimerCollapseExpandAnimationDirective",
+                  "canonicalReference": "@ngx-primer/accordion!NgxPrimerCollapseExpandAnimationDirective:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", never>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "ɵfac",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        }
+      ]
+    }
+  ]
+}

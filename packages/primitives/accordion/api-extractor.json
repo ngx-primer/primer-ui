@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/api-extractor.schema.json",
+  "projectFolder": ".",
+  "mainEntryPointFilePath": "../../../dist/packages/primitives/accordion/index.d.ts",
+  "docModel": {
+    "enabled": true
+  },
+  "apiReport": {
+    "enabled": false
+  },
+  "dtsRollup": {
+    "enabled": true
+  },
+  "messages": {
+    "extractorMessageReporting": {
+      "ae-wrong-input-file-type": {
+        "logLevel": "none"
+      }
+    }
+  }
+}

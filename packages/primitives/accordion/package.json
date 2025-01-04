@@ -1,13 +1,13 @@
 {
-  "name": "@ngx-primer/primitive/accordion",
+  "name": "@ngx-primer/accordion",
   "version": "0.0.2",
   "peerDependencies": {
-    "@angular/common": "^18.2.0",
-    "@angular/core": "^18.2.0",
+    "@angular/common": "19.0.3",
+    "@angular/core": "19.0.3",
     "class-variance-authority": "0.7.1-canary.2",
-    "@nx/angular": "20.1.3",
-    "@ngx-primer/primitive/utilities": "0.0.2",
-    "@angular/animations": "~18.2.13"
+    "@nx/angular": "20.2.1",
+    "@angular/animations": "19.0.3",
+    "@ngx-primer/primitive/utilities": "0.0.2"
   },
   "sideEffects": false
 }

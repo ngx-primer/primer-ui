@@ -1,0 +1,13 @@
+@if (pageContent$ | async) {
+  <div class="content-detail prose prose-slate max-w-none w-full" [innerHTML]="getExtractedPageContent$() | async"></div>
+}
+@else {
+  <div>
+    <ng-container *ngIf="pageContent$ | async as pageContent; else noContent">
+      Loading...
+    </ng-container>
+    <ng-template #noContent>
+      No content found
+    </ng-template>
+  </div>
+}

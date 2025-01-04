@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgxPrimerAccordionContentComponent } from './accordion-content.component';
 import { NgxPrimerAccordionItemComponent } from '../accordion-item/accordion-item.component';
 import { NgxPrimerAccordionRootComponent } from '../accordion-root/accordion-root.component';
-import { NgxPrimerIdGeneratorDirective } from '@ngx-primer/primitive/utilities';
 
 describe('NgxPrimerAccordionContentComponent', () => {
   let component: NgxPrimerAccordionContentComponent<unknown>;
@@ -13,8 +12,7 @@ describe('NgxPrimerAccordionContentComponent', () => {
     await TestBed.configureTestingModule({
       imports: [NgxPrimerAccordionContentComponent],
       declarations: [
-        NgxPrimerAccordionItemComponent,
-        NgxPrimerIdGeneratorDirective,
+        NgxPrimerAccordionItemComponent
       ],
     }).compileComponents();
 

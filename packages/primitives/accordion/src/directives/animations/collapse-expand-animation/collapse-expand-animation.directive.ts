@@ -10,16 +10,25 @@ import { NgxPrimerAccordionOrientation } from '../../../configs/accordion-config
   standalone: true,
 })
 export class NgxPrimerCollapseExpandAnimationDirective {
+  /**
+   * Collapsed state of the collapsible.
+   */
   public readonly collapsed = input.required<boolean>({
     alias: 'ngxPrimerCollapsibleCollapsed',
   });
 
+  /**
+   * Collapsible direction.
+   */
   public readonly collapsibleDirection = input.required<
     NgxPrimerAccordionOrientation | 'Vertical' | 'Horizontal'
   >({
     alias: 'ngxPrimerCollapsibleDirection',
   });
 
+  /**
+   * Binding animation trigger name attribute value.
+   */
   @HostBinding(`@${animationTriggerName}`)
   public get animationParams() {
     return {

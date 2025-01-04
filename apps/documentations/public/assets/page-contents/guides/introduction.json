@@ -1,0 +1,61 @@
+{
+  "title": "Introduction to ngx-primer",
+  "sections": [
+    {
+      "title": "Introduction to ngx-primer",
+      "items": [
+        {
+          "type": "text",
+          "data": "Welcome to the documentation for ngx-primer. This library provides a set of primitive components for Angular applications, designed to help you build consistent and high-quality user interfaces with ease."
+        }
+      ]
+    },
+    {
+      "title": "What is ngx-primer?",
+      "items": [
+        {
+          "type": "text",
+          "data": "ngx-primer is a library of Angular components that follow the Primer design system. It provides a set of reusable, customizable, and accessible UI components that help you build consistent and high-quality user interfaces."
+        }
+      ]
+    },
+    {
+      "title": "Why use ngx-primer?",
+      "items": [
+        {
+          "type": "list",
+          "data": [
+            "Ensure design consistency across your application",
+            "Speed up development with ready-to-use components",
+            "Improve accessibility with built-in best practices",
+            "Customize components to fit your needs"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Getting Started",
+      "items": [
+        {
+          "type": "text",
+          "data": "To get started with ngx-primer, check out the Getting Started guide in the documentation."
+        },
+        {
+          "type": "link",
+          "data": {
+            "format": "paragraph",
+            "content": {
+              "text": "Getting Started guide",
+              "links": [
+                {
+                  "href": "/docs/getting-started",
+                  "label": "Getting Started guide"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

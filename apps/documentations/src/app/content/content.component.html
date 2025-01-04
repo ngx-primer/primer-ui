@@ -1,0 +1,93 @@
+<app-docs-layout class="dark-mode">
+  <section left-section>
+    <div class="flex flex-col">
+      <ng-container
+        *ngFor="let item of appSideMenuItems$ | async; trackBy: trackByItem"
+      >
+        <ng-container *ngIf="item.children; else noChildren">
+          <a
+            [routerLink]="item.path"
+            style="cursor: pointer"
+            class="!hover:cursor-pointer mb-2 hover:font-bold text-2xl"
+            routerLinkActive="font-bold"
+            >{{ item.title }}</a
+          >
+        </ng-container>
+        <ng-template #noChildren>
+          <p
+            style="cursor: pointer"
+            class="!hover:cursor-pointer mb-2 hover:font-bold"
+            routerLinkActive="font-bold"
+            >{{ item.title }}</p
+          >
+        </ng-template>
+        <ng-container *ngIf="item.children">
+          <ng-container
+            *ngFor="let child of item.children; trackBy: trackByChild"
+          >
+            <a
+              [routerLink]="item.path + '/' + child.path"
+              style="cursor: pointer"
+              class="!hover:cursor-pointer py-2"
+              routerLinkActive="font-bold"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >{{ child.title }}</a
+            >
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </section>
+  <section main-section>
+    <ng-container *ngIf="appPageContentService.pageContent$ | async as pageMeta">
+      <div class="flex flex-row gap-x-2 items-center mb-8">        
+        <span class="text-2xl font-bold">{{ pageMeta.pageTitle! | pageTitle }}</span>
+        <span>></span>
+        <span class="text-2xl">{{ pageMeta.pageSubtitle! | pageTitle }}</span>
+      </div>
+    </ng-container>
+
+    <!-- Main Content Rendered Here -->
+    <router-outlet />
+    
+    <div class="flex flex-row justify-between mt-8 gap-3">
+      <a 
+        [routerLink]="
+          '/docs/' + (appSideMenuItems$ | async)?.[0]?.path + '/' + (appSideMenuItems$ | async)?.[0]?.children?.[(appPageContentPagination$ | async)?.prev!]?.path
+        " 
+        *ngIf="(appPageContentPagination$ | async)?.prev !== -1" 
+        class="card w-1/2 p-4 border rounded-lg hover:bg-gray-100 cursor-pointer"
+        [ngClass]="{
+          'w-full': (appPageContentPagination$ | async)?.next === (appPageContentPagination$ | async)?.length
+        }"
+      >
+        <div class="card-content">
+          <span class="text-gray-500">Previous</span>
+          <h2 class="text-xl font-bold">
+            {{ (appSideMenuItems$ | async)?.[0]?.children?.[(appPageContentPagination$ | async)?.prev!]?.title }}
+          </h2>
+        </div>
+      </a>
+      <a 
+        [routerLink]="
+          '/docs/' + (appSideMenuItems$ | async)?.[0]?.path + '/' + (appSideMenuItems$ | async)?.[0]?.children?.[(appPageContentPagination$ | async)?.next!]?.path
+        " 
+        *ngIf="(appPageContentPagination$ | async)?.next !== (appPageContentPagination$ | async)?.length" 
+        class="card w-1/2 p-4 border rounded-lg hover:bg-gray-100 cursor-pointer"
+        [ngClass]="{
+          'w-full': (appPageContentPagination$ | async)?.prev === -1
+        }"
+      >
+        <div class="card-content text-right">
+          <span class="text-gray-500">Next</span>
+          <h2 class="text-xl font-bold">
+            {{ (appSideMenuItems$ | async)?.[0]?.children?.[(appPageContentPagination$ | async)?.next!]?.title }}
+          </h2>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section right-section>
+    <!-- TOC Here -->
+  </section>
+</app-docs-layout>
