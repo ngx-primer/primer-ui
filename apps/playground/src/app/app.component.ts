@@ -1,9 +1,17 @@
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
+  NgxPrimerAccordionContentComponent,
+  NgxPrimerAccordionItemComponent,
+  NgxPrimerAccordionRootComponent,
+  NgxPrimerAccordionTriggerComponent,
+  NgxPrimerCollapseExpandAnimationDirective,
+  collapseExpandAnimation,
+} from '@ngx-primer/accordion';
+import {
   heroChevronDownMini,
   heroChevronUpMini,
 } from '@ng-icons/heroicons/mini';
-import {collapseExpandAnimation, NgxPrimerAccordionContentComponent, NgxPrimerAccordionItemComponent, NgxPrimerAccordionRootComponent, NgxPrimerAccordionTriggerComponent, NgxPrimerCollapseExpandAnimationDirective} from "@ngx-primer/accordion";
+
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -18,7 +26,7 @@ import { RouterModule } from '@angular/router';
     NgxPrimerAccordionItemComponent,
     NgxPrimerAccordionTriggerComponent,
     NgxPrimerAccordionContentComponent,
-    NgxPrimerCollapseExpandAnimationDirective
+    NgxPrimerCollapseExpandAnimationDirective,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,7 +36,8 @@ import { RouterModule } from '@angular/router';
       heroChevronDownMini,
       heroChevronUpMini,
     }),
-  ]
+  ],
+  animations: [collapseExpandAnimation],
 })
 export class AppComponent {
   title = 'playground';
